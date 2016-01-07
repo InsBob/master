@@ -1,8 +1,12 @@
-Angular Ionic code goes into client directly
-Loopback REST endpoints go into server and common directories
-Do node . from current directly to start loopback endpoint at localhost:3000
+# InsBob web quick start guide
 
-YOU CAN STOP READING HERE.
+- Angular Ionic code goes into client directly
+- Loopback REST endpoints go into server and common directories
+- Do node . to start both FE n BE
+- FE UI is deployed at  http://0.0.0.0:3000
+- BE Rest can be explored at http://0.0.0.0:3000/explorer
+
+- YOU CAN STOP READING HERE UNLESS YOU WANT TO KNOW PARTICULARS.
 
 
 # loopback-example-angular
