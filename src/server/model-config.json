@@ -30,7 +30,7 @@
     "dataSource": "db",
     "public": true
   },
-  "WORequest": {
+  "workflow": {
     "dataSource": "db",
     "public": true
   }

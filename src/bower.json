@@ -1,7 +1,7 @@
 {
-  "name": "loopback-example-angular",
+  "name": "ib",
   "version": "0.0.0",
-  "homepage": "https://github.com/strongloop/loopback-example-angular",
+  "homepage": "https://github.com/InsBob/master",
   "ignore": [
     "**/.*",
     "node_modules",

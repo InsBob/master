@@ -1,5 +1,5 @@
 {
-  "name": "WORequest",
+  "name": "workflow",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
