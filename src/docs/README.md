@@ -5,6 +5,8 @@
 - Do node . to start both FE n BE
 - FE UI is deployed at  http://0.0.0.0:3000
 - BE Rest can be explored at http://0.0.0.0:3000/explorer
+- You can use upload, load the url below to execute actual rest sample commands again IB BE.
+-  https://www.getpostman.com/collections/095584a026865f1c8425
 
 - YOU CAN STOP READING HERE UNLESS YOU WANT TO KNOW PARTICULARS.
 

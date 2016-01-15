@@ -1,0 +1,23 @@
+{
+  "name": "IBUser",
+  "base": "User",
+  "idInjection": true,
+  "properties": {
+    "gender": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$anonymous",
+      "permission": "ALLOW",
+      "property":"findById"
+    }
+  ],
+  "methods": []
+}

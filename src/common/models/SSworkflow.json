@@ -1,0 +1,23 @@
+{
+  "name": "SSWorkflow",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "id": {
+      "type": "String",
+      "id": true,
+      "length": 20
+    },
+    "basic": {
+      "type": "WorkflowBasic",
+      "relation": {
+        "type": "belongsTo",
+        "as": "ssworkflow"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

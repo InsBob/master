@@ -154,22 +154,6 @@
         "nullable": "NO"
       },
       "_selectable": false
-    },
-    "userIdId": {
-      "type": "String",
-      "required": true,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "postgresql": {
-        "columnName": "user_id_id",
-        "dataType": "uuid",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "NO"
-      },
-      "_selectable": false
     }
   },
   "validations": [],
