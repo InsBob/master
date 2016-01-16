@@ -1,0 +1,54 @@
+{
+  "name": "SPBasic",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "id": {
+      "type": "String",
+      "id": true,
+      "length": 20
+    },
+    "taskTypesSupported": [{
+      "type": "String"
+    }],
+    "rating":
+      {
+        "type": "Number"
+      }
+    ,
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumbers": [
+      {
+        "type": "string",
+        "trim": true
+      }
+    ],
+    "yearlyRevenue": {
+      "type": "Number",
+      "trim": true
+    },
+    "primaryZipCodes":[ {
+      "type": "Number",
+      "trim": true
+    }],
+    "description": {
+      "type": "string",
+      "trim": true
+    },
+    "lastEditedTime": {
+      "type": "string",
+      "trim": true
+    },
+    "createdTime": {
+      "type": "string",
+      "trim": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

@@ -154,7 +154,19 @@
         "nullable": "NO"
       },
       "_selectable": false
-    }
+    },
+    "addressType": [{
+      "type": "String"
+    }],
+    "isRented": {
+      "type": "Boolean"
+    },
+    "isPrimary": {
+      "type": "String"
+    },
+    "phoneNumbers": [{
+      "type": "String"
+    }]
   },
   "validations": [],
   "relations": {},

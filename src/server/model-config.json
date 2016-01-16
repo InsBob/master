@@ -42,5 +42,13 @@
   "Address": {
     "dataSource": "db",
     "public": false
+  },
+  "SPBiz": {
+    "dataSource": "db",
+    "public": true
+  },
+  "SPIndContractor": {
+    "dataSource": "db",
+    "public": true
   }
 }
