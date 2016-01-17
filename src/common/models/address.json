@@ -10,7 +10,7 @@
     "table": "address"
   },
   "properties": {
-    "addressId": {
+    "id": {
       "type": "String",
       "id": true,
       "required": true,
