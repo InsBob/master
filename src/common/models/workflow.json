@@ -1,0 +1,52 @@
+{
+  "name": "Workflow",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "id": {
+      "type": "String",
+      "id": true,
+      "length": 20
+    },
+    "SPOwnerUser": {
+      "type": "SPUser"
+    },
+    "SPAssignedUser": {
+      "type": "SPUser"
+    },
+    "SSUser": {
+      "type": "IBUser"
+    },
+    "state": {
+      "type": "WOState"
+    },
+    "quotes": [{
+      "type": "String"
+    }]
+  },
+  "validations": [],
+  "relations": {
+    "request":
+    {
+      "type": "embedsOne",
+      "model": "WorkRequest",
+      "property": "workRequest",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "state":
+    {
+      "type": "embedsOne",
+      "model": "WOState",
+      "property": "state",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": []
+}

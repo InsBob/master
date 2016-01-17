@@ -1,0 +1,11 @@
+{
+  "name": "SPQuoteSubmittedState",
+  "base": "WOState",
+  "idInjection": true,
+  "properties": {
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

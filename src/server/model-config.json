@@ -31,31 +31,27 @@
     "dataSource": "db",
     "public": true
   },
-  "SSWorkflow": {
+  "WorkRequest": {
     "dataSource": "db",
     "public": true
   },
-  "SPWorkflow": {
+  "Workflow": {
     "dataSource": "db",
     "public": true
-  },
-  "WorkflowBasic": {
-    "dataSource": "db",
-    "public": false
   },
   "Address": {
     "dataSource": "db",
     "public": false
   },
-  "SPBasic": {
-    "dataSource": "db",
-    "public": false
-  },
-  "SPBiz": {
+  "BizUser": {
     "dataSource": "db",
     "public": true
   },
-  "SPIndContractor": {
+  "SPUser": {
+    "dataSource": "db",
+    "public": false
+  },
+  "IndContractor": {
     "dataSource": "db",
     "public": true
   },

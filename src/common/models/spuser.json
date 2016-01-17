@@ -1,0 +1,41 @@
+{
+  "name": "SPUser",
+  "base": "IBUser",
+  "idInjection": true,
+  "properties": {
+    "licenseId": {
+      "type": "string"
+    },
+    "hasLicense": {
+      "type": "Boolean"
+    },
+    "verificationComplete": {
+      "type": "Boolean"
+    },
+    "taskTypesSupported": [
+      {
+        "type": "String"
+      }
+    ],
+    "rating": {
+      "type": "Number"
+    },
+    "primaryWorkZipCodes": [
+      {
+        "type": "Number",
+        "trim": true
+      }
+    ],
+    "tempWorkZipCodes": [
+      {
+        "type": "Number",
+        "trim": true
+      }
+    ]
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [],
+  "methods": []
+}

@@ -1,4 +1,5 @@
 # InsBob web quick start guide
+Ignore this file. Just follow payload-samples.txt file.
 
 - Angular Ionic code goes into client directly
 - Loopback REST endpoints go into server and common directories

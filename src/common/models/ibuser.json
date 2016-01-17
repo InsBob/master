@@ -5,19 +5,54 @@
   "properties": {
     "gender": {
       "type": "string"
-    }
+    },
+    "createdTime": {
+      "type": "Date",
+      "trim": true
+    },
+    "modifiedTime": {
+      "type": "Date",
+      "trim": true
+    },
+    "race": {
+      "type": "string"
+    },
+    "dateOfBirth": {
+      "type": "string"
+    },
+    "motherName": {
+      "type": "string"
+    },
+    "phoneNumbers": [
+      {
+        "type": "string",
+        "trim": true
+      }
+    ],
+    "addresses": [
+      {
+        "type": "Address",
+        "trim": true
+      }
+    ],
+    "yearlyEarning": {
+      "type": "Number",
+      "trim": true
+    },
+    "websites": [
+      {
+        "type": "String"
+      }
+    ],
+    "Roles": [
+      {
+        "type": "Role"
+      }
+    ]
   },
   "validations": [],
   "relations": {
   },
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$anonymous",
-      "permission": "ALLOW",
-      "property":"findById"
-    }
-  ],
+  "acls": [],
   "methods": []
 }

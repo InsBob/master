@@ -1,0 +1,11 @@
+{
+  "name": "RequestEndState",
+  "base": "WOState",
+  "idInjection": true,
+  "properties": {
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

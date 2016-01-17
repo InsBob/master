@@ -1,0 +1,11 @@
+{
+  "name": "SPResponsePendingState",
+  "base": "WOState",
+  "idInjection": true,
+  "properties": {
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

@@ -1,0 +1,93 @@
+{
+  "name": "WorkRequest",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "id": {
+      "type": "String",
+      "id": true,
+      "length": 20
+    },
+    "taskType": {
+      "type": "String"
+    },
+    "addresses": [
+      {
+        "type": "Address"
+      }
+    ],
+    "SSId": {
+      "type": "string",
+      "length": 20,
+      "required": true
+    },
+    "preferrredTimes": [
+      {
+        "type": "string",
+        "trim": true
+      }
+    ],
+    "initialvideo": {
+      "type": "string",
+      "trim": true
+    },
+    "initialaudio": {
+      "type": "string",
+      "trim": true
+    },
+    "images": [
+      {
+        "type": "string",
+        "trim": true
+      }
+    ],
+    "description": {
+      "type": "string",
+      "trim": true
+    },
+    "createdTime": {
+      "type": "Date",
+      "trim": true
+    },
+    "modifiedTime": {
+      "type": "Date",
+      "trim": true
+    },
+    "chosenWorkflow": {
+      "type": "WorkFlow"
+    },
+    "respWaitingWorkflowIds": [
+      {
+        "type": "WorkFlow"
+      }
+    ],
+    "removedWorkflowIds": [
+      {
+        "type": "WorkFlow"
+      }
+    ]
+  },
+  "validations": [],
+  "relations": {
+    "respPostponedWorkflowIds": {
+      "type": "embedsMany",
+      "model": "WorkFlow",
+      "property": "respPostponedWorkflowIdList",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "connectedWorkflowIds": {
+      "type": "embedsMany",
+      "model": "WorkFlow",
+      "property": "connectedWorkflowIdList",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": []
+}
