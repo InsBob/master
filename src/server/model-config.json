@@ -8,27 +8,27 @@
     ]
   },
   "User": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": false
   },
   "IBUser": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": true
   },
   "WorkRequest": {
@@ -40,19 +40,19 @@
     "public": true
   },
   "Address": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": false
   },
   "BizUser": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": true
   },
   "SPUser": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": false
   },
   "IndContractor": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": true
   },
   "WOState": {

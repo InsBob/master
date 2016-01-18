@@ -162,7 +162,7 @@
       "type": "Boolean"
     },
     "isPrimary": {
-      "type": "String"
+      "type": "Boolean"
     },
     "phoneNumbers": [{
       "type": "String"

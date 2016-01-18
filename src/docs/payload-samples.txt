@@ -1,5 +1,6 @@
 START SERVER:
 ➜  ~  cd ib [ROOT OF GIT]
+➜  ~ cd src
 ➜  ~ npm install
 ➜  ib git:(master) ✗ DEBUG=loopback:security:* node src/server/server.js
 /Users/vakkiraju/ib/src/server 'http://0.0.0.0:3000/'
