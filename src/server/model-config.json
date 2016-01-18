@@ -32,11 +32,11 @@
     "public": true
   },
   "WorkRequest": {
-    "dataSource": "pg",
+    "dataSource": "mem",
     "public": true
   },
   "Workflow": {
-    "dataSource": "pg",
+    "dataSource": "mem",
     "public": true
   },
   "Address": {
@@ -56,7 +56,7 @@
     "public": true
   },
   "WOState": {
-    "dataSource": "db",
+    "dataSource": "mem",
     "public": false
   }
 }

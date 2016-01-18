@@ -1,6 +1,6 @@
 {
-  "db": {
-    "name": "db",
+  "mem": {
+    "name": "memdb",
     "connector": "memory"
   },
   "pg": {
