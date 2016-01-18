@@ -32,11 +32,11 @@
     "public": true
   },
   "WorkRequest": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": true
   },
   "Workflow": {
-    "dataSource": "db",
+    "dataSource": "pg",
     "public": true
   },
   "Address": {
