@@ -78,44 +78,6 @@ Response Body
 POST Request URL
 http://0.0.0.0:3000/api/v1/WorkRequests/submit?access_token=UCJ4LxxXcpM18ilU1iUB9ykO5JyktAkc8wrhbU7PsKcR7rRcAbawrl2mWufV5i9s
 {
-  "basic": {
-    "taskType": "plumbing",
-    "addresses": [
-      {
-        "addressId": 1,
-        "addressLine1": "21 2nd Street",
-        "addressLine2": "",
-        "city": "New York",
-        "state": "NY",
-        "zipCode": 10021,
-        "isBilling": true
-      }
-    ],
-    "userId": 1,
-    "preferrredTimes": ["5.30 PM 2/2/16", "8.30 AM 4/2/16"],
-    "initialvideo": "httsz/s3-us-west-2.amazonaws.com/testestlp1/a22sw.mp4",
-    "initialaudio": "httsz/s3-us-west-2.amazonaws.com/testestlp1/51sw3.mp3",
-    "images": [
-    "https://mybucket.s3.amazonaws.com/myfolder/afile.jpg",
-    "https://mybucket.s3.amazonaws.com/myfolder/z2dfe.jpg",
-    "https://mybucket.s3.amazonaws.com/myfolder/12dil.jpg"
-    ],
-    "description": "Water entering your home is under pressure to move it through the pipes. When you turn off the tap, rubber or silicone-based washers form a water-tight seal that prevents more water from pushing its way through the pipes and out of the faucet. Over time, washers can become stiff, torn or dislodged, allowing a tiny trickle of water through and creating that annoying drip. While you can replace washers yourself, the repair job can be more of a challenge than you might expect without specialized tools. If the leak has gone on long enough, the valve seat may become worn or corroded, necessitating a more involved repair that’s best left to a professional plumber."
-  }
-}
-
-
-Response Body
-{
-  "id": "1"
-}
-
-
-6. Read a SS work order by id
-GET Request URL
-http://0.0.0.0:3000/api/v1/SSWorkflows/1?access_token=rxjyJ4X10eUR02dKFbwGwvDMLnBhcOaYj5CffBFCiduLURPyAYjvbEa3IA5mViRK
-Response Body
-{
 	"taskType": "string",
 	"addresses": [{
 		"id": "string",
@@ -926,3 +888,14 @@ Response Body
 		}
 	}]
 }
+
+
+Response Body
+{
+  "id": "1"
+}
+
+
+6. Read a SS work order by id
+GET Request URL
+http://0.0.0.0:3000/api/v1/SSWorkflows/1?access_token=rxjyJ4X10eUR02dKFbwGwvDMLnBhcOaYj5CffBFCiduLURPyAYjvbEa3IA5mViRK
