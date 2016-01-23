@@ -899,3 +899,18 @@ Response Body
 6. Read a SS work order by id
 GET Request URL
 http://0.0.0.0:3000/api/v1/SSWorkflows/1?access_token=rxjyJ4X10eUR02dKFbwGwvDMLnBhcOaYj5CffBFCiduLURPyAYjvbEa3IA5mViRK
+
+Serhii
+https://jira.cheggnet.com/browse/HSS-9635
+https://jira.cheggnet.com/browse/HSS-9840
+https://jira.cheggnet.com/browse/HSS-9996
+https://jira.cheggnet.com/browse/HSS-9999
+https://jira.cheggnet.com/browse/HSS-10003
+
+Vamsee
+https://jira.cheggnet.com/browse/HSS-9628
+https://jira.cheggnet.com/browse/HSS-9636
+https://jira.cheggnet.com/browse/HSS-9914
+https://jira.cheggnet.com/browse/HSS-10000
+https://jira.cheggnet.com/browse/HSS-10001
+https://jira.cheggnet.com/browse/HSS-10002
