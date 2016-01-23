@@ -6,7 +6,19 @@
     "id": {
       "type": "String",
       "id": true,
-      "length": 20
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "id",
+        "dataType": "uuid",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "NO"
+      },
+      "_selectable": false
     },
     "SPOwnerId": {
       "type": "String"
@@ -17,12 +29,15 @@
     "SSUserId": {
       "type": "String"
     },
-    "state": {
-      "type": "WOState"
+    "expiryTime": {
+      "type": "Date"
     },
-    "quotes": [{
-      "type": "String"
-    }]
+    "status":{
+      "type":"String"
+    },
+    "reasonForTermination":{
+      "type":"String"
+    }
   },
   "validations": [],
   "relations": {
@@ -41,6 +56,16 @@
       "type": "embedsOne",
       "model": "WOState",
       "property": "state",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "quotes":
+    {
+      "type": "embedsMany",
+      "model": "Quote",
+      "property": "quotes",
       "options": {
         "validate": true,
         "forceId": false

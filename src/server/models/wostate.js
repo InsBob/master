@@ -1,8 +1,9 @@
-
 module.exports = function (WOState) {
-    WOState.cancel = function (workflow, reason) {
+    WOState.cancel = function (workflow, reason, cb) {
+        console.log("Reached WOState");
+        cb(null, true);
         //if request came from SS,
-        workflow.request().notifyAllWorkflows(); //avoid race condition
+        //workflow.request().notifyAllWorkflows(); //avoid race condition
         // For all cases
         //workflow.state = RequestEndState;
         //Move all workflows except the acceptedOne to a history table

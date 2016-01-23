@@ -1,40 +1,50 @@
-var SPResponsePendingState = require("../../server/models/SPResponsePendingState");
+var WSPResponsePendingState = require("../../server/models/WSPResponsePendingState");
+//var SPResponsePendingState = require("./SPResponsePendingState");
 
 module.exports = function (Workflow) {
 
-    var that = this;
+
     //Initial state during constructor
-    that.state = SPResponsePendingState;
+    this.state = new WSPResponsePendingState();
 
-    that.cancel = function (reason) {
+    Workflow.cancel = function (reason, cb) {
         console.log("Vamsee");
-        that.state.cancel(that, reason);
+        this.state.cancel(that, reason, cb);
+        //cb(null,true);
     };
 
-    that.submitQuote = function (quote) {
-        that.state.submitQuote(that, quote);
-    };
+    //that.submitQuote = function (quote) {
+    //    that.state.submitQuote(that, quote);
+    //};
+    //
+    //that.acceptVisit = function (visitType, visitTime) {
+    //    that.state.acceptVisit(that, visitType, visitTime);
+    //};
+    //
+    //that.review = function (review) {
+    //    that.state.review(that, review);
+    //};
+    //
+    //that.bookSP = function (meetingTime, meetingType) {
+    //    that.state.bookSP(that,meetingTime, meetingType);
+    //};
 
-    that.acceptVisit = function (visitType, visitTime) {
-        that.state.acceptVisit(that, visitType, visitTime);
-    };
-
-    that.review = function (review) {
-        that.state.review(that, review);
-    };
-
-    that.bookSP = function (meetingTime, meetingType) {
-        that.state.bookSP(that,meetingTime, meetingType);
-    };
-
-    that.init = function(spId, ssId)
+    this.init = function(spId, ssId)
     {
         this.SPOwnerId = spId;
         this.SSUserId = spId;
     }
 
-    that.notifySPOnCreate = function(){
+    this.notifySPOnCreate = function(){
         //TBD
     }
 
+    Workflow.remoteMethod('cancel', {
+        accepts: [
+            {arg: 'reason', type: 'String'}
+        ],
+        description: "Cancel workflow at anytime",
+        returns: {arg: 'success', type: 'Boolean'},
+        http: {path: '/cancel', verb: 'post'}
+    });
 };

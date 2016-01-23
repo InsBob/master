@@ -6,16 +6,26 @@
     "id": {
       "type": "String",
       "id": true,
-      "length": 20
+      "required": true,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "id",
+        "dataType": "uuid",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "NO"
+      },
+      "_selectable": false
     },
     "taskType": {
       "type": "String"
     },
-    "addresses": [
-      {
-        "type": "Address"
-      }
-    ],
+    "address": {
+      "type": "Address"
+    },
     "SSId": {
       "type": "string",
       "length": 20,
@@ -53,41 +63,22 @@
       "type": "Date",
       "trim": true
     },
-    "chosenWorkflow": {
-      "type": "Workflow"
-    },
-    "respWaitingWorkflowIds": [
-      {
-        "type": "Workflow"
-      }
-    ],
-    "removedWorkflowIds": [
-      {
-        "type": "Workflow"
-      }
-    ]
+    "chosenWorkflowId": {
+      "type": "String"
+    }
   },
   "validations": [],
   "relations": {
-    "respPostponedWorkflowIds": {
+    "workflowIds": {
       "type": "embedsMany",
       "model": "Workflow",
-      "property": "respPostponedWorkflowIdList",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    },
-    "connectedWorkflowIds": {
-      "type": "embedsMany",
-      "model": "Workflow",
-      "property": "connectedWorkflowIdList",
+      "property": "workflowIds",
       "options": {
         "validate": true,
         "forceId": false
       }
     }
   },
-  "acls": [],
-  "methods": []
+"acls": [],
+"methods": []
 }
