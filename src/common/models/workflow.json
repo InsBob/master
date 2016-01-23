@@ -8,14 +8,14 @@
       "id": true,
       "length": 20
     },
-    "SPOwnerUser": {
-      "type": "SPUser"
+    "SPOwnerId": {
+      "type": "String"
     },
-    "SPAssignedUser": {
-      "type": "SPUser"
+    "SPAssignedId": {
+      "type": "String"
     },
-    "SSUser": {
-      "type": "IBUser"
+    "SSUserId": {
+      "type": "String"
     },
     "state": {
       "type": "WOState"

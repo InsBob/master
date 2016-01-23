@@ -23,10 +23,12 @@ module.exports = function (WorkRequest) {
                     //For each of the workflow items, create a notification push request to the phones
                     for (var i = 0; i < spList.length; i++) {
                         var spId = spList[i];
-                        var workflow = new Workflow(spId, ssId);
+                        var workflow = new Workflow();
+                        workflow.init(spId, ssId);
+                        console.log("Notifying SP",spId);
                         workflow.notifySPOnCreate();
                     }
-
+                    cb(null, workRequestObj.id);
                     //A batch job runs every minute and based on a wait-time mapping, creates more workflows .
                     // after 2 mins, 5 mins, 10 mins, 20 mins, 40 mins, 1 hour, 2 hr, 6 hr, 12 hr, 1 day, 1.5 days days till noOfRequests are met
                     //After 2 days, if there is no response from any SPs, close all the workflows and the current request

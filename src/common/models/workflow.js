@@ -6,24 +6,35 @@ module.exports = function (Workflow) {
     //Initial state during constructor
     that.state = SPResponsePendingState;
 
-    Workflow.cancel = function (reason) {
+    that.cancel = function (reason) {
+        console.log("Vamsee");
         that.state.cancel(that, reason);
     };
 
-    Workflow.submitQuote = function (quote) {
+    that.submitQuote = function (quote) {
         that.state.submitQuote(that, quote);
     };
 
-    Workflow.acceptVisit = function (visitType, visitTime) {
+    that.acceptVisit = function (visitType, visitTime) {
         that.state.acceptVisit(that, visitType, visitTime);
     };
 
-    Workflow.review = function (review) {
+    that.review = function (review) {
         that.state.review(that, review);
     };
 
-    Workflow.bookSP = function (meetingTime, meetingType) {
+    that.bookSP = function (meetingTime, meetingType) {
         that.state.bookSP(that,meetingTime, meetingType);
     };
+
+    that.init = function(spId, ssId)
+    {
+        this.SPOwnerId = spId;
+        this.SSUserId = spId;
+    }
+
+    that.notifySPOnCreate = function(){
+        //TBD
+    }
 
 };

@@ -10,7 +10,7 @@ var Match = (function () {
             var spList = [];
             for(var x = 0; x <noOfSPNeeded; x++)
             {
-                spList.add(uuid.v4());
+                spList.push(uuid.v4());
             }
             return spList;
         };
