@@ -10,7 +10,7 @@
       "type": "Date",
       "trim": true
     },
-    "lastLoggedIn": {
+    "lastActive": {
       "type": "Date",
       "trim": true
     },
@@ -22,9 +22,9 @@
       "type": "string"
     },
     "dateOfBirth": {
-      "type": "string"
+      "type": "Date"
     },
-    "motherName": {
+    "motherMaidenName": {
       "type": "string"
     },
     "yearlyEarning": {
@@ -34,12 +34,8 @@
     "roleMask": {
       "type": "Number"
     },
-    "isActive": {
+    "isDeleted": {
       "type": "Boolean"
-    },
-    "bizSize": {
-      "type": "string",
-      "trim": true
     },
     "employeeCount": {
       "type": "Number",
@@ -75,7 +71,11 @@
     },
     "fieldsOfExpertise": {
       "type": "hasAndBelongsToMany",
-      "model": "TaskCategory"
+      "model": "TaskCategory",
+      "options": {
+        "validate": true,
+        "forceId": true
+      }
     },
     "workRequests": {
       "type": "hasMany",

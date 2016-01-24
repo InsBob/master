@@ -35,7 +35,7 @@ module.exports = function (Workflow) {
         this.SSUserId = spId;
     }
 
-    this.notifySPOnCreate = function(){
+    this.notifySPOnCreate = function(SPid){
         //TBD
     }
 
