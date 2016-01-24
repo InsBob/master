@@ -20,10 +20,13 @@
       },
       "_selectable": false
     },
-    "SPOwnerId": {
+    "workRequestId":{
       "type": "String"
     },
-    "SPAssignedId": {
+    "quoteGeneratorSP": {
+      "type": "String"
+    },
+    "jobWorkerSP": {
       "type": "String"
     },
     "SSUserId": {
@@ -41,34 +44,42 @@
   },
   "validations": [],
   "relations": {
-    "request":
-    {
+    "quoteForWF": {
       "type": "embedsOne",
-      "model": "WorkRequest",
-      "property": "workRequest",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    },
-    "state":
-    {
-      "type": "embedsOne",
-      "model": "WOState",
-      "property": "state",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    },
-    "quotes":
-    {
-      "type": "embedsMany",
       "model": "Quote",
-      "property": "quotes",
+      "property": "quote",
+      "options": {
+        "validate": true,
+        "forceId": true
+      }
+    },
+      "SPtimeSlots": {
+      "type": "embedsMany",
+      "model": "TimeSlot",
+      "property": "preferredTimeSlots",
       "options": {
         "validate": true,
         "forceId": false
+      }
+    },
+      "finalEstimateTimeSlot":
+      {
+        "type": "embedsOne",
+        "model": "TimeSlot",
+        "property": "estimateTimeSlot",
+        "options": {
+          "validate": true,
+          "forceId": true
+        }
+      },
+    "finalJobTimeSlot":
+    {
+      "type": "embedsOne",
+      "model": "TimeSlot",
+      "property": "jobTimeSlot",
+      "options": {
+        "validate": true,
+        "forceId": true
       }
     }
   },

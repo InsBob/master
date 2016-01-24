@@ -33,33 +33,65 @@
     "dataSource": "pg",
     "public": false
   },
-  "IBUser": {
-    "dataSource": "pg",
-    "public": true
-  },
-  "WorkRequest": {
-    "dataSource": "mem",
-    "public": true
-  },
-  "Workflow": {
-    "dataSource": "mem",
-    "public": true
-  },
   "Address": {
     "dataSource": "pg",
     "public": false
   },
-  "BizUser": {
+  "IBUser": {
     "dataSource": "pg",
     "public": true
   },
-  "SPUser": {
+  "IBUserStats": {
     "dataSource": "pg",
     "public": false
   },
-  "IndContractor": {
+  "MediaLink": {
+    "dataSource": "pg",
+    "public": false
+  },
+  "PhoneNumber": {
+    "dataSource": "pg",
+    "public": false
+  },
+  "Quote": {
+    "dataSource": "pg",
+    "public": false
+  },
+  "TaskCategory": {
+    "dataSource": "pg",
+    "public": false
+  },
+  "TimeSlot": {
+    "dataSource": "pg",
+    "public": false
+  },
+  "WebsiteURLLink": {
+    "dataSource": "pg",
+    "public": false
+  },
+  "Workflow": {
     "dataSource": "pg",
     "public": true
+  },
+  "WorkRequest": {
+    "dataSource": "pg",
+    "public": true
+  },
+  "ZipCode": {
+    "dataSource": "pg",
+    "public": false
+  },
+  "MeetingScheduledInFutureState": {
+    "dataSource": "mem",
+    "public": false
+  },
+  "RequestEndState": {
+    "dataSource": "mem",
+    "public": false
+  },
+  "SPQuoteSubmittedState": {
+    "dataSource": "mem",
+    "public": false
   },
   "WOState": {
     "dataSource": "mem",
@@ -72,5 +104,9 @@
   "UserIdentity": {
     "dataSource": "pg",
     "public": true
+  },
+  "WSPResponsePendingState": {
+    "dataSource": "mem",
+    "public": false
   }
 }

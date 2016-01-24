@@ -1,0 +1,29 @@
+{
+  "name": "Quote",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "hourlyRate": {
+      "type": "Number"
+    },
+    "noOfHours": {
+      "type": "Number"
+    },
+    "totalCost": {
+      "type": "Number"
+    },
+    "laborTotalCost": {
+      "type": "Number"
+    },
+    "excludeParts": {
+      "type": "BOOLEAN"
+    },
+    "plusMinusPercentage": {
+      "type": "Number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

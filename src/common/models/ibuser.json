@@ -10,6 +10,10 @@
       "type": "Date",
       "trim": true
     },
+    "lastLoggedIn": {
+      "type": "Date",
+      "trim": true
+    },
     "modifiedTime": {
       "type": "Date",
       "trim": true
@@ -23,35 +27,103 @@
     "motherName": {
       "type": "string"
     },
-    "phoneNumbers": [
-      {
-        "type": "string",
-        "trim": true
-      }
-    ],
-    "addresses": [
-      {
-        "type": "Address",
-        "trim": true
-      }
-    ],
     "yearlyEarning": {
       "type": "Number",
       "trim": true
     },
-    "websites": [
-      {
-        "type": "String"
-      }
-    ],
-    "Roles": [
-      {
-        "type": "Role"
-      }
-    ]
+    "roleMask": {
+      "type": "Number"
+    },
+    "isActive": {
+      "type": "Boolean"
+    },
+    "bizSize": {
+      "type": "string",
+      "trim": true
+    },
+    "employeeCount": {
+      "type": "Number",
+      "trim": true
+    },
+    "licenseId": {
+      "type": "string"
+    },
+    "hasLicense": {
+      "type": "Boolean"
+    },
+    "verificationComplete": {
+      "type": "Boolean"
+    },
+    "rating": {
+      "type": "Number"
+    }
   },
   "validations": [],
   "relations": {
+    "addresses": {
+      "type": "hasAndBelongsToMany",
+      "model": "Address",
+      "options": {
+        "validate": true,
+        "forceId": true
+      }
+    },
+    "stats": {
+      "type": "hasOne",
+      "model": "IBUserStats",
+      "foreignKey": "userId"
+    },
+    "fieldsOfExpertise": {
+      "type": "hasAndBelongsToMany",
+      "model": "TaskCategory"
+    },
+    "workRequests": {
+      "type": "hasMany",
+      "model": "WorkRequest",
+      "foreignKey": "SSId"
+    },
+    "gaveQuotesFor": {
+      "type": "hasMany",
+      "model": "Workflow",
+      "foreignKey": "quoteGeneratorSP"
+    },
+    "didJobsFor": {
+      "type": "hasMany",
+      "model": "Workflow",
+      "foreignKey": "jobWorkerSP"
+    },
+    "associatedSSWorkflows": {
+      "type": "hasMany",
+      "model": "Workflow",
+      "foreignKey": "SSUserId"
+    },
+    "phoneNums": {
+      "type": "embedsMany",
+      "model": "PhoneNumber",
+      "property": "phoneNumbers",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "weburls": {
+      "type": "embedsMany",
+      "model": "WebsiteURLLink",
+      "property": "websiteURLs",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "primaryWorkZipCodes": {
+      "type": "hasAndBelongsToMany",
+      "model": "ZipCode"
+    },
+    "tempWorkZipCodes": {
+      "type": "hasAndBelongsToMany",
+      "model": "ZipCode"
+    }
+
   },
   "acls": [],
   "methods": []

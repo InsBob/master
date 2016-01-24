@@ -1,0 +1,23 @@
+{
+  "name": "MediaLink",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "linkType": {
+      "type": "String",
+      "trim": true
+    },
+    "url": {
+      "type": "string",
+      "trim": true
+    },
+    "size":{
+      "type":"Number"
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [],
+  "methods": []
+}

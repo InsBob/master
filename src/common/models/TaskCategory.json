@@ -1,0 +1,29 @@
+{
+  "name": "TaskCategory",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "id": {
+      "type": "Number",
+      "trim": true
+    },
+    "name": {
+      "type": "string",
+      "trim": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "expertUsers": {
+      "type": "hasAndBelongsToMany",
+      "model": "IBUser"
+    },
+    "workRequests":{
+      "type": "hasMany",
+      "model":"WorkRequest",
+      "foreignKey":"taskCategoryId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

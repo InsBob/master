@@ -1,0 +1,22 @@
+{
+  "name": "TimeSlot",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "startTime":
+    {
+      "type":"Date"
+    },
+    "endTime":
+    {
+      "type":"Date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

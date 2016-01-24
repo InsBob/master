@@ -1,0 +1,28 @@
+{
+  "name": "ZipCode",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "zipCodeNumber": {
+      "type": "Number",
+      "trim": true
+    },
+    "state": {
+      "type": "string",
+      "trim": true
+    },
+    "country": {
+      "type": "string",
+      "trim": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Users": {
+      "type": "hasAndBelongsToMany",
+      "model": "IBUser"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

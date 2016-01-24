@@ -1,0 +1,32 @@
+{
+  "name": "IBUserStats",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "userId":
+    {
+      "type": "string"
+    },
+    "noOfQuotesServed":
+    {
+      "type": "Number"
+    },
+    "noOfFakesRequests":
+    {
+      "type": "Number"
+    },
+    "noOfRequestsConverted":
+    {
+      "type": "Number"
+    },
+    "noOfJobsDone":
+    {
+      "type": "Number"
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [],
+  "methods": []
+}
