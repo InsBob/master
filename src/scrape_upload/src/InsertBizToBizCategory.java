@@ -21,9 +21,7 @@ public class InsertBizToBizCategory {
 
   public static void main(String a[]) {
     //Read from csv
-
-    readFromCsv("/Users/vineel/myworkspace/scrape_upload" +
-        "/drilldown_page_Plumber_SanJose.csv");
+    readFromCsv("input_csv/drilldown_page_Plumber_SanJose.csv");
 
     // Upload to postgres
     //uploadToPostgres();

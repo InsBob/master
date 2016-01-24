@@ -21,9 +21,7 @@ public class InsertBizCategory {
 
   public static void main(String a[]) {
     //Read from csv
-
-    readFromCsv("/Users/vineel/myworkspace/scrape_upload" +
-        "/drilldown_page_Plumber_SanJose.csv");
+    readFromCsv("input_csv/drilldown_page_Plumber_SanJose.csv");
 
     // Upload to postgres
     //uploadToPostgres();
@@ -151,10 +149,10 @@ public class InsertBizCategory {
     int id = 0;
     for (String category : categorySet) {
       id ++;
-//      System.out.println(
-//                "INSERT INTO biz_category (id, name) " +
-//                    "VALUES (" + id + ", '"
-//                    + category + "'); ");
+      System.out.println(
+                "INSERT INTO biz_category (id, name) " +
+                    "VALUES (" + id + ", '"
+                    + category + "'); ");
     }
   }
 

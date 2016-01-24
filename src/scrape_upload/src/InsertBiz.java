@@ -20,13 +20,10 @@ import java.util.Set;
 public class InsertBiz {
 
   public static void main(String a[]) {
-    //Read from csv
+    //Read from csvß
+    readFromCsv("input_csv/drilldown_page_Plumber_SanJose.csv");
 
-    readFromCsv("/Users/vineel/myworkspace/scrape_upload" +
-        "/drilldown_page_Plumber_SanJose.csv");
 
-    // Upload to postgres
-    //uploadToPostgres();
   }
 
 
