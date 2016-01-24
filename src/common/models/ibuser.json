@@ -34,6 +34,9 @@
     "roleMask": {
       "type": "Number"
     },
+    "isActive": {
+      "type": "Boolean"
+    },
     "bizSize": {
       "type": "string",
       "trim": true
@@ -59,7 +62,11 @@
   "relations": {
     "addresses": {
       "type": "hasAndBelongsToMany",
-      "model": "Address"
+      "model": "Address",
+      "options": {
+        "validate": true,
+        "forceId": true
+      }
     },
     "stats": {
       "type": "hasOne",

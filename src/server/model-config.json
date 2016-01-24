@@ -33,7 +33,7 @@
   },
   "IBUser": {
     "dataSource": "pg",
-    "public": false
+    "public": true
   },
   "IBUserStats": {
     "dataSource": "pg",
@@ -65,11 +65,11 @@
   },
   "Workflow": {
     "dataSource": "pg",
-    "public": false
+    "public": true
   },
   "WorkRequest": {
     "dataSource": "pg",
-    "public": false
+    "public": true
   },
   "ZipCode": {
     "dataSource": "pg",
