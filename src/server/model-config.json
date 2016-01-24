@@ -5,6 +5,12 @@
       "loopback/server/models",
       "../common/models",
       "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
     ]
   },
   "User": {
@@ -58,5 +64,13 @@
   "WOState": {
     "dataSource": "mem",
     "public": false
+  },
+  "UserCredential": {
+    "dataSource": "pg",
+    "public": true
+  },
+  "UserIdentity": {
+    "dataSource": "pg",
+    "public": true
   }
 }

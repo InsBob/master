@@ -24,6 +24,7 @@
     "loopback-datasource-juggler": "^2.19.0",
     "loopback-testing": "^1.2.0",
     "node-uuid": "^1.4.7",
+    "passport-facebook": "^2.0.0",
     "serve-favicon": "^2.0.1",
     "util": "*"
   },
