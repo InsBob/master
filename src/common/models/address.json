@@ -169,7 +169,18 @@
     }]
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "tenants": {
+    "type": "hasAndBelongsToMany",
+    "model": "IBUser"
+  },
+    "worksPerformed":{
+      "type": "hasMany",
+      "model":"WorkRequest",
+      "foreignKey":"addressId"
+    }
+
+  },
   "acls": [],
   "methods": {}
 }

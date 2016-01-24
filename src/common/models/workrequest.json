@@ -20,37 +20,17 @@
       },
       "_selectable": false
     },
-    "taskType": {
-      "type": "String"
+    "taskCategoryId": {
+      "type": "Number"
     },
-    "address": {
-      "type": "Address"
+    "addressId": {
+      "type": "String"
     },
     "SSId": {
       "type": "string",
       "length": 20,
       "required": false
     },
-    "preferrredTimes": [
-      {
-        "type": "string",
-        "trim": true
-      }
-    ],
-    "initialvideo": {
-      "type": "string",
-      "trim": true
-    },
-    "initialaudio": {
-      "type": "string",
-      "trim": true
-    },
-    "images": [
-      {
-        "type": "string",
-        "trim": true
-      }
-    ],
     "description": {
       "type": "string",
       "trim": true
@@ -62,20 +42,36 @@
     "modifiedTime": {
       "type": "Date",
       "trim": true
-    },
-    "chosenWorkflowId": {
-      "type": "String"
     }
   },
   "validations": [],
   "relations": {
-    "workflowIds": {
-      "type": "embedsMany",
+    "workflows": {
+      "type": "hasMany",
       "model": "Workflow",
-      "property": "workflowIds",
+      "foreignKey": "workRequestId"
+    },
+    "timeSlots": {
+      "type": "embedsMany",
+      "model": "TimeSlot",
+      "property": "preferredTimeSlots",
       "options": {
         "validate": true,
         "forceId": false
+      }
+    },
+    "media": {
+      "type": "embedsMany",
+      "model": "MediaLink",
+      "property": "mediaLinks",
+      "options": {
+        "validate": true,
+        "forceId": false
+      },
+      "committedWorkFlow": {
+        "type": "hasOne",
+        "model": "Workflow",
+        "foreignKey": "workRequestId"
       }
     }
   },

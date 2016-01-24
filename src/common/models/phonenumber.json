@@ -1,0 +1,29 @@
+{
+  "name": "PhoneNumber",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "phoneNumber": {
+      "type": "Number",
+      "trim": true,
+      "pattern":""
+    },
+    "phoneAddressType": {
+      "type": "string"
+    },
+    "country":{
+      "type":"Number"
+    },
+    "areaCode":{
+      "type":"Number"
+    },
+    "subPhoneNumber":{
+      "type":"Number"
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [],
+  "methods": []
+}
