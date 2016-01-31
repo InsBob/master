@@ -108,5 +108,21 @@
   "WSPResponsePendingState": {
     "dataSource": "mem",
     "public": false
+  },
+  "application": {
+    "public": true,
+    "dataSource": "db"
+  },
+  "installation": {
+    "public": true,
+    "dataSource": "db"
+  },
+  "notification": {
+    "public": true,
+    "dataSource": "db"
+  },
+  "push": {
+    "public": true,
+    "dataSource": "push"
   }
 }
