@@ -12,5 +12,16 @@
     "connector": "postgresql",
     "username": "insbdev",
     "password":"insbdev"
+  },
+  "db": {
+    "connector": "mongodb",
+    "url": "mongodb://demo:L00pBack@demo.strongloop.com/demo"
+  },
+  "push": {
+    "name": "push",
+    "connector": "loopback-component-push",
+    "installation": "installation",
+    "notification": "notification",
+    "application": "application"
   }
 }

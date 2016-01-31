@@ -22,16 +22,19 @@ app.start = function() {
   });
 };
 
-app.boot = function (cb) {
+app.boot = function () {
   // boot scripts mount components like REST API
   boot(app, __dirname, function (err) {
+
+    require('./push-service')(app);
+
     if (err) throw err;
     app.start();
 
     app.loaded = true;
     app.emit('loaded');
 
-    cb(app);
+    //cb(app);
   });
 };
 
