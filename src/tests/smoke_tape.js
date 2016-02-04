@@ -5,11 +5,21 @@ var sinon = require('sinon');
 var app = require('../server/server');
 var request = require('supertest');
 var restApiRoot = app.get('restApiRoot');
-
+var assert = require('assert');
 var test = require('tape');
 
 test('First test!', function (t) {
-  t.end();
+    t.end();
+});
+
+test('GET all IBUsers', function (t) {
+    request(app)
+        .get('/api/v1/IBUsers')
+        .expect('Content-Type', /json/)
+        .expect(401)
+        .end(function (err, res) {
+            t.end();
+        });
 });
 
 //// change these
