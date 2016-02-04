@@ -166,7 +166,10 @@
     },
     "phoneNumbers": [{
       "type": "String"
-    }]
+    }],
+    "neighbourhood":{
+      "type": "String"
+    }
   },
   "validations": [],
   "relations": {

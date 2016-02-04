@@ -8,6 +8,9 @@
       "trim": true,
       "pattern":""
     },
+    "phoneNumberType":{
+      "type": "string"
+    },
     "phoneAddressType": {
       "type": "string"
     },

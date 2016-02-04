@@ -20,6 +20,9 @@
     },
     "plusMinusPercentage": {
       "type": "Number"
+    },
+    "partsCost": {
+      "type": "Number"
     }
   },
   "validations": [],

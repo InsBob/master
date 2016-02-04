@@ -2,14 +2,13 @@ var app = require('../server');
 
 var BizUserObj = app.models.BizUser;
 
-//Covert json entry into a db row. This example demostrates how to create a BizUser entry in postgres db.
-//Write generator code in JS that converts csv to json & then call <Model>.create method,
-// so that when schema changes  (it will happen 100% for sure),
-// 1. we change this generator code
-// 2. We run the drop-and-recreate-table(s).js
-// 3. Run the changed code from bullet 1. This should ensure schema changes and data population can go in parellel.
 
-//Initial Json copied from http://0.0.0.0:3000/explorer/#!/BizUser/BizUser_create
+
+//Read from CSV file
+
+// Use those entries and create Objects for Address, PhoneNumber and IBUser,Rating, TaskCategory,WebsiteURLLink
+
+//User Categories
 
 var bizUserJson =
 {

@@ -21,6 +21,10 @@
     "Users": {
       "type": "hasAndBelongsToMany",
       "model": "IBUser"
+    },
+    "adjacentZips":{
+      "type": "hasAndBelongsToMany",
+      "model": "ZipCode"
     }
   },
   "acls": [],

@@ -42,6 +42,12 @@
     "modifiedTime": {
       "type": "Date",
       "trim": true
+    },
+    "status":{
+      "type":"String"
+    },
+    "reasonForTermination":{
+      "type":"String"
     }
   },
   "validations": [],
