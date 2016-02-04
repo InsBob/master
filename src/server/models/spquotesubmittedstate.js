@@ -8,7 +8,7 @@ module.exports = function(SPQuoteSubmittedState) {
     workflow.request().quote = workflow.quote;
     workflow.currentMeetingTime = meetingTime;
     workflow.currentMeetingTime = meetingType;
-    workflow.state = modelsRef.MeetingScheduledInFutureState;
+    //workflow.state = modelsRef.MeetingScheduledInFutureState;
   };
 
 };

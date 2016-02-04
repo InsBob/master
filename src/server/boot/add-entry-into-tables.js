@@ -1,3 +1,5 @@
+/* jshint maxlen: 1130 */
+
 var app = require('../server');
 
 var BizUserObj = app.models.BizUser;
@@ -12,83 +14,83 @@ var BizUserObj = app.models.BizUser;
 
 var bizUserJson =
 {
-    "bizSize": "Vineel Plumbing",
-    "employeeCount": 3,
-    "licenseId": "733DS3SD",
-    "hasLicense": true,
-    "verificationComplete": false,
-    "taskTypesSupported": [
-        "plumbing", "roofing"
+    'bizSize': 'Vineel Plumbing',
+    'employeeCount': 3,
+    'licenseId': '733DS3SD',
+    'hasLicense': true,
+    'verificationComplete': false,
+    'taskTypesSupported': [
+        'plumbing', 'roofing'
     ],
-    "rating": 4,
-    "primaryWorkZipCodes": [
+    'rating': 4,
+    'primaryWorkZipCodes': [
         95043
     ],
-    "tempWorkZipCodes": [
+    'tempWorkZipCodes': [
         91121
     ],
-    "gender": "male",
-    "createdTime": "2016-01-18",
-    "modifiedTime": "2016-01-18",
-    "race": "Asian",
-    "dateOfBirth": "12-04-1976",
-    "motherName": "Kim John Yun",
-    "phoneNumbers": [
-        "408-323-2323"
+    'gender': 'male',
+    'createdTime': '2016-01-18',
+    'modifiedTime': '2016-01-18',
+    'race': 'Asian',
+    'dateOfBirth': '12-04-1976',
+    'motherName': 'Kim John Yun',
+    'phoneNumbers': [
+        '408-323-2323'
     ],
-    "addresses": [
+    'addresses': [
         {
-            "addressLine1": "2323, agnew road",
-            "addressLine2": "",
-            "city": "santa clara",
-            "state": "CA",
-            "zipCode": 95054,
-            "isBilling": true,
-            "addressType": [
-                "Work"
+            'addressLine1': '2323, agnew road',
+            'addressLine2': '',
+            'city': 'santa clara',
+            'state': 'CA',
+            'zipCode': 95054,
+            'isBilling': true,
+            'addressType': [
+                'Work'
             ],
-            "isRented": false,
-            "isPrimary": true,
-            "phoneNumbers": [
-                "408-323-2323"
+            'isRented': false,
+            'isPrimary': true,
+            'phoneNumbers': [
+                '408-323-2323'
             ]
         },
         {
-            "addressLine1": "344, Fremont Rd",
-            "addressLine2": "",
-            "city": "Fremont",
-            "state": "CA",
-            "zipCode": 93234,
-            "isBilling": true,
-            "addressType": [
-                "Home"
+            'addressLine1': '344, Fremont Rd',
+            'addressLine2': '',
+            'city': 'Fremont',
+            'state': 'CA',
+            'zipCode': 93234,
+            'isBilling': true,
+            'addressType': [
+                'Home'
             ],
-            "isRented": true,
-            "isPrimary": false,
-            "phoneNumbers": [
-                "408-322-2290"
+            'isRented': true,
+            'isPrimary': false,
+            'phoneNumbers': [
+                '408-322-2290'
             ]
         }
     ],
-    "yearlyEarning": 43434,
-    "websites": [
-        "wwww.homeadvisor.com/YuZu"
+    'yearlyEarning': 43434,
+    'websites': [
+        'wwww.homeadvisor.com/YuZu'
     ],
-    "Roles": [
+    'Roles': [
         {
-            "name": "ServiceProvider",
-            "description": "Role represents group of all service providers"
+            'name': 'ServiceProvider',
+            'description': 'Role represents group of all service providers'
         }
     ],
-    "realm": "",
-    "username": "YuZu",
-    "password": "YuZu",
-    "credentials": {},
-    "challenges": {},
-    "email": "yuzujohn@gmail.com",
-    "emailVerified": false,
-    "verificationToken": "",
-    "status": "Active"
+    'realm': '',
+    'username': 'YuZu',
+    'password': 'YuZu',
+    'credentials': {},
+    'challenges': {},
+    'email': 'yuzujohn@gmail.com',
+    'emailVerified': false,
+    'verificationToken': '',
+    'status': 'Active'
 };
 
 //Uncomment this code to persist json obj to postgres db
@@ -104,6 +106,6 @@ var bizUserJson =
 //                    console.log(errFind);
 //                    return;
 //                }
-//                console.log("Obj found in db", bizUserObjFoundObj);
+//                console.log('Obj found in db', bizUserObjFoundObj);
 //            });
 //    });

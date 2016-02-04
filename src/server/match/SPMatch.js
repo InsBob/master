@@ -1,10 +1,10 @@
-var util = require("util");
+var util = require('util');
 var uuid = require('node-uuid');
 
 var Match = (function () {
     var instance;
     function createInstance() {
-        var object = new Object("I am the instance");
+        var object = new Object('I am the instance');
         object.getMatchedSPIds = function (workrequest, noOfSPNeeded)
         {
             var spList = [];

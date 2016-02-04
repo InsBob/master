@@ -1,3 +1,4 @@
+/* jshint maxlen: 1130 */
 var app = require('../server');
 
 var dataSource = app.dataSources.pg;

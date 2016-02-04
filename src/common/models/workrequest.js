@@ -1,5 +1,6 @@
-var match = require("../../server/match/SPMatch").getInstance();
-var Workflow = require("../models/workflow");
+/* jshint maxlen: 1130 */
+var match = require('../../server/match/SPMatch').getInstance();
+var Workflow = require('../models/workflow');
 
 module.exports = function (WorkRequest) {
     var DEFAULT_MATCH_COUNT = 5;
@@ -25,7 +26,7 @@ module.exports = function (WorkRequest) {
                         var spId = spList[i];
                         var workflow = new Workflow();
                         workflow.init(spId, ssId);
-                        console.log("Notifying SP",spId);
+                        console.log('Notifying SP',spId);
                         workflow.notifySPOnCreate();
                     }
                     cb(null, workRequestObj.id);
@@ -41,7 +42,7 @@ module.exports = function (WorkRequest) {
         accepts: [
             {arg: 'workrequest', type: 'Object'}
         ],
-        description: "Used by service seeker to submit a work request",
+        description: 'Used by service seeker to submit a work request',
         returns: {arg: 'id', type: 'string'},
         http: {path: '/submit', verb: 'post'}
     });
