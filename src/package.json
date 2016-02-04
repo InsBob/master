@@ -10,6 +10,7 @@
     "test": "tape tests/**/*.js"
   },
   "dependencies": {
+    "babel-register": "^6.4.3",
     "body-parser": "^1.14.2",
     "compression": "^1.0.3",
     "connect-ensure-login": "^0.1.1",
@@ -27,6 +28,7 @@
     "node-uuid": "^1.4.7",
     "passport-facebook": "^2.0.0",
     "serve-favicon": "^2.0.1",
+    "tape": "^4.4.0",
     "util": "*"
   },
   "optionalDependencies": {

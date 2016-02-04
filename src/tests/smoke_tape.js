@@ -7,7 +7,7 @@ var restApiRoot = app.get('restApiRoot');
 // change these
 //var model = app.models.<my_model>;
 
-var apiPath = 'my_model';
+var apiPath = 'PhoneNumber';
 
 var testObj = {
   // snip
