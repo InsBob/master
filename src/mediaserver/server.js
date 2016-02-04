@@ -12,13 +12,13 @@ hbjs.spawn({ input: 'IMG_4192.MOV', output: 'sample.mp4' })
     );
   });
 
-var ffmpeg =require('fluent-ffmpeg');
-var proc = new ffmpeg('sample.mp4')
+var FFmpeg =require('fluent-ffmpeg');
+var proc = new FFmpeg('sample.mp4')
   .takeScreenshots({
       count: 1,
       timemarks: [ '60' ] // number of seconds
     }, '/home/abhibel/instabob/media', function(err) {
-    console.log('screenshots were saved')
+    console.log('screenshots were saved');
   });
 
 var s3 = require('s3');
@@ -36,7 +36,7 @@ var client = s3.createClient({
   },
 });
 
-ar params = {
+var params = {
   localFile: 'sample.mp4',
 
   s3Params: {
