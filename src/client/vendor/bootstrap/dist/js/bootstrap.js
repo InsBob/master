@@ -145,7 +145,7 @@ if (typeof jQuery === 'undefined') {
       var data  = $this.data('bs.alert')
 
       if (!data) $this.data('bs.alert', (data = new Alert(this)))
-      if (typeof option == 'string') data[option].call($this)
+      if (typeof option == 'String') data[option].call($this)
     })
   }
 
@@ -472,7 +472,7 @@ if (typeof jQuery === 'undefined') {
       var $this   = $(this)
       var data    = $this.data('bs.carousel')
       var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option)
-      var action  = typeof option == 'string' ? option : options.slide
+      var action  = typeof option == 'String' ? option : options.slide
 
       if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))
       if (typeof option == 'number') data.to(option)
@@ -706,7 +706,7 @@ if (typeof jQuery === 'undefined') {
 
       if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option == 'String') data[option]()
     })
   }
 
@@ -877,7 +877,7 @@ if (typeof jQuery === 'undefined') {
       var data  = $this.data('bs.dropdown')
 
       if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
-      if (typeof option == 'string') data[option].call($this)
+      if (typeof option == 'String') data[option].call($this)
     })
   }
 
@@ -1204,7 +1204,7 @@ if (typeof jQuery === 'undefined') {
       var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
       if (!data) $this.data('bs.modal', (data = new Modal(this, options)))
-      if (typeof option == 'string') data[option](_relatedTarget)
+      if (typeof option == 'String') data[option](_relatedTarget)
       else if (options.show) data.show(_relatedTarget)
     })
   }
@@ -1590,7 +1590,7 @@ if (typeof jQuery === 'undefined') {
 
   Tooltip.prototype.fixTitle = function () {
     var $e = this.$element
-    if ($e.attr('title') || typeof $e.attr('data-original-title') != 'string') {
+    if ($e.attr('title') || typeof $e.attr('data-original-title') != 'String') {
       $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
     }
   }
@@ -1741,7 +1741,7 @@ if (typeof jQuery === 'undefined') {
 
       if (!data && /destroy|hide/.test(option)) return
       if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option == 'String') data[option]()
     })
   }
 
@@ -1810,7 +1810,7 @@ if (typeof jQuery === 'undefined') {
 
     $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
     $tip.find('.popover-content').children().detach().end()[ // we use append for html objects to maintain js events
-      this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
+      this.options.html ? (typeof content == 'String' ? 'html' : 'append') : 'text'
     ](content)
 
     $tip.removeClass('fade top bottom left right in')
@@ -1850,7 +1850,7 @@ if (typeof jQuery === 'undefined') {
 
       if (!data && /destroy|hide/.test(option)) return
       if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option == 'String') data[option]()
     })
   }
 
@@ -2012,7 +2012,7 @@ if (typeof jQuery === 'undefined') {
       var options = typeof option == 'object' && option
 
       if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option == 'String') data[option]()
     })
   }
 
@@ -2166,7 +2166,7 @@ if (typeof jQuery === 'undefined') {
       var data  = $this.data('bs.tab')
 
       if (!data) $this.data('bs.tab', (data = new Tab(this)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option == 'String') data[option]()
     })
   }
 
@@ -2324,7 +2324,7 @@ if (typeof jQuery === 'undefined') {
       var options = typeof option == 'object' && option
 
       if (!data) $this.data('bs.affix', (data = new Affix(this, options)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option == 'String') data[option]()
     })
   }
 

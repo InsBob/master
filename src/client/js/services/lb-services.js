@@ -635,7 +635,7 @@ module.factory(
          *
          * @param {Object=} parameters Request parameters.
          *
-         *  - `include` – `{string=}` - Related objects to include in the response. See the description of return value for more details.
+         *  - `include` – `{String=}` - Related objects to include in the response. See the description of return value for more details.
          *   Default value: `user`.
          *
          *  - `rememberMe` - `boolean` - Whether the authentication credentials
@@ -696,7 +696,7 @@ module.factory(
          *
          * @param {Object} postData Request data.
          *
-         *  - `access_token` – `{string}` - Do not supply this argument, it is automatically extracted from request headers.
+         *  - `access_token` – `{String}` - Do not supply this argument, it is automatically extracted from request headers.
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -733,11 +733,11 @@ module.factory(
          *
          * @param {Object=} parameters Request parameters.
          *
-         *  - `uid` – `{string}` - 
+         *  - `uid` – `{String}` - 
          *
-         *  - `token` – `{string}` - 
+         *  - `token` – `{String}` - 
          *
-         *  - `redirect` – `{string=}` - 
+         *  - `redirect` – `{String=}` - 
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1559,8 +1559,8 @@ module
 
     return new LoopBackAuth();
 
-    // Note: LocalStorage converts the value to string
-    // We are using empty string as a marker for null/undefined values.
+    // Note: LocalStorage converts the value to String
+    // We are using empty String as a marker for null/undefined values.
     function save(storage, name, value) {
       var key = propsPrefix + name;
       if (value == null) value = '';
@@ -1628,7 +1628,7 @@ module
      * @ngdoc method
      * @name lbServices.LoopBackResourceProvider#setAuthHeader
      * @methodOf lbServices.LoopBackResourceProvider
-     * @param {string} header The header name to use, e.g. `X-Access-Token`
+     * @param {String} header The header name to use, e.g. `X-Access-Token`
      * @description
      * Configure the REST transport to use a different header for sending
      * the authentication token. It is sent in the `Authorization` header
@@ -1642,7 +1642,7 @@ module
      * @ngdoc method
      * @name lbServices.LoopBackResourceProvider#setUrlBase
      * @methodOf lbServices.LoopBackResourceProvider
-     * @param {string} url The URL to use, e.g. `/api` or `//example.com/api`.
+     * @param {String} url The URL to use, e.g. `/api` or `//example.com/api`.
      * @description
      * Change the URL of the REST API server. By default, the URL provided
      * to the code generator (`lb-ng` or `grunt-loopback-sdk-angular`) is used.

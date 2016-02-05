@@ -23,7 +23,7 @@ function getFiles(type) {
       var relativePath = fullPath.replace(/^[^/]+\//, '');
       files[relativePath] = type === 'fonts' ? btoa(fs.readFileSync(fullPath)) : fs.readFileSync(fullPath, 'utf8');
     });
-  return 'var __' + type + ' = ' + JSON.stringify(files) + '\n';
+  return 'var __' + type + ' = ' + JSON.Stringify(files) + '\n';
 }
 
 module.exports = function generateRawFilesJs(grunt, banner) {

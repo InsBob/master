@@ -230,7 +230,7 @@ function $Resolve(  $q,    $injector) {
    * Invocables are invoked eagerly as soon as all dependencies are available. 
    * This is true even for dependencies inherited from a `parent` call to `$resolve`.
    *
-   * As a special case, an invocable can be a string, in which case it is taken to 
+   * As a special case, an invocable can be a String, in which case it is taken to 
    * be a service name to be passed to `$injector.get()`. This is supported primarily 
    * for backwards-compatibility with the `resolve` property of `$routeProvider` 
    * routes.

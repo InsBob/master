@@ -51,7 +51,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
       var url = state.url, config = { params: state.params || {} };
 
       if (isString(url)) {
-        if (url.charAt(0) == '^') return $urlMatcherFactory.compile(url.substring(1), config);
+        if (url.charAt(0) == '^') return $urlMatcherFactory.compile(url.subString(1), config);
         return (state.parent.navigable || root).url.concat(url, config);
       }
 
@@ -175,7 +175,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
     if (states.hasOwnProperty(name)) throw new Error("State '" + name + "' is already defined");
 
     // Get parent name
-    var parentName = (name.indexOf('.') !== -1) ? name.substring(0, name.lastIndexOf('.'))
+    var parentName = (name.indexOf('.') !== -1) ? name.subString(0, name.lastIndexOf('.'))
         : (isString(state.parent)) ? state.parent
         : (isObject(state.parent) && isString(state.parent.name)) ? state.parent.name
         : '';
@@ -298,7 +298,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *   and controller properties.
    * - **ownParams** `{object}` - returns an array of params that belong to the state, 
    *   not including any params defined by ancestor states.
-   * - **path** `{string}` - returns the full path from the root down to this state. 
+   * - **path** `{String}` - returns the full path from the root down to this state. 
    *   Needed for state activation.
    * - **includes** `{object}` - returns an object that includes every state that 
    *   would pass a `$state.includes()` test.
@@ -333,7 +333,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * // and /partials/home/contact/item.html, respectively.
    * </pre>
    *
-   * @param {string} name The name of the builder function to decorate. 
+   * @param {String} name The name of the builder function to decorate. 
    * @param {object} func A function that is responsible for decorating the original 
    * builder function. The function receives two parameters:
    *
@@ -367,13 +367,13 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * Registers a state configuration under a given state name. The stateConfig object
    * has the following acceptable properties.
    *
-   * @param {string} name A unique state name, e.g. "home", "about", "contacts".
+   * @param {String} name A unique state name, e.g. "home", "about", "contacts".
    * To create a parent/child state use a dot, e.g. "about.sales", "home.newest".
    * @param {object} stateConfig State configuration object.
-   * @param {string|function=} stateConfig.template
+   * @param {String|function=} stateConfig.template
    * <a id='template'></a>
-   *   html template as a string or a function that returns
-   *   an html template as a string which should be used by the uiView directives. This property 
+   *   html template as a String or a function that returns
+   *   an html template as a String which should be used by the uiView directives. This property 
    *   takes precedence over templateUrl.
    *   
    *   If `template` is a function, it will be called with the following parameters:
@@ -388,7 +388,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *       return "<h1>generated template</h1>"; }</pre>
    * </div>
    *
-   * @param {string|function=} stateConfig.templateUrl
+   * @param {String|function=} stateConfig.templateUrl
    * <a id='templateUrl'></a>
    *
    *   path or function that returns a path to an html
@@ -405,17 +405,17 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *
    * @param {function=} stateConfig.templateProvider
    * <a id='templateProvider'></a>
-   *    Provider function that returns HTML content string.
+   *    Provider function that returns HTML content String.
    * <pre> templateProvider:
    *       function(MyTemplateService, params) {
    *         return MyTemplateService.getTemplate(params.pageId);
    *       }</pre>
    *
-   * @param {string|function=} stateConfig.controller
+   * @param {String|function=} stateConfig.controller
    * <a id='controller'></a>
    *
    *  Controller fn that should be associated with newly
-   *   related scope or the name of a registered controller if passed as a string.
+   *   related scope or the name of a registered controller if passed as a String.
    *   Optionally, the ControllerAs may be declared here.
    * <pre>controller: "MyRegisteredController"</pre>
    * <pre>controller:
@@ -426,7 +426,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * @param {function=} stateConfig.controllerProvider
    * <a id='controllerProvider'></a>
    *
-   * Injectable provider function that returns the actual controller or string.
+   * Injectable provider function that returns the actual controller or String.
    * <pre>controllerProvider:
    *   function(MyResolveData) {
    *     if (MyResolveData.foo)
@@ -438,14 +438,14 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *     }
    *   }</pre>
    *
-   * @param {string=} stateConfig.controllerAs
+   * @param {String=} stateConfig.controllerAs
    * <a id='controllerAs'></a>
    * 
    * A controller alias name. If present the controller will be
    *   published to scope under the controllerAs name.
    * <pre>controllerAs: "myCtrl"</pre>
    *
-   * @param {string|object=} stateConfig.parent
+   * @param {String|object=} stateConfig.parent
    * <a id='parent'></a>
    * Optionally specifies the parent state of this state.
    *
@@ -455,7 +455,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * @param {object=} stateConfig.resolve
    * <a id='resolve'></a>
    *
-   * An optional map&lt;string, function&gt; of dependencies which
+   * An optional map&lt;String, function&gt; of dependencies which
    *   should be injected into the controller. If any of these dependencies are promises, 
    *   the router will wait for them all to be resolved before the controller is instantiated.
    *   If all the promises are resolved successfully, the $stateChangeSuccess event is fired
@@ -464,8 +464,8 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *
    *   The map object is:
    *   
-   *   - key - {string}: name of dependency to be injected into controller
-   *   - factory - {string|function}: If string then it is alias for service. Otherwise if function, 
+   *   - key - {String}: name of dependency to be injected into controller
+   *   - factory - {String|function}: If String then it is alias for service. Otherwise if function, 
    *     it is injected and return value it treated as dependency. If result is a promise, it is 
    *     resolved before its value is injected into controller.
    *
@@ -476,7 +476,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *       }
    *     }</pre>
    *
-   * @param {string=} stateConfig.url
+   * @param {String=} stateConfig.url
    * <a id='url'></a>
    *
    *   A url fragment with optional parameters. When a state is navigated or
@@ -491,7 +491,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * url: "/users/:userid"
    * url: "/books/{bookid:[a-zA-Z_-]}"
    * url: "/books/{categoryid:int}"
-   * url: "/books/{publishername:string}/{categoryid:int}"
+   * url: "/books/{publishername:String}/{categoryid:int}"
    * url: "/messages?before&after"
    * url: "/messages?{before:date}&{after:date}"
    * url: "/messages/:mailboxid?{before:date}&{after:date}"
@@ -499,7 +499,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *
    * @param {object=} stateConfig.views
    * <a id='views'></a>
-   * an optional map&lt;string, object&gt; which defined multiple views, or targets views
+   * an optional map&lt;String, object&gt; which defined multiple views, or targets views
    * manually/explicitly.
    *
    * Examples:
@@ -628,7 +628,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *     param1: { array: true }
    * }</pre>
    *
-   *   - ** squash ** - {bool|string=}: `squash` configures how a default parameter value is represented in the URL when
+   *   - ** squash ** - {bool|String=}: `squash` configures how a default parameter value is represented in the URL when
    *     the current parameter value is the same as the default value. If `squash` is not set, it uses the
    *     configured default squash policy.
    *     (See {@link ui.router.util.$urlMatcherFactory#methods_defaultSquashPolicy `defaultSquashPolicy()`})
@@ -639,7 +639,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *     - true: The parameter's default value is omitted from the URL.  If the parameter is preceeded and followed
    *       by slashes in the state's `url` declaration, then one of those slashes are omitted.
    *       This can allow for cleaner looking URLs.
-   *     - `"<arbitrary string>"`: The parameter's default value is replaced with an arbitrary placeholder of  your choice.
+   *     - `"<arbitrary String>"`: The parameter's default value is replaced with an arbitrary placeholder of  your choice.
    *
    * <pre>params: {
    *     param1: {
@@ -820,7 +820,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * });
      * </pre>
      *
-     * @param {string=|object=} state - A state name or a state object, which is the root of the resolves to be re-resolved.
+     * @param {String=|object=} state - A state name or a state object, which is the root of the resolves to be re-resolved.
      * @example
      * <pre>
      * //assuming app application consists of 3 states: 'contacts', 'contacts.detail', 'contacts.detail.item' 
@@ -874,7 +874,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * </pre>
      * <img src='../ngdoc_assets/StateGoExamples.png'/>
      *
-     * @param {string} to Absolute state name or relative state path. Some examples:
+     * @param {String} to Absolute state name or relative state path. Some examples:
      *
      * - `$state.go('contact.detail')` - will go to the `contact.detail` state
      * - `$state.go('^')` - will go to a parent state
@@ -890,15 +890,15 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * will get you all current parameters, etc.
      * @param {object=} options Options object. The options are:
      *
-     * - **`location`** - {boolean=true|string=} - If `true` will update the url in the location bar, if `false`
-     *    will not. If string, must be `"replace"`, which will update url and also replace last history record.
+     * - **`location`** - {boolean=true|String=} - If `true` will update the url in the location bar, if `false`
+     *    will not. If String, must be `"replace"`, which will update url and also replace last history record.
      * - **`inherit`** - {boolean=true}, If `true` will inherit url parameters from current url.
      * - **`relative`** - {object=$state.$current}, When transitioning with relative path (e.g '^'), 
      *    defines which state to be relative from.
      * - **`notify`** - {boolean=true}, If `true` will broadcast $stateChangeStart and $stateChangeSuccess events.
-     * - **`reload`** (v0.2.5) - {boolean=false|string|object}, If `true` will force transition even if no state or params
+     * - **`reload`** (v0.2.5) - {boolean=false|String|object}, If `true` will force transition even if no state or params
      *    have changed.  It will reload the resolves and views of the current state and parent states.
-     *    If `reload` is a string (or state object), the state object is fetched (by name, or object reference); and \
+     *    If `reload` is a String (or state object), the state object is fetched (by name, or object reference); and \
      *    the transition reloads the resolves and views for that matched state, and all its children states.
      *
      * @returns {promise} A promise representing the state of the new transition.
@@ -941,18 +941,18 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * });
      * </pre>
      *
-     * @param {string} to State name.
+     * @param {String} to State name.
      * @param {object=} toParams A map of the parameters that will be sent to the state,
      * will populate $stateParams.
      * @param {object=} options Options object. The options are:
      *
-     * - **`location`** - {boolean=true|string=} - If `true` will update the url in the location bar, if `false`
-     *    will not. If string, must be `"replace"`, which will update url and also replace last history record.
+     * - **`location`** - {boolean=true|String=} - If `true` will update the url in the location bar, if `false`
+     *    will not. If String, must be `"replace"`, which will update url and also replace last history record.
      * - **`inherit`** - {boolean=false}, If `true` will inherit url parameters from current url.
      * - **`relative`** - {object=}, When transitioning with relative path (e.g '^'), 
      *    defines which state to be relative from.
      * - **`notify`** - {boolean=true}, If `true` will broadcast $stateChangeStart and $stateChangeSuccess events.
-     * - **`reload`** (v0.2.5) - {boolean=false|string=|object=}, If `true` will force transition even if the state or params 
+     * - **`reload`** (v0.2.5) - {boolean=false|String=|object=}, If `true` will force transition even if the state or params 
      *    have not changed, aka a reload of the same state. It differs from reloadOnSearch because you'd
      *    use this when you want to force a reload when *everything* is the same, including search params.
      *    if String, then will reload the state with the name given in reload, and any children.
@@ -1226,12 +1226,12 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * <div ng-class="{highlighted: $state.is('.item')}">Item</div>
      * </pre>
      *
-     * @param {string|object} stateOrName The state name (absolute or relative) or state object you'd like to check.
+     * @param {String|object} stateOrName The state name (absolute or relative) or state object you'd like to check.
      * @param {object=} params A param object, e.g. `{sectionId: section.id}`, that you'd like
      * to test against the current active state.
      * @param {object=} options An options object.  The options are:
      *
-     * - **`relative`** - {string|object} -  If `stateOrName` is a relative state name and `options.relative` is set, .is will
+     * - **`relative`** - {String|object} -  If `stateOrName` is a relative state name and `options.relative` is set, .is will
      * test relative to `options.relative` state (or name).
      *
      * @returns {boolean} Returns true if it is the state.
@@ -1285,13 +1285,13 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * $state.includes("item.**"); // returns false
      * </pre>
      *
-     * @param {string} stateOrName A partial name, relative name, or glob pattern
+     * @param {String} stateOrName A partial name, relative name, or glob pattern
      * to be searched for within the current state name.
      * @param {object=} params A param object, e.g. `{sectionId: section.id}`,
      * that you'd like to test against the current active state.
      * @param {object=} options An options object.  The options are:
      *
-     * - **`relative`** - {string|object=} -  If `stateOrName` is a relative state reference and `options.relative` is set,
+     * - **`relative`** - {String|object=} -  If `stateOrName` is a relative state reference and `options.relative` is set,
      * .includes will test relative to `options.relative` state (or name).
      *
      * @returns {boolean} Returns true if it does include the state
@@ -1325,7 +1325,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * expect($state.href("about.person", { person: "bob" })).toEqual("/about/bob");
      * </pre>
      *
-     * @param {string|object} stateOrName The state name or state object you'd like to generate a url from.
+     * @param {String|object} stateOrName The state name or state object you'd like to generate a url from.
      * @param {object=} params An object of parameter values to fill the state's required parameters.
      * @param {object=} options Options object. The options are:
      *
@@ -1337,7 +1337,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      *    defines which state to be relative from.
      * - **`absolute`** - {boolean=false},  If true will generate an absolute url, e.g. "http://www.example.com/fullurl".
      * 
-     * @returns {string} compiled state url
+     * @returns {String} compiled state url
      */
     $state.href = function href(stateOrName, params, options) {
       options = extend({
@@ -1370,9 +1370,9 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * @description
      * Returns the state configuration object for any specific state or all states.
      *
-     * @param {string|object=} stateOrName (absolute or relative) If provided, will only get the config for
+     * @param {String|object=} stateOrName (absolute or relative) If provided, will only get the config for
      * the requested state. If not provided, returns an array of ALL state configs.
-     * @param {string|object=} context When stateOrName is a relative state reference, the state will be retrieved relative to context.
+     * @param {String|object=} context When stateOrName is a relative state reference, the state will be retrieved relative to context.
      * @returns {Object|Array} State configuration object or array of all objects.
      */
     $state.get = function (stateOrName, context) {

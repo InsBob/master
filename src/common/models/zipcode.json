@@ -8,11 +8,11 @@
       "trim": true
     },
     "state": {
-      "type": "string",
+      "type": "String",
       "trim": true
     },
     "country": {
-      "type": "string",
+      "type": "String",
       "trim": true
     }
   },

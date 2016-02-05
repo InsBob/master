@@ -37,7 +37,7 @@ function on( elem, types, selector, data, fn, one ) {
 	if ( typeof types === "object" ) {
 
 		// ( types-Object, selector, data )
-		if ( typeof selector !== "string" ) {
+		if ( typeof selector !== "String" ) {
 
 			// ( types-Object, data )
 			data = data || selector;
@@ -55,7 +55,7 @@ function on( elem, types, selector, data, fn, one ) {
 		fn = selector;
 		data = selector = undefined;
 	} else if ( fn == null ) {
-		if ( typeof selector === "string" ) {
+		if ( typeof selector === "String" ) {
 
 			// ( types, selector, fn )
 			fn = data;

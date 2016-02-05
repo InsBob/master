@@ -4,7 +4,7 @@
   "idInjection": true,
   "properties": {
     "gender": {
-      "type": "string"
+      "type": "String"
     },
     "createdTime": {
       "type": "Date",
@@ -19,13 +19,13 @@
       "trim": true
     },
     "race": {
-      "type": "string"
+      "type": "String"
     },
     "dateOfBirth": {
       "type": "Date"
     },
     "motherMaidenName": {
-      "type": "string"
+      "type": "String"
     },
     "yearlyEarning": {
       "type": "Number",
@@ -42,7 +42,7 @@
       "trim": true
     },
     "licenseId": {
-      "type": "string"
+      "type": "String"
     },
     "hasLicense": {
       "type": "Boolean"

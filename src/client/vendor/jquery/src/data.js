@@ -27,13 +27,13 @@ function dataAttr( elem, key, data ) {
 		name = "data-" + key.replace( rmultiDash, "-$&" ).toLowerCase();
 		data = elem.getAttribute( name );
 
-		if ( typeof data === "string" ) {
+		if ( typeof data === "String" ) {
 			try {
 				data = data === "true" ? true :
 					data === "false" ? false :
 					data === "null" ? null :
 
-					// Only convert to a number if it doesn't change the string
+					// Only convert to a number if it doesn't change the String
 					+data + "" === data ? +data :
 					rbrace.test( data ) ? jQuery.parseJSON( data ) :
 					data;

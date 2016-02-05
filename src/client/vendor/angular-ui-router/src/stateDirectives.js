@@ -110,7 +110,7 @@ function defaultOpts(el, $state) {
  * <a ui-sref="home" ui-sref-opts="{reload: true}">Home</a>
  * </pre>
  *
- * @param {string} ui-sref 'stateName' can be any valid absolute or relative state
+ * @param {String} ui-sref 'stateName' can be any valid absolute or relative state
  * @param {Object} ui-sref-opts options to pass to {@link ui.router.state.$state#go $state.go()}
  */
 $StateRefDirective.$inject = ['$state', '$timeout'];
@@ -158,7 +158,7 @@ function $StateRefDirective($state, $timeout) {
  * Much like ui-sref, but will accept named $scope properties to evaluate for a state definition,
  * params and override options.
  *
- * @param {string} ui-state 'stateName' can be any valid absolute or relative state
+ * @param {String} ui-state 'stateName' can be any valid absolute or relative state
  * @param {Object} ui-state-params params to pass to {@link ui.router.state.$state#href $state.href()}
  * @param {Object} ui-state-opts options to pass to {@link ui.router.state.$state#go $state.go()}
  */
@@ -339,13 +339,13 @@ function $StateRefActiveDirective($state, $stateParams, $interpolate) {
       }
 
       /**
-       * @param {string} state
-       * @param {Object|string} [params]
-       * @return {string}
+       * @param {String} state
+       * @param {Object|String} [params]
+       * @return {String}
        */
       function createStateHash(state, params) {
         if (!isString(state)) {
-          throw new Error('state should be a string');
+          throw new Error('state should be a String');
         }
         if (isObject(params)) {
           return state + toJson(params);

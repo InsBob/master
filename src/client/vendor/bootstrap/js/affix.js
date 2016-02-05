@@ -123,7 +123,7 @@
       var options = typeof option == 'object' && option
 
       if (!data) $this.data('bs.affix', (data = new Affix(this, options)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option == 'String') data[option]()
     })
   }
 

@@ -26,7 +26,7 @@ var
 	// Make sure we trim BOM and NBSP
 	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
 
-	// Matches dashed string for camelizing
+	// Matches dashed String for camelizing
 	rmsPrefix = /^-ms-/,
 	rdashAlpha = /-([\da-z])/gi,
 
@@ -135,7 +135,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 		i++;
 	}
 
-	// Handle case when target is a string or something (possible in deep copy)
+	// Handle case when target is a String or something (possible in deep copy)
 	if ( typeof target !== "object" && !jQuery.isFunction( target ) ) {
 		target = {};
 	}
@@ -215,7 +215,7 @@ jQuery.extend( {
 	isNumeric: function( obj ) {
 
 		// parseFloat NaNs numeric-cast false positives (null|true|false|"")
-		// ...but misinterprets leading-number strings, particularly hex literals ("0x...")
+		// ...but misinterprets leading-number Strings, particularly hex literals ("0x...")
 		// subtraction forces infinities to NaN
 		// adding 1 corrects loss of precision from parseFloat (#15100)
 		var realStringObj = obj && obj.toString();
@@ -290,8 +290,8 @@ jQuery.extend( {
 	// Convert dashed to camelCase; used by the css and data modules
 	// Support: IE9-11+
 	// Microsoft forgot to hump their vendor prefix (#9572)
-	camelCase: function( string ) {
-		return string.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
+	camelCase: function( String ) {
+		return String.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
 	},
 
 	nodeName: function( elem, name ) {
@@ -333,7 +333,7 @@ jQuery.extend( {
 		if ( arr != null ) {
 			if ( isArrayLike( Object( arr ) ) ) {
 				jQuery.merge( ret,
-					typeof arr === "string" ?
+					typeof arr === "String" ?
 					[ arr ] : arr
 				);
 			} else {
@@ -421,7 +421,7 @@ jQuery.extend( {
 	proxy: function( fn, context ) {
 		var tmp, args, proxy;
 
-		if ( typeof context === "string" ) {
+		if ( typeof context === "String" ) {
 			tmp = fn[ context ];
 			context = fn;
 			fn = tmp;

@@ -24,9 +24,9 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    * The following properties are search in the specified order, and the first one 
    * that is defined is used to create the template:
    *
-   * @param {string|object} config.template html string template or function to 
+   * @param {String|object} config.template html String template or function to 
    * load via {@link ui.router.util.$templateFactory#fromString fromString}.
-   * @param {string|object} config.templateUrl url to load or a function returning 
+   * @param {String|object} config.templateUrl url to load or a function returning 
    * the url to load via {@link ui.router.util.$templateFactory#fromUrl fromUrl}.
    * @param {Function} config.templateProvider function to invoke via 
    * {@link ui.router.util.$templateFactory#fromProvider fromProvider}.
@@ -34,8 +34,8 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    * @param {object} locals Locals to pass to `invoke` if the template is loaded 
    * via a `templateProvider`. Defaults to `{ params: params }`.
    *
-   * @return {string|object}  The template html as a string, or a promise for 
-   * that string,or `null` if no template is configured.
+   * @return {String|object}  The template html as a String, or a promise for 
+   * that String,or `null` if no template is configured.
    */
   this.fromConfig = function (config, params, locals) {
     return (
@@ -52,14 +52,14 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    * @methodOf ui.router.util.$templateFactory
    *
    * @description
-   * Creates a template from a string or a function returning a string.
+   * Creates a template from a String or a function returning a String.
    *
-   * @param {string|object} template html template as a string or function that 
-   * returns an html template as a string.
+   * @param {String|object} template html template as a String or function that 
+   * returns an html template as a String.
    * @param {object} params Parameters to pass to the template function.
    *
-   * @return {string|object} The template html as a string, or a promise for that 
-   * string.
+   * @return {String|object} The template html as a String, or a promise for that 
+   * String.
    */
   this.fromString = function (template, params) {
     return isFunction(template) ? template(params) : template;
@@ -73,11 +73,11 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    * @description
    * Loads a template from the a URL via `$http` and `$templateCache`.
    *
-   * @param {string|Function} url url of the template to load, or a function 
+   * @param {String|Function} url url of the template to load, or a function 
    * that returns a url.
    * @param {Object} params Parameters to pass to the url function.
-   * @return {string|Promise.<string>} The template html as a string, or a promise 
-   * for that string.
+   * @return {String|Promise.<String>} The template html as a String, or a promise 
+   * for that String.
    */
   this.fromUrl = function (url, params) {
     if (isFunction(url)) url = url(params);
@@ -99,8 +99,8 @@ function $TemplateFactory(  $http,   $templateCache,   $injector) {
    * @param {Object} params Parameters for the template.
    * @param {Object} locals Locals to pass to `invoke`. Defaults to 
    * `{ params: params }`.
-   * @return {string|Promise.<string>} The template html as a string, or a promise 
-   * for that string.
+   * @return {String|Promise.<String>} The template html as a String, or a promise 
+   * for that String.
    */
   this.fromProvider = function (provider, params, locals) {
     return $injector.invoke(provider, null, locals || { params: params });

@@ -174,7 +174,7 @@
 
       if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option == 'String') data[option]()
     })
   }
 

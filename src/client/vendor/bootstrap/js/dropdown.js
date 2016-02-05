@@ -133,7 +133,7 @@
       var data  = $this.data('bs.dropdown')
 
       if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
-      if (typeof option == 'string') data[option].call($this)
+      if (typeof option == 'String') data[option].call($this)
     })
   }
 

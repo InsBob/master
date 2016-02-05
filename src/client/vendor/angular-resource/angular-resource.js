@@ -90,7 +90,7 @@ function shallowClearAndCopy(src, dst) {
      }]);
  * ```
  *
- * @param {string} url A parametrized URL template with parameters prefixed by `:` as in
+ * @param {String} url A parametrized URL template with parameters prefixed by `:` as in
  *   `/user/:username`. If you are using a URL with a port number (e.g.
  *   `http://example.com:8080/api`), it will be respected.
  *
@@ -126,14 +126,14 @@ function shallowClearAndCopy(src, dst) {
  *
  *   Where:
  *
- *   - **`action`** – {string} – The name of action. This name becomes the name of the method on
+ *   - **`action`** – {String} – The name of action. This name becomes the name of the method on
  *     your resource object.
- *   - **`method`** – {string} – Case insensitive HTTP method (e.g. `GET`, `POST`, `PUT`,
+ *   - **`method`** – {String} – Case insensitive HTTP method (e.g. `GET`, `POST`, `PUT`,
  *     `DELETE`, `JSONP`, etc).
  *   - **`params`** – {Object=} – Optional set of pre-bound parameters for this action. If any of
  *     the parameter value is a function, it will be executed every time when a param value needs to
  *     be obtained for a request (unless the param was overridden).
- *   - **`url`** – {string} – action specific `url` override. The url templating is supported just
+ *   - **`url`** – {String} – action specific `url` override. The url templating is supported just
  *     like for the resource-level urls.
  *   - **`isArray`** – {boolean=} – If true then the returned object for this action is an array,
  *     see `returns` section.
@@ -149,7 +149,7 @@ function shallowClearAndCopy(src, dst) {
  *     transform function or an array of such functions. The transform function takes the http
  *     response body and headers and returns its transformed (typically deserialized) version.
  *     By default, transformResponse will contain one function that checks if the response looks like
- *     a JSON string and deserializes it using `angular.fromJson`. To prevent this behavior, set
+ *     a JSON String and deserializes it using `angular.fromJson`. To prevent this behavior, set
  *     `transformResponse` to an empty array: `transformResponse: []`
  *   - **`cache`** – `{boolean|Cache}` – If true, a default $http cache will be used to cache the
  *     GET request, otherwise if a cache instance built with
@@ -161,7 +161,7 @@ function shallowClearAndCopy(src, dst) {
  *     XHR object. See
  *     [requests with credentials](https://developer.mozilla.org/en/http_access_control#section_5)
  *     for more information.
- *   - **`responseType`** - `{string}` - see
+ *   - **`responseType`** - `{String}` - see
  *     [requestType](https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#responseType).
  *   - **`interceptor`** - `{Object=}` - The interceptor object has two optional methods -
  *     `response` and `responseError`. Both `response` and `responseError` interceptors get called
@@ -596,7 +596,7 @@ angular.module('ngResource', ['ng']).
                     if (typeof item === "object") {
                       value.push(new Resource(item));
                     } else {
-                      // Valid JSON values may be string literals, and these should not be converted
+                      // Valid JSON values may be String literals, and these should not be converted
                       // into objects. These items will not have access to the Resource prototype
                       // methods, but unfortunately there
                       value.push(item);

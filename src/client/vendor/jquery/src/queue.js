@@ -75,7 +75,7 @@ jQuery.fn.extend( {
 	queue: function( type, data ) {
 		var setter = 2;
 
-		if ( typeof type !== "string" ) {
+		if ( typeof type !== "String" ) {
 			data = type;
 			type = "fx";
 			setter--;
@@ -121,7 +121,7 @@ jQuery.fn.extend( {
 				}
 			};
 
-		if ( typeof type !== "string" ) {
+		if ( typeof type !== "String" ) {
 			obj = type;
 			type = undefined;
 		}

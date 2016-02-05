@@ -127,7 +127,7 @@ function domManip( collection, args, callback, ignored ) {
 
 	// We can't cloneNode fragments that contain checked, in WebKit
 	if ( isFunction ||
-			( l > 1 && typeof value === "string" &&
+			( l > 1 && typeof value === "String" &&
 				!support.checkClone && rchecked.test( value ) ) ) {
 		return collection.each( function( index ) {
 			var self = collection.eq( index );
@@ -403,7 +403,7 @@ jQuery.fn.extend( {
 			}
 
 			// See if we can take a shortcut and just use innerHTML
-			if ( typeof value === "string" && !rnoInnerhtml.test( value ) &&
+			if ( typeof value === "String" && !rnoInnerhtml.test( value ) &&
 				!wrapMap[ ( rtagName.exec( value ) || [ "", "" ] )[ 1 ].toLowerCase() ] ) {
 
 				value = jQuery.htmlPrefilter( value );

@@ -6,8 +6,8 @@
   "scripts": {
     "pretest": "jshint .",
     "postinstall": "bower install",
-    "start": "node . | tap-spec",
-    "test": "tape tests/**/*.js"
+    "start": "node .",
+    "test": "tape tests/**/*.js | tap-spec"
   },
   "dependencies": {
     "assert": "^1.3.0",

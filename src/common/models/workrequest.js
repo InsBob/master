@@ -43,7 +43,7 @@ module.exports = function (WorkRequest) {
             {arg: 'workrequest', type: 'Object'}
         ],
         description: 'Used by service seeker to submit a work request',
-        returns: {arg: 'id', type: 'string'},
+        returns: {arg: 'id', type: 'String'},
         http: {path: '/submit', verb: 'post'}
     });
 };

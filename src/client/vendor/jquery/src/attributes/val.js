@@ -25,9 +25,9 @@ jQuery.fn.extend( {
 
 				ret = elem.value;
 
-				return typeof ret === "string" ?
+				return typeof ret === "String" ?
 
-					// Handle most common string cases
+					// Handle most common String cases
 					ret.replace( rreturn, "" ) :
 
 					// Handle cases where value is null/undef or number
@@ -52,7 +52,7 @@ jQuery.fn.extend( {
 				val = value;
 			}
 
-			// Treat null/undefined as ""; convert numbers to string
+			// Treat null/undefined as ""; convert numbers to String
 			if ( val == null ) {
 				val = "";
 

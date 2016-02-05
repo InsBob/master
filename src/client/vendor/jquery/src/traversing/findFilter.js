@@ -24,7 +24,7 @@ function winnow( elements, qualifier, not ) {
 
 	}
 
-	if ( typeof qualifier === "string" ) {
+	if ( typeof qualifier === "String" ) {
 		if ( risSimple.test( qualifier ) ) {
 			return jQuery.filter( qualifier, elements, not );
 		}
@@ -58,7 +58,7 @@ jQuery.fn.extend( {
 			ret = [],
 			self = this;
 
-		if ( typeof selector !== "string" ) {
+		if ( typeof selector !== "String" ) {
 			return this.pushStack( jQuery( selector ).filter( function() {
 				for ( i = 0; i < len; i++ ) {
 					if ( jQuery.contains( self[ i ], this ) ) {
@@ -89,7 +89,7 @@ jQuery.fn.extend( {
 
 			// If this is a positional/relative selector, check membership in the returned set
 			// so $("p:first").is("p:last") won't return true for a doc with two "p".
-			typeof selector === "string" && rneedsContext.test( selector ) ?
+			typeof selector === "String" && rneedsContext.test( selector ) ?
 				jQuery( selector ) :
 				selector || [],
 			false

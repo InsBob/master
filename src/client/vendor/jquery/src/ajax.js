@@ -27,7 +27,7 @@ var
 	 * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
 	 * 2) These are called:
 	 *    - BEFORE asking for a transport
-	 *    - AFTER param serialization (s.data is a string if s.processData is true)
+	 *    - AFTER param serialization (s.data is a String if s.processData is true)
 	 * 3) key is the dataType
 	 * 4) the catchall symbol "*" can be used
 	 * 5) execution will start with transport dataType and THEN continue down to "*" if needed
@@ -54,7 +54,7 @@ function addToPrefiltersOrTransports( structure ) {
 	// dataTypeExpression is optional and defaults to "*"
 	return function( dataTypeExpression, func ) {
 
-		if ( typeof dataTypeExpression !== "string" ) {
+		if ( typeof dataTypeExpression !== "String" ) {
 			func = dataTypeExpression;
 			dataTypeExpression = "*";
 		}
@@ -93,7 +93,7 @@ function inspectPrefiltersOrTransports( structure, options, originalOptions, jqX
 		inspected[ dataType ] = true;
 		jQuery.each( structure[ dataType ] || [], function( _, prefilterOrFactory ) {
 			var dataTypeOrTransport = prefilterOrFactory( options, originalOptions, jqXHR );
-			if ( typeof dataTypeOrTransport === "string" &&
+			if ( typeof dataTypeOrTransport === "String" &&
 				!seekingTransport && !inspected[ dataTypeOrTransport ] ) {
 
 				options.dataTypes.unshift( dataTypeOrTransport );
@@ -459,7 +459,7 @@ jQuery.extend( {
 					return match == null ? null : match;
 				},
 
-				// Raw string
+				// Raw String
 				getAllResponseHeaders: function() {
 					return state === 2 ? responseHeadersString : null;
 				},
@@ -517,7 +517,7 @@ jQuery.extend( {
 		jqXHR.success = jqXHR.done;
 		jqXHR.error = jqXHR.fail;
 
-		// Remove hash character (#7531: and string promotion)
+		// Remove hash character (#7531: and String promotion)
 		// Add protocol if not provided (prefilters might expect it)
 		// Handle falsy url in the settings object (#10093: consistency with old signature)
 		// We also use the url parameter if available
@@ -552,8 +552,8 @@ jQuery.extend( {
 			}
 		}
 
-		// Convert data if not already a string
-		if ( s.data && s.processData && typeof s.data !== "string" ) {
+		// Convert data if not already a String
+		if ( s.data && s.processData && typeof s.data !== "String" ) {
 			s.data = jQuery.param( s.data, s.traditional );
 		}
 

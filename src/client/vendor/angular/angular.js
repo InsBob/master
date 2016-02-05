@@ -21,18 +21,18 @@
  * take.
  *
  * If fewer arguments are specified than necessary for interpolation, the extra
- * interpolation markers will be preserved in the final string.
+ * interpolation markers will be preserved in the final String.
  *
  * Since data will be parsed statically during a build step, some restrictions
  * are applied with respect to how minErr instances are created and called.
  * Instances should have names of the form namespaceMinErr for a minErr created
- * using minErr('namespace') . Error codes, namespaces and template strings
- * should all be static strings, not variables or general expressions.
+ * using minErr('namespace') . Error codes, namespaces and template Strings
+ * should all be static Strings, not variables or general expressions.
  *
- * @param {string} module The namespace to use for the new minErr instance.
+ * @param {String} module The namespace to use for the new minErr instance.
  * @param {function} ErrorConstructor Custom error constructor to be instantiated when returning
  *   error from returned function, for cases when a particular type of error is useful.
- * @returns {function(code:string, template:string, ...templateArgs): Error} minErr instance
+ * @returns {function(code:String, template:String, ...templateArgs): Error} minErr instance
  */
 
 function minErr(module, ErrorConstructor) {
@@ -185,11 +185,11 @@ var VALIDITY_STATE_PROPERTY = 'validity';
  * @module ng
  * @kind function
  *
- * @description Converts the specified string to lowercase.
- * @param {string} string String to be converted to lowercase.
- * @returns {string} Lowercased string.
+ * @description Converts the specified String to lowercase.
+ * @param {String} String String to be converted to lowercase.
+ * @returns {String} Lowercased String.
  */
-var lowercase = function(string) {return isString(string) ? string.toLowerCase() : string;};
+var lowercase = function(String) {return isString(String) ? String.toLowerCase() : String;};
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 /**
@@ -198,11 +198,11 @@ var hasOwnProperty = Object.prototype.hasOwnProperty;
  * @module ng
  * @kind function
  *
- * @description Converts the specified string to uppercase.
- * @param {string} string String to be converted to uppercase.
- * @returns {string} Uppercased string.
+ * @description Converts the specified String to uppercase.
+ * @param {String} String String to be converted to uppercase.
+ * @returns {String} Uppercased String.
  */
-var uppercase = function(string) {return isString(string) ? string.toUpperCase() : string;};
+var uppercase = function(String) {return isString(String) ? String.toUpperCase() : String;};
 
 
 var manualLowercase = function(s) {
@@ -354,8 +354,8 @@ function forEachSorted(obj, iterator, context) {
 
 /**
  * when using forEach the params are value, key, but it is often useful to have key, value.
- * @param {function(string, *)} iteratorFn
- * @returns {function(*, string)}
+ * @param {function(String, *)} iteratorFn
+ * @returns {function(*, String)}
  */
 function reverseParams(iteratorFn) {
   return function(value, key) { iteratorFn(key, value); };
@@ -369,7 +369,7 @@ function reverseParams(iteratorFn) {
  *
  * Math.pow(2,53) / 60 / 60 / 24 / 365 / 10 = 28.6M
  *
- * @returns {number} an unique alpha-numeric string
+ * @returns {number} an unique alpha-numeric String
  */
 function nextUid() {
   return ++uid;
@@ -537,7 +537,7 @@ function isObject(value) {
  * @param {*} value Reference to check.
  * @returns {boolean} True if `value` is a `String`.
  */
-function isString(value) {return typeof value === 'string';}
+function isString(value) {return typeof value === 'String';}
 
 
 /**
@@ -666,8 +666,8 @@ var trim = function(value) {
 };
 
 // Copied from:
-// http://docs.closure-library.googlecode.com/git/local_closure_goog_string_string.js.source.html#line1021
-// Prereq: s is a string.
+// http://docs.closure-library.googlecode.com/git/local_closure_goog_String_String.js.source.html#line1021
+// Prereq: s is a String.
 var escapeForRegexp = function(s) {
   return s.replace(/([-()\[\]{}+?*.$\^|,:#<!\\])/g, '\\$1').
            replace(/\x08/g, '\\x08');
@@ -1020,7 +1020,7 @@ function bind(self, fn) {
 function toJsonReplacer(key, value) {
   var val = value;
 
-  if (typeof key === 'string' && key.charAt(0) === '$' && key.charAt(1) === '$') {
+  if (typeof key === 'String' && key.charAt(0) === '$' && key.charAt(1) === '$') {
     val = undefined;
   } else if (isWindow(value)) {
     val = '$WINDOW';
@@ -1041,20 +1041,20 @@ function toJsonReplacer(key, value) {
  * @kind function
  *
  * @description
- * Serializes input into a JSON-formatted string. Properties with leading $$ characters will be
+ * Serializes input into a JSON-formatted String. Properties with leading $$ characters will be
  * stripped since angular uses this notation internally.
  *
- * @param {Object|Array|Date|string|number} obj Input to be serialized into JSON.
+ * @param {Object|Array|Date|String|number} obj Input to be serialized into JSON.
  * @param {boolean|number} [pretty=2] If set to true, the JSON output will contain newlines and whitespace.
  *    If set to an integer, the JSON output will contain that many spaces per indentation.
- * @returns {string|undefined} JSON-ified string representing `obj`.
+ * @returns {String|undefined} JSON-ified String representing `obj`.
  */
 function toJson(obj, pretty) {
   if (typeof obj === 'undefined') return undefined;
   if (!isNumber(pretty)) {
     pretty = pretty ? 2 : null;
   }
-  return JSON.stringify(obj, toJsonReplacer, pretty);
+  return JSON.Stringify(obj, toJsonReplacer, pretty);
 }
 
 
@@ -1065,10 +1065,10 @@ function toJson(obj, pretty) {
  * @kind function
  *
  * @description
- * Deserializes a JSON string.
+ * Deserializes a JSON String.
  *
- * @param {string} json JSON string to deserialize.
- * @returns {Object|Array|string|number} Deserialized JSON string.
+ * @param {String} json JSON String to deserialize.
+ * @returns {Object|Array|String|number} Deserialized JSON String.
  */
 function fromJson(json) {
   return isString(json)
@@ -1078,7 +1078,7 @@ function fromJson(json) {
 
 
 /**
- * @returns {string} Returns the string representation of the element.
+ * @returns {String} Returns the String representation of the element.
  */
 function startingTag(element) {
   element = jqLite(element).clone();
@@ -1120,10 +1120,10 @@ function tryDecodeURIComponent(value) {
 
 
 /**
- * Parses an escaped url query string into key-value pairs.
- * @returns {Object.<string,boolean|Array>}
+ * Parses an escaped url query String into key-value pairs.
+ * @returns {Object.<String,boolean|Array>}
  */
-function parseKeyValue(/**string*/keyValue) {
+function parseKeyValue(/**String*/keyValue) {
   var obj = {}, key_value, key;
   forEach((keyValue || "").split('&'), function(keyValue) {
     if (keyValue) {
@@ -1432,7 +1432,7 @@ function bootstrap(element, modules, config) {
 
     if (element.injector()) {
       var tag = (element[0] === document) ? 'document' : startingTag(element);
-      //Encode angle brackets to prevent input from being sanitized to empty string #8683
+      //Encode angle brackets to prevent input from being sanitized to empty String #8683
       throw ngMinErr(
           'btstrpd',
           "App Already Bootstrapped with this Element '{0}'",
@@ -1708,7 +1708,7 @@ function setupModuleLoader(window) {
   angular.$$minErr = angular.$$minErr || minErr;
 
   return ensure(angular, 'module', function() {
-    /** @type {Object.<string, angular.Module>} */
+    /** @type {Object.<String, angular.Module>} */
     var modules = {};
 
     /**
@@ -1755,8 +1755,8 @@ function setupModuleLoader(window) {
      * {@link ng.directive:ngApp ngApp} or
      * {@link angular.bootstrap} to simplify this process for you.
      *
-     * @param {!string} name The name of the module to create or retrieve.
-     * @param {!Array.<string>=} requires If specified then new module is being created. If
+     * @param {!String} name The name of the module to create or retrieve.
+     * @param {!Array.<String>=} requires If specified then new module is being created. If
      *        unspecified then the module is being retrieved for further configuration.
      * @param {Function=} configFn Optional configuration function for the module. Same as
      *        {@link angular.Module#config Module#config()}.
@@ -1824,7 +1824,7 @@ function setupModuleLoader(window) {
            * @ngdoc method
            * @name angular.Module#provider
            * @module ng
-           * @param {string} name service name
+           * @param {String} name service name
            * @param {Function} providerType Construction function for creating new instance of the
            *                                service.
            * @description
@@ -1836,7 +1836,7 @@ function setupModuleLoader(window) {
            * @ngdoc method
            * @name angular.Module#factory
            * @module ng
-           * @param {string} name service name
+           * @param {String} name service name
            * @param {Function} providerFunction Function for creating new instance of the service.
            * @description
            * See {@link auto.$provide#factory $provide.factory()}.
@@ -1847,7 +1847,7 @@ function setupModuleLoader(window) {
            * @ngdoc method
            * @name angular.Module#service
            * @module ng
-           * @param {string} name service name
+           * @param {String} name service name
            * @param {Function} constructor A constructor function that will be instantiated.
            * @description
            * See {@link auto.$provide#service $provide.service()}.
@@ -1858,7 +1858,7 @@ function setupModuleLoader(window) {
            * @ngdoc method
            * @name angular.Module#value
            * @module ng
-           * @param {string} name service name
+           * @param {String} name service name
            * @param {*} object Service instance object.
            * @description
            * See {@link auto.$provide#value $provide.value()}.
@@ -1869,7 +1869,7 @@ function setupModuleLoader(window) {
            * @ngdoc method
            * @name angular.Module#constant
            * @module ng
-           * @param {string} name constant name
+           * @param {String} name constant name
            * @param {*} object Constant value.
            * @description
            * Because the constant are fixed, they get applied before other provide methods.
@@ -1881,7 +1881,7 @@ function setupModuleLoader(window) {
            * @ngdoc method
            * @name angular.Module#animation
            * @module ng
-           * @param {string} name animation name
+           * @param {String} name animation name
            * @param {Function} animationFactory Factory function for creating new instance of an
            *                                    animation.
            * @description
@@ -1915,7 +1915,7 @@ function setupModuleLoader(window) {
            * @ngdoc method
            * @name angular.Module#filter
            * @module ng
-           * @param {string} name Filter name - this must be a valid angular expression identifier
+           * @param {String} name Filter name - this must be a valid angular expression identifier
            * @param {Function} filterFactory Factory function for creating new instance of filter.
            * @description
            * See {@link ng.$filterProvider#register $filterProvider.register()}.
@@ -1933,7 +1933,7 @@ function setupModuleLoader(window) {
            * @ngdoc method
            * @name angular.Module#controller
            * @module ng
-           * @param {string|Object} name Controller name, or an object map of controllers where the
+           * @param {String|Object} name Controller name, or an object map of controllers where the
            *    keys are the names and the values are the constructors.
            * @param {Function} constructor Controller constructor function.
            * @description
@@ -1945,7 +1945,7 @@ function setupModuleLoader(window) {
            * @ngdoc method
            * @name angular.Module#directive
            * @module ng
-           * @param {string|Object} name Directive name, or an object map of directives where the
+           * @param {String|Object} name Directive name, or an object map of directives where the
            *    keys are the names and the values are the factories.
            * @param {Function} directiveFactory Factory function for creating new instance of
            * directives.
@@ -1990,8 +1990,8 @@ function setupModuleLoader(window) {
         return moduleInstance;
 
         /**
-         * @param {string} provider
-         * @param {string} method
+         * @param {String} provider
+         * @param {String} method
          * @param {String=} insertMethod
          * @returns {angular.Module}
          */
@@ -2013,7 +2013,7 @@ function setupModuleLoader(window) {
 function serializeObject(obj) {
   var seen = [];
 
-  return JSON.stringify(obj, function(key, val) {
+  return JSON.Stringify(obj, function(key, val) {
     val = toJsonReplacer(key, val);
     if (isObject(val)) {
 
@@ -2030,7 +2030,7 @@ function toDebugString(obj) {
     return obj.toString().replace(/ \{[\s\S]*$/, '');
   } else if (typeof obj === 'undefined') {
     return 'undefined';
-  } else if (typeof obj !== 'string') {
+  } else if (typeof obj !== 'String') {
     return serializeObject(obj);
   }
   return obj;
@@ -2132,14 +2132,14 @@ function toDebugString(obj) {
  * An object that contains information about the current AngularJS version. This object has the
  * following properties:
  *
- * - `full` – `{string}` – Full version string, such as "0.9.18".
+ * - `full` – `{String}` – Full version String, such as "0.9.18".
  * - `major` – `{number}` – Major version number, such as "0".
  * - `minor` – `{number}` – Minor version number, such as "9".
  * - `dot` – `{number}` – Dot version number, such as "18".
- * - `codeName` – `{string}` – Code name of the release, such as "jiggling-armfat".
+ * - `codeName` – `{String}` – Code name of the release, such as "jiggling-armfat".
  */
 var version = {
-  full: '1.3.20',    // all of these placeholder strings will be replaced by grunt's
+  full: '1.3.20',    // all of these placeholder Strings will be replaced by grunt's
   major: 1,    // package task
   minor: 3,
   dot: 20,
@@ -2309,7 +2309,7 @@ function publishExternalAPI(angular) {
  * @kind function
  *
  * @description
- * Wraps a raw DOM element or HTML string as a [jQuery](http://jquery.com) element.
+ * Wraps a raw DOM element or HTML String as a [jQuery](http://jquery.com) element.
  *
  * If jQuery is available, `angular.element` is an alias for the
  * [jQuery](http://api.jquery.com/jQuery/) function. If jQuery is not available, `angular.element`
@@ -2335,7 +2335,7 @@ function publishExternalAPI(angular) {
  * - [`children()`](http://api.jquery.com/children/) - Does not support selectors
  * - [`clone()`](http://api.jquery.com/clone/)
  * - [`contents()`](http://api.jquery.com/contents/)
- * - [`css()`](http://api.jquery.com/css/) - Only retrieves inline-styles, does not call `getComputedStyle()`. As a setter, does not convert numbers to strings or append 'px'.
+ * - [`css()`](http://api.jquery.com/css/) - Only retrieves inline-styles, does not call `getComputedStyle()`. As a setter, does not convert numbers to Strings or append 'px'.
  * - [`data()`](http://api.jquery.com/data/)
  * - [`detach()`](http://api.jquery.com/detach/)
  * - [`empty()`](http://api.jquery.com/empty/)
@@ -2387,7 +2387,7 @@ function publishExternalAPI(angular) {
  * - `inheritedData()` - same as `data()`, but walks up the DOM until a value is found or the top
  *   parent element is reached.
  *
- * @param {string|DOMElement} element HTML string or DOMElement to be wrapped into jQuery.
+ * @param {String|DOMElement} element HTML String or DOMElement to be wrapped into jQuery.
  * @returns {Object} jQuery object.
  */
 
@@ -3079,7 +3079,7 @@ forEach({
       handle = expandoStore.handle = createEventHandler(element, events);
     }
 
-    // http://jsperf.com/string-indexof-vs-split
+    // http://jsperf.com/String-indexof-vs-split
     var types = type.indexOf(' ') >= 0 ? type.split(' ') : [type];
     var i = types.length;
 
@@ -3323,14 +3323,14 @@ function $$jqLiteProvider() {
 /**
  * Computes a hash of an 'obj'.
  * Hash of a:
- *  string is string
- *  number is number as string
+ *  String is String
+ *  number is number as String
  *  object is either result of calling $$hashKey function on the object or uniquely generated id,
  *         that is also assigned to the $$hashKey property of the object.
  *
  * @param obj
- * @returns {string} hash string such that the same input will have the same hash string.
- *         The resulting string key is in 'type:hashKey' format.
+ * @returns {String} hash String such that the same input will have the same hash String.
+ *         The resulting String key is in 'type:hashKey' format.
  */
 function hashKey(obj, nextUidFn) {
   var key = obj && obj.$$hashKey;
@@ -3403,7 +3403,7 @@ HashMap.prototype = {
  * Creates an injector object that can be used for retrieving services as well as for
  * dependency injection (see {@link guide/di dependency injection}).
  *
- * @param {Array.<string|Function>} modules A list of module functions or their aliases. See
+ * @param {Array.<String|Function>} modules A list of module functions or their aliases. See
  *     {@link angular.module}. The `ng` module must be explicitly added.
  * @param {boolean=} [strictDi=false] Whether the injector should be in strict mode, which
  *     disallows argument name annotation inference.
@@ -3571,8 +3571,8 @@ function annotate(fn, strictDi, name) {
  * @description
  * Return an instance of the service.
  *
- * @param {string} name The name of the instance to retrieve.
- * @param {string=} caller An optional string to provide the origin of the function call for error messages.
+ * @param {String} name The name of the instance to retrieve.
+ * @param {String=} caller An optional String to provide the origin of the function call for error messages.
  * @return {*} The instance.
  */
 
@@ -3583,7 +3583,7 @@ function annotate(fn, strictDi, name) {
  * @description
  * Invoke the method and supply the method arguments from the `$injector`.
  *
- * @param {Function|Array.<string|Function>} fn The injectable function to invoke. Function parameters are
+ * @param {Function|Array.<String|Function>} fn The injectable function to invoke. Function parameters are
  *   injected according to the {@link guide/di $inject Annotation} rules.
  * @param {Object=} self The `this` for the invoked method.
  * @param {Object=} locals Optional object. If preset then any argument names are read from this
@@ -3598,7 +3598,7 @@ function annotate(fn, strictDi, name) {
  * @description
  * Allows the user to query if the particular service exists.
  *
- * @param {string} name Name of the service to query.
+ * @param {String} name Name of the service to query.
  * @returns {boolean} `true` if injector has given service.
  */
 
@@ -3629,7 +3629,7 @@ function annotate(fn, strictDi, name) {
  * # Argument names
  *
  * The simplest form is to extract the dependencies from the arguments of the function. This is done
- * by converting the function into a string using `toString()` method and extracting the argument
+ * by converting the function into a String using `toString()` method and extracting the argument
  * names.
  * ```js
  *   // Given
@@ -3648,7 +3648,7 @@ function annotate(fn, strictDi, name) {
  *
  * # The `$inject` property
  *
- * If a function has an `$inject` property and its value is an array of strings, then the strings
+ * If a function has an `$inject` property and its value is an array of Strings, then the Strings
  * represent names of services to be injected into the function.
  * ```js
  *   // Given
@@ -3692,12 +3692,12 @@ function annotate(fn, strictDi, name) {
  *    ).toEqual(['$compile', '$rootScope']);
  * ```
  *
- * @param {Function|Array.<string|Function>} fn Function for which dependent service names need to
+ * @param {Function|Array.<String|Function>} fn Function for which dependent service names need to
  * be retrieved as described above.
  *
  * @param {boolean=} [strictDi=false] Disallow argument name annotation inference.
  *
- * @returns {Array.<string>} The names of the services which the function requires.
+ * @returns {Array.<String>} The names of the services which the function requires.
  */
 
 
@@ -3763,7 +3763,7 @@ function annotate(fn, strictDi, name) {
  * which lets you specify whether the {@link ng.$log $log} service will log debug messages to the
  * console or not.
  *
- * @param {string} name The name of the instance. NOTE: the provider will be available under `name +
+ * @param {String} name The name of the instance. NOTE: the provider will be available under `name +
                         'Provider'` key.
  * @param {(Object|function())} provider If the provider is:
  *
@@ -3850,8 +3850,8 @@ function annotate(fn, strictDi, name) {
  * You should use {@link auto.$provide#factory $provide.factory(getFn)} if you do not need to
  * configure your service in a provider.
  *
- * @param {string} name The name of the instance.
- * @param {Function|Array.<string|Function>} $getFn The injectable $getFn for the instance creation.
+ * @param {String} name The name of the instance.
+ * @param {Function|Array.<String|Function>} $getFn The injectable $getFn for the instance creation.
  *                      Internally this is a short hand for `$provide.provider(name, {$get: $getFn})`.
  * @returns {Object} registered provider instance
  *
@@ -3886,8 +3886,8 @@ function annotate(fn, strictDi, name) {
  * You should use {@link auto.$provide#service $provide.service(class)} if you define your service
  * as a type/class.
  *
- * @param {string} name The name of the instance.
- * @param {Function|Array.<string|Function>} constructor An injectable class (constructor function)
+ * @param {String} name The name of the instance.
+ * @param {Function|Array.<String|Function>} constructor An injectable class (constructor function)
  *     that will be instantiated.
  * @returns {Object} registered provider instance
  *
@@ -3920,7 +3920,7 @@ function annotate(fn, strictDi, name) {
  * @name $provide#value
  * @description
  *
- * Register a **value service** with the {@link auto.$injector $injector}, such as a string, a
+ * Register a **value service** with the {@link auto.$injector $injector}, such as a String, a
  * number, an array, an object or a function.  This is short for registering a service where its
  * provider's `$get` property is a factory function that takes no arguments and returns the **value
  * service**.
@@ -3930,7 +3930,7 @@ function annotate(fn, strictDi, name) {
  * an Angular
  * {@link auto.$provide#decorator decorator}.
  *
- * @param {string} name The name of the instance.
+ * @param {String} name The name of the instance.
  * @param {*} value The value.
  * @returns {Object} registered provider instance
  *
@@ -3953,12 +3953,12 @@ function annotate(fn, strictDi, name) {
  * @name $provide#constant
  * @description
  *
- * Register a **constant service**, such as a string, a number, an array, an object or a function,
+ * Register a **constant service**, such as a String, a number, an array, an object or a function,
  * with the {@link auto.$injector $injector}. Unlike {@link auto.$provide#value value} it can be
  * injected into a module configuration function (see {@link angular.Module#config}) and it cannot
  * be overridden by an Angular {@link auto.$provide#decorator decorator}.
  *
- * @param {string} name The name of the constant.
+ * @param {String} name The name of the constant.
  * @param {*} value The constant value.
  * @returns {Object} registered instance
  *
@@ -3986,8 +3986,8 @@ function annotate(fn, strictDi, name) {
  * service. The object returned by the decorator may be the original service, or a new service
  * object which replaces or wraps and delegates to the original service.
  *
- * @param {string} name The name of the service to decorate.
- * @param {Function|Array.<string|Function>} decorator This function will be invoked when the service needs to be
+ * @param {String} name The name of the service to decorate.
+ * @param {Function|Array.<String|Function>} decorator This function will be invoked when the service needs to be
  *    instantiated and should return the decorated service instance. The function is called using
  *    the {@link auto.$injector#invoke injector.invoke} method and is therefore fully injectable.
  *    Local injection arguments:
@@ -4146,7 +4146,7 @@ function createInjector(modulesToLoad, strictDi) {
         if (e.message && e.stack && e.stack.indexOf(e.message) == -1) {
           // Safari & FF's stack traces don't contain error.message content
           // unlike those of Chrome and IE
-          // So if stack doesn't contain message, we create a new string that contains both.
+          // So if stack doesn't contain message, we create a new String that contains both.
           // Since error.stack is read-only in Safari, I'm overriding e and not e.stack here.
           /* jshint -W022 */
           e = e.message + '\n' + e.stack;
@@ -4188,7 +4188,7 @@ function createInjector(modulesToLoad, strictDi) {
     }
 
     function invoke(fn, self, locals, serviceName) {
-      if (typeof locals === 'string') {
+      if (typeof locals === 'String') {
         serviceName = locals;
         locals = null;
       }
@@ -4200,9 +4200,9 @@ function createInjector(modulesToLoad, strictDi) {
 
       for (i = 0, length = $inject.length; i < length; i++) {
         key = $inject[i];
-        if (typeof key !== 'string') {
+        if (typeof key !== 'String') {
           throw $injectorMinErr('itkn',
-                  'Incorrect injection token! Expected service name as string, got {0}', key);
+                  'Incorrect injection token! Expected service name as String, got {0}', key);
         }
         args.push(
           locals && locals.hasOwnProperty(key)
@@ -4557,7 +4557,7 @@ var $AnimateProvider = ['$provide', function($provide) {
      *   }
    * ```
    *
-   * @param {string} name The name of the animation.
+   * @param {String} name The name of the animation.
    * @param {Function} factory The factory function that will be executed to return the animation
    *                           object.
    */
@@ -4757,7 +4757,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * When the function is called a promise is returned that will be resolved at a later time.
        * @param {DOMElement} element the element which will have the className value
        *   added to it
-       * @param {string} className the CSS class which will be added to the element
+       * @param {String} className the CSS class which will be added to the element
        * @param {object=} options an optional collection of options that will be applied to the element.
        * @return {Promise} the animation callback promise
        */
@@ -4786,7 +4786,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * When the function is called a promise is returned that will be resolved at a later time.
        * @param {DOMElement} element the element which will have the className value
        *   removed from it
-       * @param {string} className the CSS class which will be removed from the element
+       * @param {String} className the CSS class which will be removed from the element
        * @param {object=} options an optional collection of options that will be applied to the element.
        * @return {Promise} the animation callback promise
        */
@@ -4815,8 +4815,8 @@ var $AnimateProvider = ['$provide', function($provide) {
        * When the function is called a promise is returned that will be resolved at a later time.
        * @param {DOMElement} element the element which will have its CSS classes changed
        *   removed from it
-       * @param {string} add the CSS classes which will be added to the element
-       * @param {string} remove the CSS class which will be removed from the element
+       * @param {String} add the CSS classes which will be added to the element
+       * @param {String} remove the CSS class which will be removed from the element
        * @param {object=} options an optional collection of options that will be applied to the element.
        * @return {Promise} the animation callback promise
        */
@@ -5042,7 +5042,7 @@ function Browser(window, document, $log, $sniffer) {
    * NOTE: this api is intended for use only by the $location service. Please use the
    * {@link ng.$location $location service} to change url.
    *
-   * @param {string} url New url (when used as setter)
+   * @param {String} url New url (when used as setter)
    * @param {boolean=} replace Should new url replace current history record?
    * @param {object=} state object to use with pushState/replaceState
    */
@@ -5176,8 +5176,8 @@ function Browser(window, document, $log, $sniffer) {
    * NOTE: this api is intended for use only by the $location service. Please use the
    * {@link ng.$location $location service} to monitor url changes in angular apps.
    *
-   * @param {function(string)} listener Listener function to be called when url changes.
-   * @return {function(string)} Returns the registered listener fn - handy if the fn is anonymous.
+   * @param {function(String)} listener Listener function to be called when url changes.
+   * @return {function(String)} Returns the registered listener fn - handy if the fn is anonymous.
    */
   self.onUrlChange = function(callback) {
     // TODO(vojta): refactor to use node's syntax for events
@@ -5216,7 +5216,7 @@ function Browser(window, document, $log, $sniffer) {
    * Returns current <base href>
    * (always relative - without domain)
    *
-   * @returns {string} The current base href
+   * @returns {String} The current base href
    */
   self.baseHref = function() {
     var href = baseElement.attr('href');
@@ -5241,8 +5241,8 @@ function Browser(window, document, $log, $sniffer) {
   /**
    * @name $browser#cookies
    *
-   * @param {string=} name Cookie name
-   * @param {string=} value Cookie value
+   * @param {String=} name Cookie name
+   * @param {String=} value Cookie value
    *
    * @description
    * The cookies method provides a 'private' low level access to browser cookies.
@@ -5291,12 +5291,12 @@ function Browser(window, document, $log, $sniffer) {
           cookie = cookieArray[i];
           index = cookie.indexOf('=');
           if (index > 0) { //ignore nameless cookies
-            name = safeDecodeURIComponent(cookie.substring(0, index));
+            name = safeDecodeURIComponent(cookie.subString(0, index));
             // the first value that is seen for a cookie is the most
             // specific one.  values for the same cookie name that
             // follow are for less specific paths.
             if (lastCookies[name] === undefined) {
-              lastCookies[name] = safeDecodeURIComponent(cookie.substring(index + 1));
+              lastCookies[name] = safeDecodeURIComponent(cookie.subString(index + 1));
             }
           }
         }
@@ -5384,7 +5384,7 @@ function $BrowserProvider() {
  * ```
  *
  *
- * @param {string} cacheId Name or id of the newly created cache.
+ * @param {String} cacheId Name or id of the newly created cache.
  * @param {object=} options Options object that specifies the cache behavior. Properties:
  *
  *   - `{number=}` `capacity` — turns the cache into LRU cache.
@@ -5392,10 +5392,10 @@ function $BrowserProvider() {
  * @returns {object} Newly created cache object with the following set of methods:
  *
  * - `{object}` `info()` — Returns id, size, and options of cache.
- * - `{{*}}` `put({string} key, {*} value)` — Puts a new key-value pair into the cache and returns
+ * - `{{*}}` `put({String} key, {*} value)` — Puts a new key-value pair into the cache and returns
  *   it.
- * - `{{*}}` `get({string} key)` — Returns cached value for `key` or undefined for cache miss.
- * - `{void}` `remove({string} key)` — Removes a key-value pair from the cache.
+ * - `{{*}}` `get({String} key)` — Returns cached value for `key` or undefined for cache miss.
+ * - `{void}` `remove({String} key)` — Removes a key-value pair from the cache.
  * - `{void}` `removeAll()` — Removes all cached values.
  * - `{void}` `destroy()` — Removes references to this cache from $cacheFactory.
  *
@@ -5514,7 +5514,7 @@ function $CacheFactoryProvider() {
          *
          * It will not insert undefined values into the cache.
          *
-         * @param {string} key the key under which the cached data is stored.
+         * @param {String} key the key under which the cached data is stored.
          * @param {*} value the value to store alongside the key. If it is undefined, the key
          *    will not be stored.
          * @returns {*} the value stored.
@@ -5545,7 +5545,7 @@ function $CacheFactoryProvider() {
          * @description
          * Retrieves named data stored in the {@link $cacheFactory.Cache Cache} object.
          *
-         * @param {string} key the key of the data to be retrieved
+         * @param {String} key the key of the data to be retrieved
          * @returns {*} the value stored.
          */
         get: function(key) {
@@ -5569,7 +5569,7 @@ function $CacheFactoryProvider() {
          * @description
          * Removes an entry from the {@link $cacheFactory.Cache Cache} object.
          *
-         * @param {string} key the key of the entry to be removed
+         * @param {String} key the key of the entry to be removed
          */
         remove: function(key) {
           if (capacity < Number.MAX_VALUE) {
@@ -5700,7 +5700,7 @@ function $CacheFactoryProvider() {
    * @description
    * Get access to a cache object by the `cacheId` used when it was created.
    *
-   * @param {string} cacheId Name or id of a cache to access.
+   * @param {String} cacheId Name or id of a cache to access.
    * @returns {object} Cache object identified by the cacheId or undefined if no such cache.
    */
     cacheFactory.get = function(cacheId) {
@@ -5796,7 +5796,7 @@ function $TemplateCacheProvider() {
  * @kind function
  *
  * @description
- * Compiles an HTML string or DOM into a template and produces a template function, which
+ * Compiles an HTML String or DOM into a template and produces a template function, which
  * can then be used to link {@link ng.$rootScope.Scope `scope`} and the template together.
  *
  * The compilation is a process of walking the DOM tree and matching DOM elements to
@@ -5836,7 +5836,7 @@ function $TemplateCacheProvider() {
  *       templateNamespace: 'html',
  *       scope: false,
  *       controller: function($scope, $element, $attrs, $transclude, otherInjectables) { ... },
- *       controllerAs: 'stringIdentifier',
+ *       controllerAs: 'StringIdentifier',
  *       bindToController: false,
  *       require: 'siblingDirectiveName', // or // ['^parentDirectiveName', '?optionalDirectiveName', '?^optionalParent'],
  *       compile: function compile(tElement, tAttrs, transclude) {
@@ -5921,7 +5921,7 @@ function $TemplateCacheProvider() {
  * templates. Locals definition is a hash of local scope property to its source:
  *
  * * `@` or `@attr` - bind a local scope property to the value of DOM attribute. The result is
- *   always a string since DOM attributes are strings. If no `attr` name is specified  then the
+ *   always a String since DOM attributes are Strings. If no `attr` name is specified  then the
  *   attribute name is assumed to be the same as the local name.
  *   Given `<widget my-attr="hello {{name}}">` and widget definition
  *   of `scope: { localName:'@myAttr' }`, then widget scope property `localName` will reflect
@@ -5982,7 +5982,7 @@ function $TemplateCacheProvider() {
  *
  * #### `require`
  * Require another directive and inject its controller as the fourth argument to the linking function. The
- * `require` takes a string name (or array of strings) of the directive(s) to pass in. If an array is used, the
+ * `require` takes a String name (or array of Strings) of the directive(s) to pass in. If an array is used, the
  * injected argument will be an array in corresponding order. If no such directive can be
  * found, or if the directive does not have a controller, then an error is raised (unless no link function
  * is specified, in which case error checking is skipped). The name can be prefixed with:
@@ -6033,9 +6033,9 @@ function $TemplateCacheProvider() {
  *
  * Value may be:
  *
- * * A string. For example `<div red-on-hover>{{delete_str}}</div>`.
+ * * A String. For example `<div red-on-hover>{{delete_str}}</div>`.
  * * A function which takes two arguments `tElement` and `tAttrs` (described in the `compile`
- *   function api below) and returns a string value.
+ *   function api below) and returns a String value.
  *
  *
  * #### `templateUrl`
@@ -6051,9 +6051,9 @@ function $TemplateCacheProvider() {
  *
  * Template loading is asynchronous even if the template has been preloaded into the {@link $templateCache}
  *
- * You can specify `templateUrl` as a string representing the URL or as a function which takes two
+ * You can specify `templateUrl` as a String representing the URL or as a function which takes two
  * arguments `tElement` and `tAttrs` (described in the `compile` function api below) and returns
- * a string value representing the url.  In either case, the template URL is passed through {@link
+ * a String value representing the url.  In either case, the template URL is passed through {@link
  * $sce#getTrustedResourceUrl $sce.getTrustedResourceUrl}.
  *
  *
@@ -6159,7 +6159,7 @@ function $TemplateCacheProvider() {
  *   * `controller` - the directive's required controller instance(s) - Instances are shared
  *     among all directives, which allows the directives to use the controllers as a communication
  *     channel. The exact value depends on the directive's `require` property:
- *       * `string`: the controller instance
+ *       * `String`: the controller instance
  *       * `array`: array of controller instances
  *       * no controller(s) required: `undefined`
  *
@@ -6401,7 +6401,7 @@ function $TemplateCacheProvider() {
 
  *
  *
- * @param {string|DOMElement} element Element or HTML string to compile into a template function.
+ * @param {String|DOMElement} element Element or HTML String to compile into a template function.
  * @param {function(angular.Scope, cloneAttachFn=)} transclude function available to directives - DEPRECATED.
  *
  * <div class="alert alert-error">
@@ -6526,7 +6526,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
    * @description
    * Register a new directive with the compiler.
    *
-   * @param {string|Object} name Name of the directive in camel-case (i.e. <code>ngBind</code> which
+   * @param {String|Object} name Name of the directive in camel-case (i.e. <code>ngBind</code> which
    *    will match as <code>ng-bind</code>), or an object map of directives where the keys are the
    *    names and the values are the factories.
    * @param {Function|Array} directiveFactory An injectable directive factory function. See
@@ -6588,7 +6588,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
    * Any url about to be assigned to a[href] via data-binding is first normalized and turned into
    * an absolute url. Afterwards, the url is matched against the `aHrefSanitizationWhitelist`
    * regular expression. If a match is found, the original url is written into the dom. Otherwise,
-   * the absolute url is prefixed with `'unsafe:'` string and only then is it written into the DOM.
+   * the absolute url is prefixed with `'unsafe:'` String and only then is it written into the DOM.
    *
    * @param {RegExp=} regexp New regexp to whitelist urls with.
    * @returns {RegExp|ng.$compileProvider} Current RegExp if called without value or self for
@@ -6618,7 +6618,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
    * Any url about to be assigned to img[src] via data-binding is first normalized and turned into
    * an absolute url. Afterwards, the url is matched against the `imgSrcSanitizationWhitelist`
    * regular expression. If a match is found, the original url is written into the dom. Otherwise,
-   * the absolute url is prefixed with `'unsafe:'` string and only then is it written into the DOM.
+   * the absolute url is prefixed with `'unsafe:'` String and only then is it written into the DOM.
    *
    * @param {RegExp=} regexp New regexp to whitelist urls with.
    * @returns {RegExp|ng.$compileProvider} Current RegExp if called without value or self for
@@ -6693,14 +6693,14 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
        * @kind function
        *
        * @description
-       * Converts an attribute name (e.g. dash/colon/underscore-delimited string, optionally prefixed with `x-` or
+       * Converts an attribute name (e.g. dash/colon/underscore-delimited String, optionally prefixed with `x-` or
        * `data-`) to its normalized, camelCase form.
        *
        * Also there is special case for Moz prefix starting with upper case letter.
        *
        * For further information check out the guide on {@link guide/directive#matching-directives Matching Directives}
        *
-       * @param {string} name Name to normalize
+       * @param {String} name Name to normalize
        */
       $normalize: directiveNormalize,
 
@@ -6714,7 +6714,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
        * Adds the CSS class value specified by the classVal parameter to the element. If animations
        * are enabled then an animation will be triggered for the class addition.
        *
-       * @param {string} classVal The className value that will be added to the element
+       * @param {String} classVal The className value that will be added to the element
        */
       $addClass: function(classVal) {
         if (classVal && classVal.length > 0) {
@@ -6731,7 +6731,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
        * Removes the CSS class value specified by the classVal parameter from the element. If
        * animations are enabled then an animation will be triggered for the class removal.
        *
-       * @param {string} classVal The className value that will be removed from the element
+       * @param {String} classVal The className value that will be removed from the element
        */
       $removeClass: function(classVal) {
         if (classVal && classVal.length > 0) {
@@ -6748,8 +6748,8 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
        * Adds and removes the appropriate CSS class values to the element based on the difference
        * between the new and old CSS class values (specified as newClasses and oldClasses).
        *
-       * @param {string} newClasses The current CSS className value
-       * @param {string} oldClasses The former CSS className value
+       * @param {String} newClasses The current CSS className value
+       * @param {String} oldClasses The former CSS className value
        */
       $updateClass: function(newClasses, oldClasses) {
         var toAdd = tokenDifference(newClasses, oldClasses);
@@ -6766,11 +6766,11 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       /**
        * Set a normalized attribute on the element in a way such that all directives
        * can share the attribute. This function properly handles boolean attributes.
-       * @param {string} key Normalized key. (ie ngAttribute)
-       * @param {string|boolean} value The value to set. If `null` attribute will be deleted.
+       * @param {String} key Normalized key. (ie ngAttribute)
+       * @param {String|boolean} value The value to set. If `null` attribute will be deleted.
        * @param {boolean=} writeAttr If false, does not write the value to DOM element attribute.
        *     Defaults to true.
-       * @param {string=} attrName Optional none normalized name. Defaults to key.
+       * @param {String=} attrName Optional none normalized name. Defaults to key.
        */
       $set: function(key, value, writeAttr, attrName) {
         // TODO: decide whether or not to throw an error if "class"
@@ -6877,7 +6877,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
        * compilation. The observer is then invoked whenever the interpolated value
        * changes.
        *
-       * @param {string} key Normalized key. (ie ngAttribute) .
+       * @param {String} key Normalized key. (ie ngAttribute) .
        * @param {function(interpolatedValue)} fn Function that will be called whenever
                 the interpolated value of the attribute changes.
        *        See the {@link guide/directive#text-and-attribute-bindings Directives} guide for more info.
@@ -7577,7 +7577,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
         var match;
         if (isString(require)) {
           match = require.match(REQUIRE_PREFIX_REGEXP);
-          require = require.substring(match[0].length);
+          require = require.subString(match[0].length);
 
           if (match[3]) {
             if (match[1]) match[3] = null;
@@ -7831,8 +7831,8 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
      * looks up the directive and decorates it with exception handling and proper parameters. We
      * call this the boundDirective.
      *
-     * @param {string} name name of the directive to look up.
-     * @param {string} location The directive must be found in specific format.
+     * @param {String} name name of the directive to look up.
+     * @param {String} location The directive must be found in specific format.
      *   String containing any of theses characters:
      *
      *   * `E`: element name
@@ -7870,7 +7870,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
      * and therefore requires DOM nodes between -start and -end markers to be grouped
      * together.
      *
-     * @param {string} name name of the directive to look up.
+     * @param {String} name name of the directive to look up.
      * @returns true if directive was registered as multi-element.
      */
     function directiveIsMultiElement(name) {
@@ -8328,10 +8328,10 @@ function directiveNormalize(name) {
  * Set DOM element attribute value.
  *
  *
- * @param {string} name Normalized element attribute name of the property to modify. The name is
+ * @param {String} name Normalized element attribute name of the property to modify. The name is
  *          reverse-translated using the {@link ng.$compile.directive.Attributes#$attr $attr}
  *          property to the original name.
- * @param {string} value Value to set the attribute to. The value can be an interpolated string.
+ * @param {String} value Value to set the attribute to. The value can be an interpolated String.
  */
 
 
@@ -8409,7 +8409,7 @@ function $ControllerProvider() {
   /**
    * @ngdoc method
    * @name $controllerProvider#register
-   * @param {string|Object} name Controller name, or an object map of controllers where the keys are
+   * @param {String|Object} name Controller name, or an object map of controllers where the keys are
    *    the names and the values are the constructors.
    * @param {Function|Array} constructor Controller constructor fn (optionally decorated with DI
    *    annotations in the array notation).
@@ -8440,16 +8440,16 @@ function $ControllerProvider() {
      * @name $controller
      * @requires $injector
      *
-     * @param {Function|string} constructor If called with a function then it's considered to be the
-     *    controller constructor function. Otherwise it's considered to be a string which is used
+     * @param {Function|String} constructor If called with a function then it's considered to be the
+     *    controller constructor function. Otherwise it's considered to be a String which is used
      *    to retrieve the controller constructor using the following steps:
      *
      *    * check if a controller with given name is registered via `$controllerProvider`
-     *    * check if evaluating the string on the current scope returns a constructor
+     *    * check if evaluating the String on the current scope returns a constructor
      *    * if $controllerProvider#allowGlobals, check `window[constructor]` on the global
      *      `window` object (not recommended)
      *
-     *    The string can use the `controller as property` syntax, where the controller instance is published
+     *    The String can use the `controller as property` syntax, where the controller instance is published
      *    as the specified property on the `scope`; the `scope` must be injected into `locals` param for this
      *    to work correctly.
      *
@@ -8480,7 +8480,7 @@ function $ControllerProvider() {
         match = expression.match(CNTRL_REG);
         if (!match) {
           throw $controllerMinErr('ctrlfmt',
-            "Badly formed controller string '{0}'. " +
+            "Badly formed controller String '{0}'. " +
             "Must match `__name__ as __id__` or `__name__`.", expression);
         }
         constructor = match[1],
@@ -8609,7 +8609,7 @@ function $DocumentProvider() {
  * `try { ... } catch(e) { $exceptionHandler(e); }`
  *
  * @param {Error} exception Exception associated with the error.
- * @param {string=} cause optional information about the context in which
+ * @param {String=} cause optional information about the context in which
  *       the error was thrown.
  *
  */
@@ -8654,7 +8654,7 @@ function isJsonLike(str) {
 /**
  * Parse headers into key value object
  *
- * @param {string} headers Raw headers as a string
+ * @param {String} headers Raw headers as a String
  * @returns {Object} Parsed headers as key value object
  */
 function parseHeaders(headers) {
@@ -8682,8 +8682,8 @@ function parseHeaders(headers) {
  * Headers are lazy parsed when first requested.
  * @see parseHeaders
  *
- * @param {(string|Object)} headers Headers to provide access to.
- * @returns {function(string=)} Returns a getter function which if called with:
+ * @param {(String|Object)} headers Headers to provide access to.
+ * @returns {function(String=)} Returns a getter function which if called with:
  *
  *   - if called with single an argument returns a single header value or null
  *   - if called with no arguments returns an object containing all headers.
@@ -8713,7 +8713,7 @@ function headersGetter(headers) {
  * This function is used for both request and response transforming
  *
  * @param {*} data Data to transform.
- * @param {function(string=)} headers HTTP headers getter fn.
+ * @param {function(String=)} headers HTTP headers getter fn.
  * @param {number} status HTTP status code of the response.
  * @param {(Function|Array.<Function>)} fns Function or an array of functions.
  * @returns {*} Transformed data.
@@ -8754,10 +8754,10 @@ function $HttpProvider() {
    * If you set the `default.cache = false` then only requests that specify their own custom
    * cache object will be cached. See {@link $http#caching $http Caching} for more information.
    *
-   * - **`defaults.xsrfCookieName`** - {string} - Name of cookie containing the XSRF token.
+   * - **`defaults.xsrfCookieName`** - {String} - Name of cookie containing the XSRF token.
    * Defaults value is `'XSRF-TOKEN'`.
    *
-   * - **`defaults.xsrfHeaderName`** - {string} - Name of HTTP header to populate with the
+   * - **`defaults.xsrfHeaderName`** - {String} - Name of HTTP header to populate with the
    * XSRF token. Defaults value is `'X-XSRF-TOKEN'`.
    *
    * - **`defaults.headers`** - {Object} - Default headers for all $http requests.
@@ -9184,7 +9184,7 @@ function $HttpProvider() {
      * A [JSON vulnerability](http://haacked.com/archive/2008/11/20/anatomy-of-a-subtle-json-vulnerability.aspx)
      * allows third party website to turn your JSON resource URL into
      * [JSONP](http://en.wikipedia.org/wiki/JSONP) request under some conditions. To
-     * counter this your server can prefix all JSON requests with following string `")]}',\n"`.
+     * counter this your server can prefix all JSON requests with following String `")]}',\n"`.
      * Angular will automatically strip the prefix before processing it as JSON.
      *
      * For example if your server needs to return:
@@ -9228,17 +9228,17 @@ function $HttpProvider() {
      * @param {object} config Object describing the request to be made and how it should be
      *    processed. The object has following properties:
      *
-     *    - **method** – `{string}` – HTTP method (e.g. 'GET', 'POST', etc)
-     *    - **url** – `{string}` – Absolute or relative URL of the resource that is being requested.
-     *    - **params** – `{Object.<string|Object>}` – Map of strings or objects which will be turned
-     *      to `?key1=value1&key2=value2` after the url. If the value is not a string, it will be
+     *    - **method** – `{String}` – HTTP method (e.g. 'GET', 'POST', etc)
+     *    - **url** – `{String}` – Absolute or relative URL of the resource that is being requested.
+     *    - **params** – `{Object.<String|Object>}` – Map of Strings or objects which will be turned
+     *      to `?key1=value1&key2=value2` after the url. If the value is not a String, it will be
      *      JSONified.
-     *    - **data** – `{string|Object}` – Data to be sent as the request message data.
-     *    - **headers** – `{Object}` – Map of strings or functions which return strings representing
+     *    - **data** – `{String|Object}` – Data to be sent as the request message data.
+     *    - **headers** – `{Object}` – Map of Strings or functions which return Strings representing
      *      HTTP headers to send to the server. If the return value of a function is null, the
      *      header will not be sent.
-     *    - **xsrfHeaderName** – `{string}` – Name of HTTP header to populate with the XSRF token.
-     *    - **xsrfCookieName** – `{string}` – Name of cookie containing the XSRF token.
+     *    - **xsrfHeaderName** – `{String}` – Name of HTTP header to populate with the XSRF token.
+     *    - **xsrfCookieName** – `{String}` – Name of cookie containing the XSRF token.
      *    - **transformRequest** –
      *      `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` –
      *      transform function or an array of such functions. The transform function takes the http
@@ -9260,7 +9260,7 @@ function $HttpProvider() {
      *    - **withCredentials** - `{boolean}` - whether to set the `withCredentials` flag on the
      *      XHR object. See [requests with credentials](https://developer.mozilla.org/docs/Web/HTTP/Access_control_CORS#Requests_with_credentials)
      *      for more information.
-     *    - **responseType** - `{string}` - see
+     *    - **responseType** - `{String}` - see
      *      [requestType](https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#responseType).
      *
      * @returns {HttpPromise} Returns a {@link ng.$q promise} object with the
@@ -9271,12 +9271,12 @@ function $HttpProvider() {
      *   these functions are destructured representation of the response object passed into the
      *   `then` method. The response object has these properties:
      *
-     *   - **data** – `{string|Object}` – The response body transformed with the transform
+     *   - **data** – `{String|Object}` – The response body transformed with the transform
      *     functions.
      *   - **status** – `{number}` – HTTP status code of the response.
      *   - **headers** – `{function([headerName])}` – Header getter function.
      *   - **config** – `{Object}` – The configuration object that was used to generate the request.
-     *   - **statusText** – `{string}` – HTTP status text of the response.
+     *   - **statusText** – `{String}` – HTTP status text of the response.
      *
      * @property {Array.<Object>} pendingRequests Array of config objects for currently pending
      *   requests. This is primarily meant to be used for debugging purposes.
@@ -9511,7 +9511,7 @@ function $HttpProvider() {
      * @description
      * Shortcut method to perform `GET` request.
      *
-     * @param {string} url Relative or absolute URL specifying the destination of the request
+     * @param {String} url Relative or absolute URL specifying the destination of the request
      * @param {Object=} config Optional configuration object
      * @returns {HttpPromise} Future object
      */
@@ -9523,7 +9523,7 @@ function $HttpProvider() {
      * @description
      * Shortcut method to perform `DELETE` request.
      *
-     * @param {string} url Relative or absolute URL specifying the destination of the request
+     * @param {String} url Relative or absolute URL specifying the destination of the request
      * @param {Object=} config Optional configuration object
      * @returns {HttpPromise} Future object
      */
@@ -9535,7 +9535,7 @@ function $HttpProvider() {
      * @description
      * Shortcut method to perform `HEAD` request.
      *
-     * @param {string} url Relative or absolute URL specifying the destination of the request
+     * @param {String} url Relative or absolute URL specifying the destination of the request
      * @param {Object=} config Optional configuration object
      * @returns {HttpPromise} Future object
      */
@@ -9547,8 +9547,8 @@ function $HttpProvider() {
      * @description
      * Shortcut method to perform `JSONP` request.
      *
-     * @param {string} url Relative or absolute URL specifying the destination of the request.
-     *                     The name of the callback should be the string `JSON_CALLBACK`.
+     * @param {String} url Relative or absolute URL specifying the destination of the request.
+     *                     The name of the callback should be the String `JSON_CALLBACK`.
      * @param {Object=} config Optional configuration object
      * @returns {HttpPromise} Future object
      */
@@ -9561,7 +9561,7 @@ function $HttpProvider() {
      * @description
      * Shortcut method to perform `POST` request.
      *
-     * @param {string} url Relative or absolute URL specifying the destination of the request
+     * @param {String} url Relative or absolute URL specifying the destination of the request
      * @param {*} data Request content
      * @param {Object=} config Optional configuration object
      * @returns {HttpPromise} Future object
@@ -9574,7 +9574,7 @@ function $HttpProvider() {
      * @description
      * Shortcut method to perform `PUT` request.
      *
-     * @param {string} url Relative or absolute URL specifying the destination of the request
+     * @param {String} url Relative or absolute URL specifying the destination of the request
      * @param {*} data Request content
      * @param {Object=} config Optional configuration object
      * @returns {HttpPromise} Future object
@@ -9587,7 +9587,7 @@ function $HttpProvider() {
       * @description
       * Shortcut method to perform `PATCH` request.
       *
-      * @param {string} url Relative or absolute URL specifying the destination of the request
+      * @param {String} url Relative or absolute URL specifying the destination of the request
       * @param {*} data Request content
       * @param {Object=} config Optional configuration object
       * @returns {HttpPromise} Future object
@@ -9999,10 +9999,10 @@ function $InterpolateProvider() {
    * @ngdoc method
    * @name $interpolateProvider#startSymbol
    * @description
-   * Symbol to denote start of expression in the interpolated string. Defaults to `{{`.
+   * Symbol to denote start of expression in the interpolated String. Defaults to `{{`.
    *
-   * @param {string=} value new value to set the starting symbol to.
-   * @returns {string|self} Returns the symbol when used as getter and self if used as setter.
+   * @param {String=} value new value to set the starting symbol to.
+   * @returns {String|self} Returns the symbol when used as getter and self if used as setter.
    */
   this.startSymbol = function(value) {
     if (value) {
@@ -10017,10 +10017,10 @@ function $InterpolateProvider() {
    * @ngdoc method
    * @name $interpolateProvider#endSymbol
    * @description
-   * Symbol to denote the end of expression in the interpolated string. Defaults to `}}`.
+   * Symbol to denote the end of expression in the interpolated String. Defaults to `}}`.
    *
-   * @param {string=} value new value to set the ending symbol to.
-   * @returns {string|self} Returns the symbol when used as getter and self if used as setter.
+   * @param {String=} value new value to set the ending symbol to.
+   * @returns {String|self} Returns the symbol when used as getter and self if used as setter.
    */
   this.endSymbol = function(value) {
     if (value) {
@@ -10052,7 +10052,7 @@ function $InterpolateProvider() {
      *
      * @description
      *
-     * Compiles a string with markup into an interpolation function. This service is used by the
+     * Compiles a String with markup into an interpolation function. This service is used by the
      * HTML {@link ng.$compile $compile} service for data binding. See
      * {@link ng.$interpolateProvider $interpolateProvider} for configuring the
      * interpolation markup.
@@ -10121,18 +10121,18 @@ function $InterpolateProvider() {
      *  </file>
      * </example>
      *
-     * @param {string} text The text with markup to interpolate.
-     * @param {boolean=} mustHaveExpression if set to true then the interpolation string must have
+     * @param {String} text The text with markup to interpolate.
+     * @param {boolean=} mustHaveExpression if set to true then the interpolation String must have
      *    embedded expression in order to return an interpolation function. Strings with no
      *    embedded expression will return null for the interpolation function.
-     * @param {string=} trustedContext when provided, the returned function passes the interpolated
+     * @param {String=} trustedContext when provided, the returned function passes the interpolated
      *    result through {@link ng.$sce#getTrusted $sce.getTrusted(interpolatedResult,
      *    trustedContext)} before returning it.  Refer to the {@link ng.$sce $sce} service that
      *    provides Strict Contextual Escaping for details.
      * @param {boolean=} allOrNothing if `true`, then the returned function returns undefined
      *    unless all embedded expressions evaluate to a value other than `undefined`.
      * @returns {function(context)} an interpolation function which is used to compute the
-     *    interpolated string. The function has these parameters:
+     *    interpolated String. The function has these parameters:
      *
      * - `context`: evaluation context for all expressions embedded in the interpolated text
      */
@@ -10152,9 +10152,9 @@ function $InterpolateProvider() {
         if (((startIndex = text.indexOf(startSymbol, index)) != -1) &&
              ((endIndex = text.indexOf(endSymbol, startIndex + startSymbolLength)) != -1)) {
           if (index !== startIndex) {
-            concat.push(unescapeText(text.substring(index, startIndex)));
+            concat.push(unescapeText(text.subString(index, startIndex)));
           }
-          exp = text.substring(startIndex + startSymbolLength, endIndex);
+          exp = text.subString(startIndex + startSymbolLength, endIndex);
           expressions.push(exp);
           parseFns.push($parse(exp, parseStringifyInterceptor));
           index = endIndex + endSymbolLength;
@@ -10163,7 +10163,7 @@ function $InterpolateProvider() {
         } else {
           // we did not find an interpolation, so we have to add the remainder to the separators array
           if (index !== textLength) {
-            concat.push(unescapeText(text.substring(index)));
+            concat.push(unescapeText(text.subString(index)));
           }
           break;
         }
@@ -10197,12 +10197,12 @@ function $InterpolateProvider() {
             $sce.valueOf(value);
         };
 
-        var stringify = function(value) {
+        var Stringify = function(value) {
           if (value == null) { // null || undefined
             return '';
           }
           switch (typeof value) {
-            case 'string':
+            case 'String':
               break;
             case 'number':
               value = '' + value;
@@ -10256,7 +10256,7 @@ function $InterpolateProvider() {
       function parseStringifyInterceptor(value) {
         try {
           value = getValue(value);
-          return allOrNothing && !isDefined(value) ? value : stringify(value);
+          return allOrNothing && !isDefined(value) ? value : Stringify(value);
         } catch (err) {
           var newErr = $interpolateMinErr('interr', "Can't interpolate: {0}\n{1}", text,
             err.toString());
@@ -10270,12 +10270,12 @@ function $InterpolateProvider() {
      * @ngdoc method
      * @name $interpolate#startSymbol
      * @description
-     * Symbol to denote the start of expression in the interpolated string. Defaults to `{{`.
+     * Symbol to denote the start of expression in the interpolated String. Defaults to `{{`.
      *
      * Use {@link ng.$interpolateProvider#startSymbol `$interpolateProvider.startSymbol`} to change
      * the symbol.
      *
-     * @returns {string} start symbol.
+     * @returns {String} start symbol.
      */
     $interpolate.startSymbol = function() {
       return startSymbol;
@@ -10286,12 +10286,12 @@ function $InterpolateProvider() {
      * @ngdoc method
      * @name $interpolate#endSymbol
      * @description
-     * Symbol to denote the end of expression in the interpolated string. Defaults to `}}`.
+     * Symbol to denote the end of expression in the interpolated String. Defaults to `}}`.
      *
      * Use {@link ng.$interpolateProvider#endSymbol `$interpolateProvider.endSymbol`} to change
      * the symbol.
      *
-     * @returns {string} end symbol.
+     * @returns {String} end symbol.
      */
     $interpolate.endSymbol = function() {
       return endSymbol;
@@ -10494,7 +10494,7 @@ function $IntervalProvider() {
  * $locale service provides localization rules for various Angular components. As of right now the
  * only public api is:
  *
- * * `id` – `{string}` – locale id formatted as `languageId-countryId` (e.g. `en-us`)
+ * * `id` – `{String}` – locale id formatted as `languageId-countryId` (e.g. `en-us`)
  */
 function $LocaleProvider() {
   this.$get = function() {
@@ -10574,8 +10574,8 @@ var $locationMinErr = minErr('$location');
 /**
  * Encode path using encodeUriSegment, ignoring forward slashes
  *
- * @param {string} path Path to encode
- * @returns {string}
+ * @param {String} path Path to encode
+ * @returns {String}
  */
 function encodePath(path) {
   var segments = path.split('/'),
@@ -10604,7 +10604,7 @@ function parseAppUrl(relativeUrl, locationObj) {
   }
   var match = urlResolve(relativeUrl);
   locationObj.$$path = decodeURIComponent(prefixed && match.pathname.charAt(0) === '/' ?
-      match.pathname.substring(1) : match.pathname);
+      match.pathname.subString(1) : match.pathname);
   locationObj.$$search = parseKeyValue(match.search);
   locationObj.$$hash = decodeURIComponent(match.hash);
 
@@ -10617,10 +10617,10 @@ function parseAppUrl(relativeUrl, locationObj) {
 
 /**
  *
- * @param {string} begin
- * @param {string} whole
- * @returns {string} returns text from whole after begin or undefined if it does not begin with
- *                   expected string.
+ * @param {String} begin
+ * @param {String} whole
+ * @returns {String} returns text from whole after begin or undefined if it does not begin with
+ *                   expected String.
  */
 function beginsWith(begin, whole) {
   if (whole.indexOf(begin) === 0) {
@@ -10645,7 +10645,7 @@ function stripFile(url) {
 
 /* return the server only (scheme://host:port) */
 function serverBase(url) {
-  return url.substring(0, url.indexOf('/', url.indexOf('//') + 2));
+  return url.subString(0, url.indexOf('/', url.indexOf('//') + 2));
 }
 
 
@@ -10654,9 +10654,9 @@ function serverBase(url) {
  * This object is exposed as $location service when HTML5 mode is enabled and supported
  *
  * @constructor
- * @param {string} appBase application base URL
- * @param {string} appBaseNoFile application base URL stripped of any filename
- * @param {string} basePrefix url path prefix
+ * @param {String} appBase application base URL
+ * @param {String} appBaseNoFile application base URL stripped of any filename
+ * @param {String} basePrefix url path prefix
  */
 function LocationHtml5Url(appBase, appBaseNoFile, basePrefix) {
   this.$$html5 = true;
@@ -10665,8 +10665,8 @@ function LocationHtml5Url(appBase, appBaseNoFile, basePrefix) {
 
 
   /**
-   * Parse given html5 (regular) url string into properties
-   * @param {string} url HTML5 url
+   * Parse given html5 (regular) url String into properties
+   * @param {String} url HTML5 url
    * @private
    */
   this.$$parse = function(url) {
@@ -10733,9 +10733,9 @@ function LocationHtml5Url(appBase, appBaseNoFile, basePrefix) {
  * It also serves as the base class for html5 mode fallback on legacy browsers.
  *
  * @constructor
- * @param {string} appBase application base URL
- * @param {string} appBaseNoFile application base URL stripped of any filename
- * @param {string} hashPrefix hashbang prefix
+ * @param {String} appBase application base URL
+ * @param {String} appBaseNoFile application base URL stripped of any filename
+ * @param {String} hashPrefix hashbang prefix
  */
 function LocationHashbangUrl(appBase, appBaseNoFile, hashPrefix) {
 
@@ -10744,7 +10744,7 @@ function LocationHashbangUrl(appBase, appBaseNoFile, hashPrefix) {
 
   /**
    * Parse given hashbang url into properties
-   * @param {string} url Hashbang url
+   * @param {String} url Hashbang url
    * @private
    */
   this.$$parse = function(url) {
@@ -10845,9 +10845,9 @@ function LocationHashbangUrl(appBase, appBaseNoFile, hashPrefix) {
  * does not support it.
  *
  * @constructor
- * @param {string} appBase application base URL
- * @param {string} appBaseNoFile application base URL stripped of any filename
- * @param {string} hashPrefix hashbang prefix
+ * @param {String} appBase application base URL
+ * @param {String} appBaseNoFile application base URL stripped of any filename
+ * @param {String} hashPrefix hashbang prefix
  */
 function LocationHashbangInHtml5Url(appBase, appBaseNoFile, hashPrefix) {
   this.$$html5 = true;
@@ -10920,7 +10920,7 @@ var locationPrototype = {
    * // => "http://example.com/#/some/path?foo=bar&baz=xoxo"
    * ```
    *
-   * @return {string} full url
+   * @return {String} full url
    */
   absUrl: locationGetter('$$absUrl'),
 
@@ -10942,8 +10942,8 @@ var locationPrototype = {
    * // => "/some/path?foo=bar&baz=xoxo"
    * ```
    *
-   * @param {string=} url New url without base prefix (e.g. `/path?a=b#hash`)
-   * @return {string} url
+   * @param {String=} url New url without base prefix (e.g. `/path?a=b#hash`)
+   * @return {String} url
    */
   url: function(url) {
     if (isUndefined(url))
@@ -10973,7 +10973,7 @@ var locationPrototype = {
    * // => "http"
    * ```
    *
-   * @return {string} protocol of current url
+   * @return {String} protocol of current url
    */
   protocol: locationGetter('$$protocol'),
 
@@ -11001,7 +11001,7 @@ var locationPrototype = {
    * // => "example.com:8080"
    * ```
    *
-   * @return {string} host of current url.
+   * @return {String} host of current url.
    */
   host: locationGetter('$$host'),
 
@@ -11046,8 +11046,8 @@ var locationPrototype = {
    * // => "/some/path"
    * ```
    *
-   * @param {(string|number)=} path New path
-   * @return {string} path
+   * @param {(String|number)=} path New path
+   * @return {String} path
    */
   path: locationGetterSetter('$$path', function(path) {
     path = path !== null ? path.toString() : '';
@@ -11076,7 +11076,7 @@ var locationPrototype = {
    * // $location.search() => {foo: 'yipee', baz: 'xoxo'}
    * ```
    *
-   * @param {string|Object.<string>|Object.<Array.<string>>} search New search params - string or
+   * @param {String|Object.<String>|Object.<Array.<String>>} search New search params - String or
    * hash object.
    *
    * When called with a single argument the method acts as a setter, setting the `search` component
@@ -11085,7 +11085,7 @@ var locationPrototype = {
    * If the argument is a hash object containing an array of values, these values will be encoded
    * as duplicate search parameters in the url.
    *
-   * @param {(string|Number|Array<string>|boolean)=} paramValue If `search` is a string or number, then `paramValue`
+   * @param {(String|Number|Array<String>|boolean)=} paramValue If `search` is a String or number, then `paramValue`
    * will override only a single search property.
    *
    * If `paramValue` is an array, it will override the property of the `search` component of
@@ -11117,7 +11117,7 @@ var locationPrototype = {
           this.$$search = search;
         } else {
           throw $locationMinErr('isrcharg',
-              'The first argument of the `$location#search()` call must be a string or an object.');
+              'The first argument of the `$location#search()` call must be a String or an object.');
         }
         break;
       default:
@@ -11150,8 +11150,8 @@ var locationPrototype = {
    * // => "hashValue"
    * ```
    *
-   * @param {(string|number)=} hash New hash fragment
-   * @return {string} hash
+   * @param {(String|number)=} hash New hash fragment
+   * @return {String} hash
    */
   hash: locationGetterSetter('$$hash', function(hash) {
     return hash !== null ? hash.toString() : '';
@@ -11275,7 +11275,7 @@ function $LocationProvider() {
    * @ngdoc method
    * @name $locationProvider#hashPrefix
    * @description
-   * @param {string=} prefix Prefix for hash part (containing path and search)
+   * @param {String=} prefix Prefix for hash part (containing path and search)
    * @returns {*} current value if used as getter or itself (chaining) if used as setter
    */
   this.hashPrefix = function(prefix) {
@@ -11346,10 +11346,10 @@ function $LocationProvider() {
    * the browser supports the HTML5 History API.
    *
    * @param {Object} angularEvent Synthetic event object.
-   * @param {string} newUrl New URL
-   * @param {string=} oldUrl URL that was before it was changed.
-   * @param {string=} newState New history state object
-   * @param {string=} oldState History state object that was before it was changed.
+   * @param {String} newUrl New URL
+   * @param {String=} oldUrl URL that was before it was changed.
+   * @param {String=} newState New history state object
+   * @param {String=} oldState History state object that was before it was changed.
    */
 
   /**
@@ -11363,10 +11363,10 @@ function $LocationProvider() {
    * the browser supports the HTML5 History API.
    *
    * @param {Object} angularEvent Synthetic event object.
-   * @param {string} newUrl New URL
-   * @param {string=} oldUrl URL that was before it was changed.
-   * @param {string=} newState New history state object
-   * @param {string=} oldState History state object that was before it was changed.
+   * @param {String} newUrl New URL
+   * @param {String=} oldUrl URL that was before it was changed.
+   * @param {String=} newState New history state object
+   * @param {String=} oldState History state object that was before it was changed.
    */
 
   this.$get = ['$rootScope', '$browser', '$sniffer', '$rootElement', '$window',
@@ -11766,13 +11766,13 @@ function ensureSafeMemberName(name, fullExpression) {
 
 function getStringValue(name, fullExpression) {
   // From the JavaScript docs:
-  // Property names must be strings. This means that non-string objects cannot be used
-  // as keys in an object. Any non-string object, including a number, is typecasted
-  // into a string via the toString method.
+  // Property names must be Strings. This means that non-String objects cannot be used
+  // as keys in an object. Any non-String object, including a number, is typecasted
+  // into a String via the toString method.
   //
   // So, to ensure that we are checking the same `name` that JavaScript would use,
-  // we cast it to a string, if possible.
-  // Doing `name + ''` can cause a repl error if the result to `toString` is not a string,
+  // we cast it to a String, if possible.
+  // Doing `name + ''` can cause a repl error if the result to `toString` is not a String,
   // this is, this will handle objects that misbehave.
   name = name + '';
   if (!isString(name)) {
@@ -11941,7 +11941,7 @@ Lexer.prototype = {
   },
 
   isNumber: function(ch) {
-    return ('0' <= ch && ch <= '9') && typeof ch === "string";
+    return ('0' <= ch && ch <= '9') && typeof ch === "String";
   },
 
   isWhitespace: function(ch) {
@@ -11963,7 +11963,7 @@ Lexer.prototype = {
   throwError: function(error, start, end) {
     end = end || this.index;
     var colStr = (isDefined(start)
-            ? 's ' + start +  '-' + this.index + ' [' + this.text.substring(start, end) + ']'
+            ? 's ' + start +  '-' + this.index + ' [' + this.text.subString(start, end) + ']'
             : ' ' + end);
     throw $parseMinErr('lexerr', 'Lexer Error: {0} at column{1} in expression [{2}].',
         error, colStr, this.text);
@@ -12021,7 +12021,7 @@ Lexer.prototype = {
   readString: function(quote) {
     var start = this.index;
     this.index++;
-    var string = '';
+    var String = '';
     var rawString = quote;
     var escape = false;
     while (this.index < this.text.length) {
@@ -12029,14 +12029,14 @@ Lexer.prototype = {
       rawString += ch;
       if (escape) {
         if (ch === 'u') {
-          var hex = this.text.substring(this.index + 1, this.index + 5);
+          var hex = this.text.subString(this.index + 1, this.index + 5);
           if (!hex.match(/[\da-f]{4}/i))
             this.throwError('Invalid unicode escape [\\u' + hex + ']');
           this.index += 4;
-          string += String.fromCharCode(parseInt(hex, 16));
+          String += String.fromCharCode(parseInt(hex, 16));
         } else {
           var rep = ESCAPE[ch];
-          string = string + (rep || ch);
+          String = String + (rep || ch);
         }
         escape = false;
       } else if (ch === '\\') {
@@ -12047,11 +12047,11 @@ Lexer.prototype = {
           index: start,
           text: rawString,
           constant: true,
-          value: string
+          value: String
         });
         return;
       } else {
-        string += ch;
+        String += ch;
       }
       this.index++;
     }
@@ -12139,7 +12139,7 @@ Parser.prototype = {
   throwError: function(msg, token) {
     throw $parseMinErr('syntax',
         'Syntax Error: Token \'{0}\' {1} at column {2} of the expression [{3}] starting at [{4}].',
-          token.text, msg, (token.index + 1), this.text, this.text.substring(token.index));
+          token.text, msg, (token.index + 1), this.text, this.text.subString(token.index));
   },
 
   peekToken: function() {
@@ -12302,7 +12302,7 @@ Parser.prototype = {
     if ((token = this.expect('='))) {
       if (!left.assign) {
         this.throwError('implies assignment but [' +
-            this.text.substring(0, token.index) + '] can not be assigned to', token);
+            this.text.subString(0, token.index) + '] can not be assigned to', token);
       }
       right = this.ternary();
       return extend(function $parseAssignment(scope, locals) {
@@ -12727,10 +12727,10 @@ function getValueOf(value) {
  * ```
  *
  *
- * @param {string} expression String expression to compile.
+ * @param {String} expression String expression to compile.
  * @returns {function(context, locals)} a function which represents the compiled expression:
  *
- *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+ *    * `context` – `{object}` – an object against which any expressions embedded in the Strings
  *      are evaluated against (typically a scope object).
  *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
  *      `context`.
@@ -12789,7 +12789,7 @@ function $ParseProvider() {
       var parsedExpression, oneTime, cacheKey;
 
       switch (typeof exp) {
-        case 'string':
+        case 'String':
           cacheKey = exp = exp.trim();
 
           var cache = (expensiveChecks ? cacheExpensive : cacheDefault);
@@ -12798,7 +12798,7 @@ function $ParseProvider() {
           if (!parsedExpression) {
             if (exp.charAt(0) === ':' && exp.charAt(1) === ':') {
               oneTime = true;
-              exp = exp.substring(2);
+              exp = exp.subString(2);
             }
 
             var parseOptions = expensiveChecks ? $parseOptionsExpensive : $parseOptions;
@@ -13770,9 +13770,9 @@ function $RootScopeProvider() {
      * details.
      *
      *
-     * @param {Object.<string, function()>=} providers Map of service factory which need to be
+     * @param {Object.<String, function()>=} providers Map of service factory which need to be
      *                                       provided for the current scope. Defaults to {@link ng}.
-     * @param {Object.<string, *>=} instanceCache Provides pre-instantiated services which should
+     * @param {Object.<String, *>=} instanceCache Provides pre-instantiated services which should
      *                              append/override services provided by `providers`. This is handy
      *                              when unit-testing and having the need to override a default
      *                              service.
@@ -13981,11 +13981,11 @@ function $RootScopeProvider() {
        *
        *
        *
-       * @param {(function()|string)} watchExpression Expression that is evaluated on each
+       * @param {(function()|String)} watchExpression Expression that is evaluated on each
        *    {@link ng.$rootScope.Scope#$digest $digest} cycle. A change in the return value triggers
        *    a call to the `listener`.
        *
-       *    - `string`: Evaluated as {@link guide/expression expression}
+       *    - `String`: Evaluated as {@link guide/expression expression}
        *    - `function(scope)`: called with current `scope` as a parameter.
        * @param {function(newVal, oldVal, scope)} listener Callback called whenever the value
        *    of `watchExpression` changes.
@@ -14045,7 +14045,7 @@ function $RootScopeProvider() {
        *   call to $digest() to see if any items changes.
        * - The `listener` is called whenever any expression in the `watchExpressions` array changes.
        *
-       * @param {Array.<string|Function(scope)>} watchExpressions Array of expressions that will be individually
+       * @param {Array.<String|Function(scope)>} watchExpressions Array of expressions that will be individually
        * watched using {@link ng.$rootScope.Scope#$watch $watch()}
        *
        * @param {function(newValues, oldValues, scope)} listener Callback called whenever the return value of any
@@ -14155,7 +14155,7 @@ function $RootScopeProvider() {
        * ```
        *
        *
-       * @param {string|function(scope)} obj Evaluated as {@link guide/expression expression}. The
+       * @param {String|function(scope)} obj Evaluated as {@link guide/expression expression}. The
        *    expression value should evaluate to an object or an array which is observed on each
        *    {@link ng.$rootScope.Scope#$digest $digest} cycle. Any shallow change within the
        *    collection will trigger a call to the `listener`.
@@ -14558,9 +14558,9 @@ function $RootScopeProvider() {
            expect(scope.$eval(function(scope){ return scope.a + scope.b; })).toEqual(3);
        * ```
        *
-       * @param {(string|function())=} expression An angular expression to be executed.
+       * @param {(String|function())=} expression An angular expression to be executed.
        *
-       *    - `string`: execute using the rules as defined in  {@link guide/expression expression}.
+       *    - `String`: execute using the rules as defined in  {@link guide/expression expression}.
        *    - `function(scope)`: execute the function with the current `scope` parameter.
        *
        * @param {(object)=} locals Local variables object, useful for overriding values in scope.
@@ -14593,9 +14593,9 @@ function $RootScopeProvider() {
        * will be scheduled. However, it is encouraged to always call code that changes the model
        * from within an `$apply` call. That includes code evaluated via `$evalAsync`.
        *
-       * @param {(string|function())=} expression An angular expression to be executed.
+       * @param {(String|function())=} expression An angular expression to be executed.
        *
-       *    - `string`: execute using the rules as defined in {@link guide/expression expression}.
+       *    - `String`: execute using the rules as defined in {@link guide/expression expression}.
        *    - `function(scope)`: execute the function with the current `scope` parameter.
        *
        * @param {(object)=} locals Local variables object, useful for overriding values in scope.
@@ -14656,9 +14656,9 @@ function $RootScopeProvider() {
        *    expression was executed using the {@link ng.$rootScope.Scope#$digest $digest()} method.
        *
        *
-       * @param {(string|function())=} exp An angular expression to be executed.
+       * @param {(String|function())=} exp An angular expression to be executed.
        *
-       *    - `string`: execute using the rules as defined in {@link guide/expression expression}.
+       *    - `String`: execute using the rules as defined in {@link guide/expression expression}.
        *    - `function(scope)`: execute the function with current `scope` parameter.
        *
        * @returns {*} The result of evaluating the expression.
@@ -14692,9 +14692,9 @@ function $RootScopeProvider() {
        * This can be used to queue up multiple expressions which need to be evaluated in the same
        * digest.
        *
-       * @param {(string|function())=} exp An angular expression to be executed.
+       * @param {(String|function())=} exp An angular expression to be executed.
        *
-       *    - `string`: execute using the rules as defined in {@link guide/expression expression}.
+       *    - `String`: execute using the rules as defined in {@link guide/expression expression}.
        *    - `function(scope)`: execute the function with current `scope` parameter.
        */
       $applyAsync: function(expr) {
@@ -14723,14 +14723,14 @@ function $RootScopeProvider() {
        *     `$broadcast`-ed.
        *   - `currentScope` - `{Scope}`: the scope that is currently handling the event. Once the
        *     event propagates through the scope hierarchy, this property is set to null.
-       *   - `name` - `{string}`: name of the event.
+       *   - `name` - `{String}`: name of the event.
        *   - `stopPropagation` - `{function=}`: calling `stopPropagation` function will cancel
        *     further event propagation (available only for events that were `$emit`-ed).
        *   - `preventDefault` - `{function}`: calling `preventDefault` sets `defaultPrevented` flag
        *     to true.
        *   - `defaultPrevented` - `{boolean}`: true if `preventDefault` was called.
        *
-       * @param {string} name Event name to listen on.
+       * @param {String} name Event name to listen on.
        * @param {function(event, ...args)} listener Function to call when the event is emitted.
        * @returns {function()} Returns a deregistration function for this listener.
        */
@@ -14778,7 +14778,7 @@ function $RootScopeProvider() {
        * Any exception emitted from the {@link ng.$rootScope.Scope#$on listeners} will be passed
        * onto the {@link ng.$exceptionHandler $exceptionHandler} service.
        *
-       * @param {string} name Event name to emit.
+       * @param {String} name Event name to emit.
        * @param {...*} args Optional one or more arguments which will be passed onto the event listeners.
        * @return {Object} Event object (see {@link ng.$rootScope.Scope#$on}).
        */
@@ -14850,7 +14850,7 @@ function $RootScopeProvider() {
        * Any exception emitted from the {@link ng.$rootScope.Scope#$on listeners} will be passed
        * onto the {@link ng.$exceptionHandler $exceptionHandler} service.
        *
-       * @param {string} name Event name to broadcast.
+       * @param {String} name Event name to broadcast.
        * @param {...*} args Optional one or more arguments which will be passed onto the event listeners.
        * @return {Object} Event object, see {@link ng.$rootScope.Scope#$on}
        */
@@ -14987,7 +14987,7 @@ function $$SanitizeUriProvider() {
    * Any url about to be assigned to a[href] via data-binding is first normalized and turned into
    * an absolute url. Afterwards, the url is matched against the `aHrefSanitizationWhitelist`
    * regular expression. If a match is found, the original url is written into the dom. Otherwise,
-   * the absolute url is prefixed with `'unsafe:'` string and only then is it written into the DOM.
+   * the absolute url is prefixed with `'unsafe:'` String and only then is it written into the DOM.
    *
    * @param {RegExp=} regexp New regexp to whitelist urls with.
    * @returns {RegExp|ng.$compileProvider} Current RegExp if called without value or self for
@@ -15012,7 +15012,7 @@ function $$SanitizeUriProvider() {
    * Any url about to be assigned to img[src] via data-binding is first normalized and turned into
    * an absolute url. Afterwards, the url is matched against the `imgSrcSanitizationWhitelist`
    * regular expression. If a match is found, the original url is written into the dom. Otherwise,
-   * the absolute url is prefixed with `'unsafe:'` string and only then is it written into the DOM.
+   * the absolute url is prefixed with `'unsafe:'` String and only then is it written into the DOM.
    *
    * @param {RegExp=} regexp New regexp to whitelist urls with.
    * @returns {RegExp|ng.$compileProvider} Current RegExp if called without value or self for
@@ -15074,7 +15074,7 @@ function adjustMatcher(matcher) {
     // More than 2 *'s raises an error as it's ill defined.
     if (matcher.indexOf('***') > -1) {
       throw $sceMinErr('iwcard',
-          'Illegal sequence *** in string matcher.  String: {0}', matcher);
+          'Illegal sequence *** in String matcher.  String: {0}', matcher);
     }
     matcher = escapeForRegexp(matcher).
                   replace('\\*\\*', '.*').
@@ -15087,7 +15087,7 @@ function adjustMatcher(matcher) {
     return new RegExp('^' + matcher.source + '$');
   } else {
     throw $sceMinErr('imatcher',
-        'Matchers may only be "self", string patterns or RegExp objects');
+        'Matchers may only be "self", String patterns or RegExp objects');
   }
 }
 
@@ -15320,7 +15320,7 @@ function $SceDelegateProvider() {
      * such as for onclick,  etc.) that uses the provided value.
      * See {@link ng.$sce $sce} for enabling strict contextual escaping.
      *
-     * @param {string} type The kind of context in which this value is safe for use.  e.g. url,
+     * @param {String} type The kind of context in which this value is safe for use.  e.g. url,
      *   resourceUrl, html, js and css.
      * @param {*} value The value that that should be considered trusted/safe.
      * @returns {*} A value that can be used to stand in for the provided `value` in places
@@ -15336,11 +15336,11 @@ function $SceDelegateProvider() {
       if (trustedValue === null || trustedValue === undefined || trustedValue === '') {
         return trustedValue;
       }
-      // All the current contexts in SCE_CONTEXTS happen to be strings.  In order to avoid trusting
-      // mutable objects, we ensure here that the value passed in is actually a string.
-      if (typeof trustedValue !== 'string') {
+      // All the current contexts in SCE_CONTEXTS happen to be Strings.  In order to avoid trusting
+      // mutable objects, we ensure here that the value passed in is actually a String.
+      if (typeof trustedValue !== 'String') {
         throw $sceMinErr('itype',
-            'Attempted to trust a non-string value in a content requiring a string: Context: {0}',
+            'Attempted to trust a non-String value in a content requiring a String: Context: {0}',
             type);
       }
       return new Constructor(trustedValue);
@@ -15381,7 +15381,7 @@ function $SceDelegateProvider() {
      * returns the originally supplied value if the queried context type is a supertype of the
      * created type.  If this condition isn't satisfied, throws an exception.
      *
-     * @param {string} type The kind of context in which this value is to be used.
+     * @param {String} type The kind of context in which this value is to be used.
      * @param {*} maybeTrusted The result of a prior {@link ng.$sceDelegate#trustAs
      *     `$sceDelegate.trustAs`} call.
      * @returns {*} The value the was originally provided to {@link ng.$sceDelegate#trustAs
@@ -15573,11 +15573,11 @@ function $SceDelegateProvider() {
  *  Each element in these arrays must be one of the following:
  *
  *  - **'self'**
- *    - The special **string**, `'self'`, can be used to match against all URLs of the **same
+ *    - The special **String**, `'self'`, can be used to match against all URLs of the **same
  *      domain** as the application document using the **same protocol**.
  *  - **String** (except the special value `'self'`)
- *    - The string is matched against the full *normalized / absolute URL* of the resource
- *      being tested (substring matches are not good enough.)
+ *    - The String is matched against the full *normalized / absolute URL* of the resource
+ *      being tested (subString matches are not good enough.)
  *    - There are exactly **two wildcard sequences** - `*` and `**`.  All other characters
  *      match themselves.
  *    - `*`: matches zero or more occurrences of any character other than one of the following 6
@@ -15595,9 +15595,9 @@ function $SceDelegateProvider() {
  *      have good test coverage).  For instance, the use of `.` in the regex is correct only in a
  *      small number of cases.  A `.` character in the regex used when matching the scheme or a
  *      subdomain could be matched against a `:` or literal `.` that was likely not intended.   It
- *      is highly recommended to use the string patterns and only fall back to regular expressions
+ *      is highly recommended to use the String patterns and only fall back to regular expressions
  *      as a last resort.
- *    - The regular expression must be an instance of RegExp (i.e. not a string.)  It is
+ *    - The regular expression must be an instance of RegExp (i.e. not a String.)  It is
  *      matched against the **entire** *normalized / absolute URL* of the resource being tested
  *      (even when the RegExp did not have the `^` and `$` codes.)  In addition, any flags
  *      present on the RegExp (such as multiline, global, ignoreCase) are ignored.
@@ -15610,8 +15610,8 @@ function $SceDelegateProvider() {
  *      [Regexp.escape(str)](http://www.ruby-doc.org/core-2.0.0/Regexp.html#method-c-escape)
  *      and Python has [re.escape](http://docs.python.org/library/re.html#re.escape).
  *      Javascript lacks a similar built in function for escaping.  Take a look at Google
- *      Closure library's [goog.string.regExpEscape(s)](
- *      http://docs.closure-library.googlecode.com/git/closure_goog_string_string.js.source.html#line962).
+ *      Closure library's [goog.String.regExpEscape(s)](
+ *      http://docs.closure-library.googlecode.com/git/closure_goog_String_String.js.source.html#line962).
  *
  * Refer {@link ng.$sceDelegateProvider $sceDelegateProvider} for an example.
  *
@@ -15814,11 +15814,11 @@ function $SceProvider() {
      * wraps the expression in a call to {@link ng.$sce#getTrusted $sce.getTrusted(*type*,
      * *result*)}
      *
-     * @param {string} type The kind of SCE context in which this result will be used.
-     * @param {string} expression String expression to compile.
+     * @param {String} type The kind of SCE context in which this result will be used.
+     * @param {String} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` – `{object}` – an object against which any expressions embedded in the Strings
      *      are evaluated against (typically a scope object).
      *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
      *      `context`.
@@ -15846,7 +15846,7 @@ function $SceProvider() {
      * that uses the provided value.  See * {@link ng.$sce $sce} for enabling strict contextual
      * escaping.
      *
-     * @param {string} type The kind of context in which this value is safe for use.  e.g. url,
+     * @param {String} type The kind of context in which this value is safe for use.  e.g. url,
      *   resource_url, html, js and css.
      * @param {*} value The value that that should be considered trusted/safe.
      * @returns {*} A value that can be used to stand in for the provided `value` in places
@@ -15923,7 +15923,7 @@ function $SceProvider() {
      * originally supplied value if the queried context type is a supertype of the created type.
      * If this condition isn't satisfied, throws an exception.
      *
-     * @param {string} type The kind of context in which this value is to be used.
+     * @param {String} type The kind of context in which this value is to be used.
      * @param {*} maybeTrusted The result of a prior {@link ng.$sce#trustAs `$sce.trustAs`}
      *                         call.
      * @returns {*} The value the was originally provided to
@@ -15996,13 +15996,13 @@ function $SceProvider() {
      * @name $sce#parseAsHtml
      *
      * @description
-     * Shorthand method.  `$sce.parseAsHtml(expression string)` →
+     * Shorthand method.  `$sce.parseAsHtml(expression String)` →
      *     {@link ng.$sce#parseAs `$sce.parseAs($sce.HTML, value)`}
      *
-     * @param {string} expression String expression to compile.
+     * @param {String} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` – `{object}` – an object against which any expressions embedded in the Strings
      *      are evaluated against (typically a scope object).
      *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
      *      `context`.
@@ -16016,10 +16016,10 @@ function $SceProvider() {
      * Shorthand method.  `$sce.parseAsCss(value)` →
      *     {@link ng.$sce#parseAs `$sce.parseAs($sce.CSS, value)`}
      *
-     * @param {string} expression String expression to compile.
+     * @param {String} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` – `{object}` – an object against which any expressions embedded in the Strings
      *      are evaluated against (typically a scope object).
      *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
      *      `context`.
@@ -16033,10 +16033,10 @@ function $SceProvider() {
      * Shorthand method.  `$sce.parseAsUrl(value)` →
      *     {@link ng.$sce#parseAs `$sce.parseAs($sce.URL, value)`}
      *
-     * @param {string} expression String expression to compile.
+     * @param {String} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` – `{object}` – an object against which any expressions embedded in the Strings
      *      are evaluated against (typically a scope object).
      *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
      *      `context`.
@@ -16050,10 +16050,10 @@ function $SceProvider() {
      * Shorthand method.  `$sce.parseAsResourceUrl(value)` →
      *     {@link ng.$sce#parseAs `$sce.parseAs($sce.RESOURCE_URL, value)`}
      *
-     * @param {string} expression String expression to compile.
+     * @param {String} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` – `{object}` – an object against which any expressions embedded in the Strings
      *      are evaluated against (typically a scope object).
      *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
      *      `context`.
@@ -16067,10 +16067,10 @@ function $SceProvider() {
      * Shorthand method.  `$sce.parseAsJs(value)` →
      *     {@link ng.$sce#parseAs `$sce.parseAs($sce.JS, value)`}
      *
-     * @param {string} expression String expression to compile.
+     * @param {String} expression String expression to compile.
      * @returns {function(context, locals)} a function which represents the compiled expression:
      *
-     *    * `context` – `{object}` – an object against which any expressions embedded in the strings
+     *    * `context` – `{object}` – an object against which any expressions embedded in the Strings
      *      are evaluated against (typically a scope object).
      *    * `locals` – `{object=}` – local variables context object, useful for overriding values in
      *      `context`.
@@ -16197,9 +16197,9 @@ var $compileMinErr = minErr('$compile');
  * fails or the response data of the HTTP request is empty, a `$compile` error will be thrown (the
  * exception can be thwarted by setting the 2nd parameter of the function to true). Note that the
  * contents of `$templateCache` are trusted, so the call to `$sce.getTrustedUrl(tpl)` is omitted
- * when `tpl` is of type string and `$templateCache` has the matching entry.
+ * when `tpl` is of type String and `$templateCache` has the matching entry.
  *
- * @param {string|TrustedResourceUrl} tpl The HTTP request template URL
+ * @param {String|TrustedResourceUrl} tpl The HTTP request template URL
  * @param {boolean=} ignoreRequestError Whether or not to ignore the exception when the request fails or the template is empty
  *
  * @return {Promise} the HTTP Promise for the given.
@@ -16278,7 +16278,7 @@ function $$TestabilityProvider() {
      * to expressions matching the input.
      *
      * @param {Element} element The element root to search from.
-     * @param {string} expression The binding expression to match.
+     * @param {String} expression The binding expression to match.
      * @param {boolean} opt_exactMatch If true, only returns exact matches
      *     for the expression. Filters and whitespace are ignored.
      */
@@ -16313,7 +16313,7 @@ function $$TestabilityProvider() {
      * expressions matching the input.
      *
      * @param {Element} element The element root to search from.
-     * @param {string} expression The model expression to match.
+     * @param {String} expression The model expression to match.
      * @param {boolean} opt_exactMatch If true, only returns exact matches
      *     for the expression.
      */
@@ -16346,7 +16346,7 @@ function $$TestabilityProvider() {
      * @description
      * Shortcut for navigating to a location without doing a full page reload.
      *
-     * @param {string} url The location url (path, search and hash,
+     * @param {String} url The location url (path, search and hash,
      *     e.g. /path?a=b#hash) to go to.
      */
     testability.setLocation = function(url) {
@@ -16495,7 +16495,7 @@ var originUrl = urlResolve(window.location.href);
  *   http://james.padolsey.com/javascript/parsing-urls-with-the-dom/
  *
  * @kind function
- * @param {string} url The URL to be parsed.
+ * @param {String} url The URL to be parsed.
  * @description Normalizes and parses a URL.
  * @returns {object} Returns the normalized URL as a dictionary.
  *
@@ -16505,7 +16505,7 @@ var originUrl = urlResolve(window.location.href);
  *   | protocol      | The protocol including the trailing colon                              |
  *   | host          | The host and port (if the port is non-default) of the normalizedUrl    |
  *   | search        | The search params, minus the question mark                             |
- *   | hash          | The hash string, minus the hash symbol
+ *   | hash          | The hash String, minus the hash symbol
  *   | hostname      | The hostname
  *   | port          | The port, without ":"
  *   | pathname      | The pathname, beginning with "/"
@@ -16541,7 +16541,7 @@ function urlResolve(url) {
 /**
  * Parse a request URL and determine whether this is a same-origin request as the application document.
  *
- * @param {string|object} requestUrl The url of the request as a string that will be resolved
+ * @param {String|object} requestUrl The url of the request as a String that will be resolved
  * or a parsed URL object.
  * @returns {boolean} Whether the request is for the same origin as the application document.
  */
@@ -16702,7 +16702,7 @@ function $FilterProvider($provide) {
   /**
    * @ngdoc method
    * @name $filterProvider#register
-   * @param {string|Object} name Name of the filter function, or an object map of filters where
+   * @param {String|Object} name Name of the filter function, or an object map of filters where
    *    the keys are the filter names and the values are the filter factories.
    *
    *    <div class="alert alert-warning">
@@ -16767,23 +16767,23 @@ function $FilterProvider($provide) {
  * Selects a subset of items from `array` and returns it as a new array.
  *
  * @param {Array} array The source array.
- * @param {string|Object|function()} expression The predicate to be used for selecting items from
+ * @param {String|Object|function()} expression The predicate to be used for selecting items from
  *   `array`.
  *
  *   Can be one of:
  *
- *   - `string`: The string is used for matching against the contents of the `array`. All strings or
- *     objects with string properties in `array` that match this string will be returned. This also
+ *   - `String`: The String is used for matching against the contents of the `array`. All Strings or
+ *     objects with String properties in `array` that match this String will be returned. This also
  *     applies to nested object properties.
- *     The predicate can be negated by prefixing the string with `!`.
+ *     The predicate can be negated by prefixing the String with `!`.
  *
  *   - `Object`: A pattern object can be used to filter specific properties on objects contained
  *     by `array`. For example `{name:"M", phone:"1"}` predicate will return an array of items
  *     which have property `name` containing "M" and property `phone` containing "1". A special
  *     property name `$` can be used (as in `{$:"text"}`) to accept a match against any
  *     property of the object or its nested object properties. That's equivalent to the simple
- *     substring match with a `string` as described above. The predicate can be negated by prefixing
- *     the string with `!`.
+ *     subString match with a `String` as described above. The predicate can be negated by prefixing
+ *     the String with `!`.
  *     For example `{name: "!M"}` predicate will return an array of items which have property `name`
  *     not containing "M".
  *
@@ -16809,7 +16809,7 @@ function $FilterProvider($provide) {
  *   - `true`: A shorthand for `function(actual, expected) { return angular.equals(actual, expected)}`.
  *     This is essentially strict comparison of expected and actual.
  *
- *   - `false|undefined`: A short hand for a function which will look for a substring match in case
+ *   - `false|undefined`: A short hand for a function which will look for a subString match in case
  *     insensitive way.
  *
  * @example
@@ -16852,7 +16852,7 @@ function $FilterProvider($provide) {
          });
        };
 
-       it('should search across all fields when filtering with a string', function() {
+       it('should search across all fields when filtering with a String', function() {
          var searchText = element(by.model('searchText'));
          searchText.clear();
          searchText.sendKeys('m');
@@ -16895,7 +16895,7 @@ function filterFilter() {
       case 'boolean':
       case 'null':
       case 'number':
-      case 'string':
+      case 'String':
         matchAgainstAnyProp = true;
         //jshint -W086
       case 'object':
@@ -16920,15 +16920,15 @@ function createPredicateFn(expression, comparator, matchAgainstAnyProp) {
   } else if (!isFunction(comparator)) {
     comparator = function(actual, expected) {
       if (isUndefined(actual)) {
-        // No substring matching against `undefined`
+        // No subString matching against `undefined`
         return false;
       }
       if ((actual === null) || (expected === null)) {
-        // No substring matching against `null`; only match against `null`
+        // No subString matching against `null`; only match against `null`
         return actual === expected;
       }
       if (isObject(actual) || isObject(expected)) {
-        // Prevent an object to be considered equal to a string like `'[object'`
+        // Prevent an object to be considered equal to a String like `'[object'`
         return false;
       }
 
@@ -16952,8 +16952,8 @@ function deepCompare(actual, expected, comparator, matchAgainstAnyProp, dontMatc
   var actualType = (actual !== null) ? typeof actual : 'null';
   var expectedType = (expected !== null) ? typeof expected : 'null';
 
-  if ((expectedType === 'string') && (expected.charAt(0) === '!')) {
-    return !deepCompare(actual, expected.substring(1), comparator, matchAgainstAnyProp);
+  if ((expectedType === 'String') && (expected.charAt(0) === '!')) {
+    return !deepCompare(actual, expected.subString(1), comparator, matchAgainstAnyProp);
   } else if (isArray(actual)) {
     // In case `actual` is an array, consider it a match
     // if ANY of it's items matches `expected`
@@ -17007,9 +17007,9 @@ function deepCompare(actual, expected, comparator, matchAgainstAnyProp, dontMatc
  * symbol for current locale is used.
  *
  * @param {number} amount Input to filter.
- * @param {string=} symbol Currency symbol or identifier to be displayed.
+ * @param {String=} symbol Currency symbol or identifier to be displayed.
  * @param {number=} fractionSize Number of decimal places to round the amount to, defaults to default max fraction size for current locale
- * @returns {string} Formatted number.
+ * @returns {String} Formatted number.
  *
  *
  * @example
@@ -17079,13 +17079,13 @@ function currencyFilter($locale) {
  *
  * If the input is null or undefined, it will just be returned.
  * If the input is infinite (Infinity/-Infinity) the Infinity symbol '∞' is returned.
- * If the input is not a number an empty string is returned.
+ * If the input is not a number an empty String is returned.
  *
- * @param {number|string} number Number to format.
- * @param {(number|string)=} fractionSize Number of decimal places to round the number to.
+ * @param {number|String} number Number to format.
+ * @param {(number|String)=} fractionSize Number of decimal places to round the number to.
  * If this is not provided then the fraction size is computed from the current locale's number
  * formatting pattern. In the case of the default locale, it will be 3.
- * @returns {string} Number rounded to decimalPlaces and places a “,” after each third digit.
+ * @returns {String} Number rounded to decimalPlaces and places a “,” after each third digit.
  *
  * @example
    <example module="numberFilterExample">
@@ -17341,9 +17341,9 @@ var DATE_FORMATS_SPLIT = /((?:[^yMdHhmsaZEwG']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|
  * @kind function
  *
  * @description
- *   Formats `date` to a string based on the requested `format`.
+ *   Formats `date` to a String based on the requested `format`.
  *
- *   `format` string can be composed of the following elements:
+ *   `format` String can be composed of the following elements:
  *
  *   * `'yyyy'`: 4 digit representation of year (e.g. AD 1 => 0001, AD 2010 => 2010)
  *   * `'yy'`: 2 digit representation of year, padded (00-99). (e.g. AD 2001 => 01, AD 2010 => 10)
@@ -17369,10 +17369,10 @@ var DATE_FORMATS_SPLIT = /((?:[^yMdHhmsaZEwG']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|
  *   * `'Z'`: 4 digit (+sign) representation of the timezone offset (-1200-+1200)
  *   * `'ww'`: Week of year, padded (00-53). Week 01 is the week with the first Thursday of the year
  *   * `'w'`: Week of year (0-53). Week 1 is the week with the first Thursday of the year
- *   * `'G'`, `'GG'`, `'GGG'`: The abbreviated form of the era string (e.g. 'AD')
- *   * `'GGGG'`: The long form of the era string (e.g. 'Anno Domini')
+ *   * `'G'`, `'GG'`, `'GGG'`: The abbreviated form of the era String (e.g. 'AD')
+ *   * `'GGGG'`: The long form of the era String (e.g. 'Anno Domini')
  *
- *   `format` string can also be one of the following predefined
+ *   `format` String can also be one of the following predefined
  *   {@link guide/i18n localizable formats}:
  *
  *   * `'medium'`: equivalent to `'MMM d, y h:mm:ss a'` for en_US locale
@@ -17386,19 +17386,19 @@ var DATE_FORMATS_SPLIT = /((?:[^yMdHhmsaZEwG']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|
  *   * `'mediumTime'`: equivalent to `'h:mm:ss a'` for en_US locale (e.g. 12:05:08 PM)
  *   * `'shortTime'`: equivalent to `'h:mm a'` for en_US locale (e.g. 12:05 PM)
  *
- *   `format` string can contain literal values. These need to be escaped by surrounding with single quotes (e.g.
+ *   `format` String can contain literal values. These need to be escaped by surrounding with single quotes (e.g.
  *   `"h 'in the morning'"`). In order to output a single quote, escape it - i.e., two single quotes in a sequence
  *   (e.g. `"h 'o''clock'"`).
  *
- * @param {(Date|number|string)} date Date to format either as Date object, milliseconds (string or
- *    number) or various ISO 8601 datetime string formats (e.g. yyyy-MM-ddTHH:mm:ss.sssZ and its
+ * @param {(Date|number|String)} date Date to format either as Date object, milliseconds (String or
+ *    number) or various ISO 8601 datetime String formats (e.g. yyyy-MM-ddTHH:mm:ss.sssZ and its
  *    shorter versions like yyyy-MM-ddTHH:mmZ, yyyy-MM-dd or yyyyMMddTHHmmssZ). If no timezone is
- *    specified in the string input, the time is considered to be in the local timezone.
- * @param {string=} format Formatting rules (see Description). If not specified,
+ *    specified in the String input, the time is considered to be in the local timezone.
+ * @param {String=} format Formatting rules (see Description). If not specified,
  *    `mediumDate` is used.
- * @param {string=} timezone Timezone to be used for formatting. Right now, only `'UTC'` is supported.
+ * @param {String=} timezone Timezone to be used for formatting. Right now, only `'UTC'` is supported.
  *    If not specified, the timezone of the browser will be used.
- * @returns {string} Formatted string or the input if input is not recognized as date/millis.
+ * @returns {String} Formatted String or the input if input is not recognized as date/millis.
  *
  * @example
    <example>
@@ -17432,9 +17432,9 @@ function dateFilter($locale) {
 
   var R_ISO8601_STR = /^(\d{4})-?(\d\d)-?(\d\d)(?:T(\d\d)(?::?(\d\d)(?::?(\d\d)(?:\.(\d+))?)?)?(Z|([+-])(\d\d):?(\d\d))?)?$/;
                      // 1        2       3         4          5          6          7          8  9     10      11
-  function jsonStringToDate(string) {
+  function jsonStringToDate(String) {
     var match;
-    if (match = string.match(R_ISO8601_STR)) {
+    if (match = String.match(R_ISO8601_STR)) {
       var date = new Date(0),
           tzHour = 0,
           tzMin  = 0,
@@ -17453,7 +17453,7 @@ function dateFilter($locale) {
       timeSetter.call(date, h, m, s, ms);
       return date;
     }
-    return string;
+    return String;
   }
 
 
@@ -17508,14 +17508,14 @@ function dateFilter($locale) {
  * @kind function
  *
  * @description
- *   Allows you to convert a JavaScript object into JSON string.
+ *   Allows you to convert a JavaScript object into JSON String.
  *
  *   This filter is mostly useful for debugging. When using the double curly {{value}} notation
  *   the binding is automatically converted to JSON.
  *
  * @param {*} object Any JavaScript object (including arrays and primitive types) to filter.
  * @param {number=} spacing The number of spaces to use per indentation, defaults to 2.
- * @returns {string} JSON string.
+ * @returns {String} JSON String.
  *
  *
  * @example
@@ -17548,7 +17548,7 @@ function jsonFilter() {
  * @name lowercase
  * @kind function
  * @description
- * Converts string to lowercase.
+ * Converts String to lowercase.
  * @see angular.lowercase
  */
 var lowercaseFilter = valueFn(lowercase);
@@ -17559,7 +17559,7 @@ var lowercaseFilter = valueFn(lowercase);
  * @name uppercase
  * @kind function
  * @description
- * Converts string to uppercase.
+ * Converts String to uppercase.
  * @see angular.uppercase
  */
 var uppercaseFilter = valueFn(uppercase);
@@ -17570,17 +17570,17 @@ var uppercaseFilter = valueFn(uppercase);
  * @kind function
  *
  * @description
- * Creates a new array or string containing only a specified number of elements. The elements
- * are taken from either the beginning or the end of the source array, string or number, as specified by
+ * Creates a new array or String containing only a specified number of elements. The elements
+ * are taken from either the beginning or the end of the source array, String or number, as specified by
  * the value and sign (positive or negative) of `limit`. If a number is used as input, it is
- * converted to a string.
+ * converted to a String.
  *
- * @param {Array|string|number} input Source array, string or number to be limited.
- * @param {string|number} limit The length of the returned array or string. If the `limit` number
- *     is positive, `limit` number of items from the beginning of the source array/string are copied.
- *     If the number is negative, `limit` number  of items from the end of the source array/string
+ * @param {Array|String|number} input Source array, String or number to be limited.
+ * @param {String|number} limit The length of the returned array or String. If the `limit` number
+ *     is positive, `limit` number of items from the beginning of the source array/String are copied.
+ *     If the number is negative, `limit` number  of items from the end of the source array/String
  *     are copied. The `limit` will be trimmed if it exceeds `array.length`
- * @returns {Array|string} A new sub-array or substring of length `limit` or less if input array
+ * @returns {Array|String} A new sub-array or subString of length `limit` or less if input array
  *     had less than `limit` elements.
  *
  * @example
@@ -17677,18 +17677,18 @@ function limitToFilter() {
  *
  * @description
  * Orders a specified `array` by the `expression` predicate. It is ordered alphabetically
- * for strings and numerically for numbers. Note: if you notice numbers are not being sorted
- * correctly, make sure they are actually being saved as numbers and not strings.
+ * for Strings and numerically for numbers. Note: if you notice numbers are not being sorted
+ * correctly, make sure they are actually being saved as numbers and not Strings.
  *
  * @param {Array} array The array to sort.
- * @param {function(*)|string|Array.<(function(*)|string)>=} expression A predicate to be
+ * @param {function(*)|String|Array.<(function(*)|String)>=} expression A predicate to be
  *    used by the comparator to determine the order of elements.
  *
  *    Can be one of:
  *
  *    - `function`: Getter function. The result of this function will be sorted using the
  *      `<`, `===`, `>` operator.
- *    - `string`: An Angular expression. The result of this expression is used to compare elements
+ *    - `String`: An Angular expression. The result of this expression is used to compare elements
  *      (for example `name` to sort by a property called `name` or `name.substr(0, 3)` to sort by
  *      3 first characters of a property called `name`). The result of a constant expression
  *      is interpreted as a property name to be used in comparisons (for example `"special name"`
@@ -17696,7 +17696,7 @@ function limitToFilter() {
  *      optionally prefixed with `+` or `-` to control ascending or descending sort order
  *      (for example, `+name` or `-name`). If no property is provided, (e.g. `'+'`) then the array
  *      element itself is used to compare where sorting.
- *    - `Array`: An array of function or string predicates. The first predicate in the array
+ *    - `Array`: An array of function or String predicates. The first predicate in the array
  *      is used for sorting, but when two items are equivalent, the next predicate is used.
  *
  *    If the predicate is missing or empty then it defaults to `'+'`.
@@ -17833,7 +17833,7 @@ function orderByFilter($parse) {
       if (isString(predicate)) {
         if ((predicate.charAt(0) == '+' || predicate.charAt(0) == '-')) {
           descending = predicate.charAt(0) == '-';
-          predicate = predicate.substring(1);
+          predicate = predicate.subString(1);
         }
         if (predicate === '') {
           // Effectively no predicate was passed so we compare identity
@@ -17870,7 +17870,7 @@ function orderByFilter($parse) {
       switch (typeof value) {
         case 'number': /* falls through */
         case 'boolean': /* falls through */
-        case 'string':
+        case 'String':
           return true;
         default:
           return false;
@@ -17898,7 +17898,7 @@ function orderByFilter($parse) {
         v2 = objectToString(v2);
       }
       if (t1 === t2) {
-        if (t1 === "string") {
+        if (t1 === "String") {
            v1 = v1.toLowerCase();
            v2 = v2.toLowerCase();
         }
@@ -17981,7 +17981,7 @@ var htmlAnchorDirective = valueFn({
  * ```
  *
  * @element A
- * @param {template} ngHref any string which can contain `{{}}` markup.
+ * @param {template} ngHref any String which can contain `{{}}` markup.
  *
  * @example
  * This example shows various combinations of `href`, `ng-href` and `ng-click` attributes
@@ -18003,7 +18003,7 @@ var htmlAnchorDirective = valueFn({
           expect(element(by.id('link-1')).getAttribute('href')).toBe('');
         });
 
-        it('should execute ng-click but not reload when href empty string', function() {
+        it('should execute ng-click but not reload when href empty String', function() {
           element(by.id('link-2')).click();
           expect(element(by.model('value')).getAttribute('value')).toEqual('2');
           expect(element(by.id('link-2')).getAttribute('href')).toBe('');
@@ -18024,7 +18024,7 @@ var htmlAnchorDirective = valueFn({
           }, 5000, 'page should navigate to /123');
         });
 
-        xit('should execute ng-click but not reload when href empty string and name specified', function() {
+        xit('should execute ng-click but not reload when href empty String and name specified', function() {
           element(by.id('link-4')).click();
           expect(element(by.model('value')).getAttribute('value')).toEqual('4');
           expect(element(by.id('link-4')).getAttribute('href')).toBe('');
@@ -18078,7 +18078,7 @@ var htmlAnchorDirective = valueFn({
  * ```
  *
  * @element IMG
- * @param {template} ngSrc any string which can contain `{{}}` markup.
+ * @param {template} ngSrc any String which can contain `{{}}` markup.
  */
 
 /**
@@ -18104,7 +18104,7 @@ var htmlAnchorDirective = valueFn({
  * ```
  *
  * @element IMG
- * @param {template} ngSrcset any string which can contain `{{}}` markup.
+ * @param {template} ngSrcset any String which can contain `{{}}` markup.
  */
 
 /**
@@ -18680,7 +18680,7 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
  * but not to be a replacement for the `<form>` tag with all of its capabilities
  * (e.g. posting to the server, ...).
  *
- * @param {string=} ngForm|name Name of the form. If specified, the form controller will be published into
+ * @param {String=} ngForm|name Name of the form. If specified, the form controller will be published into
  *                       related scope, under this name.
  *
  */
@@ -18828,7 +18828,7 @@ function FormController(element, attrs, $scope, $animate, $interpolate) {
       </file>
     </example>
  *
- * @param {string=} name Name of the form. If specified, the form controller will be published into
+ * @param {String=} name Name of the form. If specified, the form controller will be published into
  *                       related scope, under this name.
  */
 var formDirectiveFactory = function(isNgForm) {
@@ -18933,10 +18933,10 @@ var inputType = {
    * Standard HTML text input with angular data binding, inherited by most of the `input` elements.
    *
    *
-   * @param {string} ngModel Assignable angular expression to data-bind to.
-   * @param {string=} name Property name of the form under which the control is published.
-   * @param {string=} required Adds `required` validation error key if the value is not entered.
-   * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
+   * @param {String} ngModel Assignable angular expression to data-bind to.
+   * @param {String=} name Property name of the form under which the control is published.
+   * @param {String=} required Adds `required` validation error key if the value is not entered.
+   * @param {String=} ngRequired Adds `required` attribute and `required` validation constraint to
    *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
    *    `required` when you want to data-bind to the `required` attribute.
    * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
@@ -18944,15 +18944,15 @@ var inputType = {
    * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
    *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of
    *    any length.
-   * @param {string=} pattern Similar to `ngPattern` except that the attribute value is the actual string
+   * @param {String=} pattern Similar to `ngPattern` except that the attribute value is the actual String
    *    that contains the regular expression body that will be converted to a regular expression
    *    as in the ngPattern directive.
-   * @param {string=} ngPattern Sets `pattern` validation error key if the ngModel value does not match
+   * @param {String=} ngPattern Sets `pattern` validation error key if the ngModel value does not match
    *    a RegExp found by evaluating the Angular expression given in the attribute value.
    *    If the expression evaluates to a RegExp object then this is used directly.
-   *    If the expression is a string then it will be converted to a RegExp after wrapping it in `^` and `$`
+   *    If the expression is a String then it will be converted to a RegExp after wrapping it in `^` and `$`
    *    characters. For instance, `"abc"` will be converted to `new RegExp('^abc$')`.
-   * @param {string=} ngChange Angular expression to be executed when input changes due to user
+   * @param {String=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    * @param {boolean=} [ngTrim=true] If set to false Angular will not automatically trim the input.
    *    This parameter is ignored for input[type=password] controls, which will never trim the
@@ -19026,22 +19026,22 @@ var inputType = {
      * expected input format via a placeholder or label.
      *
      * The model must always be a Date object, otherwise Angular will throw an error.
-     * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
+     * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty String.
      *
      * The timezone to be used to read/write the `Date` instance in the model can be defined using
      * {@link ng.directive:ngModelOptions ngModelOptions}. By default, this is the timezone of the browser.
      *
-     * @param {string} ngModel Assignable angular expression to data-bind to.
-     * @param {string=} name Property name of the form under which the control is published.
-     * @param {string=} min Sets the `min` validation error key if the value entered is less than `min`. This must be a
-     * valid ISO date string (yyyy-MM-dd).
-     * @param {string=} max Sets the `max` validation error key if the value entered is greater than `max`. This must be
-     * a valid ISO date string (yyyy-MM-dd).
-     * @param {string=} required Sets `required` validation error key if the value is not entered.
-     * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
+     * @param {String} ngModel Assignable angular expression to data-bind to.
+     * @param {String=} name Property name of the form under which the control is published.
+     * @param {String=} min Sets the `min` validation error key if the value entered is less than `min`. This must be a
+     * valid ISO date String (yyyy-MM-dd).
+     * @param {String=} max Sets the `max` validation error key if the value entered is greater than `max`. This must be
+     * a valid ISO date String (yyyy-MM-dd).
+     * @param {String=} required Sets `required` validation error key if the value is not entered.
+     * @param {String=} ngRequired Adds `required` attribute and `required` validation constraint to
      *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
      *    `required` when you want to data-bind to the `required` attribute.
-     * @param {string=} ngChange Angular expression to be executed when input changes due to user
+     * @param {String=} ngChange Angular expression to be executed when input changes due to user
      *    interaction with the input element.
      *
      * @example
@@ -19119,22 +19119,22 @@ var inputType = {
     * local datetime format (yyyy-MM-ddTHH:mm:ss), for example: `2010-12-28T14:57:00`.
     *
     * The model must always be a Date object, otherwise Angular will throw an error.
-    * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
+    * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty String.
     *
     * The timezone to be used to read/write the `Date` instance in the model can be defined using
     * {@link ng.directive:ngModelOptions ngModelOptions}. By default, this is the timezone of the browser.
     *
-    * @param {string} ngModel Assignable angular expression to data-bind to.
-    * @param {string=} name Property name of the form under which the control is published.
-    * @param {string=} min Sets the `min` validation error key if the value entered is less than `min`. This must be a
+    * @param {String} ngModel Assignable angular expression to data-bind to.
+    * @param {String=} name Property name of the form under which the control is published.
+    * @param {String=} min Sets the `min` validation error key if the value entered is less than `min`. This must be a
     * valid ISO datetime format (yyyy-MM-ddTHH:mm:ss).
-    * @param {string=} max Sets the `max` validation error key if the value entered is greater than `max`. This must be
+    * @param {String=} max Sets the `max` validation error key if the value entered is greater than `max`. This must be
     * a valid ISO datetime format (yyyy-MM-ddTHH:mm:ss).
-    * @param {string=} required Sets `required` validation error key if the value is not entered.
-    * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
+    * @param {String=} required Sets `required` validation error key if the value is not entered.
+    * @param {String=} ngRequired Adds `required` attribute and `required` validation constraint to
     *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
     *    `required` when you want to data-bind to the `required` attribute.
-    * @param {string=} ngChange Angular expression to be executed when input changes due to user
+    * @param {String=} ngChange Angular expression to be executed when input changes due to user
     *    interaction with the input element.
     *
     * @example
@@ -19213,22 +19213,22 @@ var inputType = {
    * Date object to the model of January 1, 1970, or local date `new Date(1970, 0, 1, HH, mm, ss)`.
    *
    * The model must always be a Date object, otherwise Angular will throw an error.
-   * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
+   * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty String.
    *
    * The timezone to be used to read/write the `Date` instance in the model can be defined using
    * {@link ng.directive:ngModelOptions ngModelOptions}. By default, this is the timezone of the browser.
    *
-   * @param {string} ngModel Assignable angular expression to data-bind to.
-   * @param {string=} name Property name of the form under which the control is published.
-   * @param {string=} min Sets the `min` validation error key if the value entered is less than `min`. This must be a
+   * @param {String} ngModel Assignable angular expression to data-bind to.
+   * @param {String=} name Property name of the form under which the control is published.
+   * @param {String=} min Sets the `min` validation error key if the value entered is less than `min`. This must be a
    * valid ISO time format (HH:mm:ss).
-   * @param {string=} max Sets the `max` validation error key if the value entered is greater than `max`. This must be a
+   * @param {String=} max Sets the `max` validation error key if the value entered is greater than `max`. This must be a
    * valid ISO time format (HH:mm:ss).
-   * @param {string=} required Sets `required` validation error key if the value is not entered.
-   * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
+   * @param {String=} required Sets `required` validation error key if the value is not entered.
+   * @param {String=} ngRequired Adds `required` attribute and `required` validation constraint to
    *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
    *    `required` when you want to data-bind to the `required` attribute.
-   * @param {string=} ngChange Angular expression to be executed when input changes due to user
+   * @param {String=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
    * @example
@@ -19306,22 +19306,22 @@ var inputType = {
     * week format (yyyy-W##), for example: `2013-W02`.
     *
     * The model must always be a Date object, otherwise Angular will throw an error.
-    * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
+    * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty String.
     *
     * The timezone to be used to read/write the `Date` instance in the model can be defined using
     * {@link ng.directive:ngModelOptions ngModelOptions}. By default, this is the timezone of the browser.
     *
-    * @param {string} ngModel Assignable angular expression to data-bind to.
-    * @param {string=} name Property name of the form under which the control is published.
-    * @param {string=} min Sets the `min` validation error key if the value entered is less than `min`. This must be a
+    * @param {String} ngModel Assignable angular expression to data-bind to.
+    * @param {String=} name Property name of the form under which the control is published.
+    * @param {String=} min Sets the `min` validation error key if the value entered is less than `min`. This must be a
     * valid ISO week format (yyyy-W##).
-    * @param {string=} max Sets the `max` validation error key if the value entered is greater than `max`. This must be
+    * @param {String=} max Sets the `max` validation error key if the value entered is greater than `max`. This must be
     * a valid ISO week format (yyyy-W##).
-    * @param {string=} required Sets `required` validation error key if the value is not entered.
-    * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
+    * @param {String=} required Sets `required` validation error key if the value is not entered.
+    * @param {String=} ngRequired Adds `required` attribute and `required` validation constraint to
     *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
     *    `required` when you want to data-bind to the `required` attribute.
-    * @param {string=} ngChange Angular expression to be executed when input changes due to user
+    * @param {String=} ngChange Angular expression to be executed when input changes due to user
     *    interaction with the input element.
     *
     * @example
@@ -19397,24 +19397,24 @@ var inputType = {
    * month format (yyyy-MM), for example: `2009-01`.
    *
    * The model must always be a Date object, otherwise Angular will throw an error.
-   * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
+   * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty String.
    * If the model is not set to the first of the month, the next view to model update will set it
    * to the first of the month.
    *
    * The timezone to be used to read/write the `Date` instance in the model can be defined using
    * {@link ng.directive:ngModelOptions ngModelOptions}. By default, this is the timezone of the browser.
    *
-   * @param {string} ngModel Assignable angular expression to data-bind to.
-   * @param {string=} name Property name of the form under which the control is published.
-   * @param {string=} min Sets the `min` validation error key if the value entered is less than `min`. This must be
+   * @param {String} ngModel Assignable angular expression to data-bind to.
+   * @param {String=} name Property name of the form under which the control is published.
+   * @param {String=} min Sets the `min` validation error key if the value entered is less than `min`. This must be
    * a valid ISO month format (yyyy-MM).
-   * @param {string=} max Sets the `max` validation error key if the value entered is greater than `max`. This must
+   * @param {String=} max Sets the `max` validation error key if the value entered is greater than `max`. This must
    * be a valid ISO month format (yyyy-MM).
-   * @param {string=} required Sets `required` validation error key if the value is not entered.
-   * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
+   * @param {String=} required Sets `required` validation error key if the value is not entered.
+   * @param {String=} ngRequired Adds `required` attribute and `required` validation constraint to
    *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
    *    `required` when you want to data-bind to the `required` attribute.
-   * @param {string=} ngChange Angular expression to be executed when input changes due to user
+   * @param {String=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
    * @example
@@ -19492,16 +19492,16 @@ var inputType = {
    *
    * <div class="alert alert-warning">
    * The model must always be of type `number` otherwise Angular will throw an error.
-   * Be aware that a string containing a number is not enough. See the {@link ngModel:numfmt}
+   * Be aware that a String containing a number is not enough. See the {@link ngModel:numfmt}
    * error docs for more information and an example of how to convert your model if necessary.
    * </div>
    *
-   * @param {string} ngModel Assignable angular expression to data-bind to.
-   * @param {string=} name Property name of the form under which the control is published.
-   * @param {string=} min Sets the `min` validation error key if the value entered is less than `min`.
-   * @param {string=} max Sets the `max` validation error key if the value entered is greater than `max`.
-   * @param {string=} required Sets `required` validation error key if the value is not entered.
-   * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
+   * @param {String} ngModel Assignable angular expression to data-bind to.
+   * @param {String=} name Property name of the form under which the control is published.
+   * @param {String=} min Sets the `min` validation error key if the value entered is less than `min`.
+   * @param {String=} max Sets the `max` validation error key if the value entered is greater than `max`.
+   * @param {String=} required Sets `required` validation error key if the value is not entered.
+   * @param {String=} ngRequired Adds `required` attribute and `required` validation constraint to
    *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
    *    `required` when you want to data-bind to the `required` attribute.
    * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
@@ -19509,15 +19509,15 @@ var inputType = {
    * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
    *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of
    *    any length.
-   * @param {string=} pattern Similar to `ngPattern` except that the attribute value is the actual string
+   * @param {String=} pattern Similar to `ngPattern` except that the attribute value is the actual String
    *    that contains the regular expression body that will be converted to a regular expression
    *    as in the ngPattern directive.
-   * @param {string=} ngPattern Sets `pattern` validation error key if the ngModel value does not match
+   * @param {String=} ngPattern Sets `pattern` validation error key if the ngModel value does not match
    *    a RegExp found by evaluating the Angular expression given in the attribute value.
    *    If the expression evaluates to a RegExp object then this is used directly.
-   *    If the expression is a string then it will be converted to a RegExp after wrapping it in `^` and `$`
+   *    If the expression is a String then it will be converted to a RegExp after wrapping it in `^` and `$`
    *    characters. For instance, `"abc"` will be converted to `new RegExp('^abc$')`.
-   * @param {string=} ngChange Angular expression to be executed when input changes due to user
+   * @param {String=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
    * @example
@@ -19588,10 +19588,10 @@ var inputType = {
    * the built-in validators (see the {@link guide/forms Forms guide})
    * </div>
    *
-   * @param {string} ngModel Assignable angular expression to data-bind to.
-   * @param {string=} name Property name of the form under which the control is published.
-   * @param {string=} required Sets `required` validation error key if the value is not entered.
-   * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
+   * @param {String} ngModel Assignable angular expression to data-bind to.
+   * @param {String=} name Property name of the form under which the control is published.
+   * @param {String=} required Sets `required` validation error key if the value is not entered.
+   * @param {String=} ngRequired Adds `required` attribute and `required` validation constraint to
    *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
    *    `required` when you want to data-bind to the `required` attribute.
    * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
@@ -19599,15 +19599,15 @@ var inputType = {
    * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
    *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of
    *    any length.
-   * @param {string=} pattern Similar to `ngPattern` except that the attribute value is the actual string
+   * @param {String=} pattern Similar to `ngPattern` except that the attribute value is the actual String
    *    that contains the regular expression body that will be converted to a regular expression
    *    as in the ngPattern directive.
-   * @param {string=} ngPattern Sets `pattern` validation error key if the ngModel value does not match
+   * @param {String=} ngPattern Sets `pattern` validation error key if the ngModel value does not match
    *    a RegExp found by evaluating the Angular expression given in the attribute value.
    *    If the expression evaluates to a RegExp object then this is used directly.
-   *    If the expression is a string then it will be converted to a RegExp after wrapping it in `^` and `$`
+   *    If the expression is a String then it will be converted to a RegExp after wrapping it in `^` and `$`
    *    characters. For instance, `"abc"` will be converted to `new RegExp('^abc$')`.
-   * @param {string=} ngChange Angular expression to be executed when input changes due to user
+   * @param {String=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
    * @example
@@ -19679,10 +19679,10 @@ var inputType = {
    * use `ng-pattern` or modify the built-in validators (see the {@link guide/forms Forms guide})
    * </div>
    *
-   * @param {string} ngModel Assignable angular expression to data-bind to.
-   * @param {string=} name Property name of the form under which the control is published.
-   * @param {string=} required Sets `required` validation error key if the value is not entered.
-   * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
+   * @param {String} ngModel Assignable angular expression to data-bind to.
+   * @param {String=} name Property name of the form under which the control is published.
+   * @param {String=} required Sets `required` validation error key if the value is not entered.
+   * @param {String=} ngRequired Adds `required` attribute and `required` validation constraint to
    *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
    *    `required` when you want to data-bind to the `required` attribute.
    * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
@@ -19690,15 +19690,15 @@ var inputType = {
    * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
    *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of
    *    any length.
-   * @param {string=} pattern Similar to `ngPattern` except that the attribute value is the actual string
+   * @param {String=} pattern Similar to `ngPattern` except that the attribute value is the actual String
    *    that contains the regular expression body that will be converted to a regular expression
    *    as in the ngPattern directive.
-   * @param {string=} ngPattern Sets `pattern` validation error key if the ngModel value does not match
+   * @param {String=} ngPattern Sets `pattern` validation error key if the ngModel value does not match
    *    a RegExp found by evaluating the Angular expression given in the attribute value.
    *    If the expression evaluates to a RegExp object then this is used directly.
-   *    If the expression is a string then it will be converted to a RegExp after wrapping it in `^` and `$`
+   *    If the expression is a String then it will be converted to a RegExp after wrapping it in `^` and `$`
    *    characters. For instance, `"abc"` will be converted to `new RegExp('^abc$')`.
-   * @param {string=} ngChange Angular expression to be executed when input changes due to user
+   * @param {String=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
    * @example
@@ -19762,12 +19762,12 @@ var inputType = {
    * @description
    * HTML radio button.
    *
-   * @param {string} ngModel Assignable angular expression to data-bind to.
-   * @param {string} value The value to which the expression should be set when selected.
-   * @param {string=} name Property name of the form under which the control is published.
-   * @param {string=} ngChange Angular expression to be executed when input changes due to user
+   * @param {String} ngModel Assignable angular expression to data-bind to.
+   * @param {String} value The value to which the expression should be set when selected.
+   * @param {String=} name Property name of the form under which the control is published.
+   * @param {String=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
-   * @param {string} ngValue Angular expression which sets the value to which the expression should
+   * @param {String} ngValue Angular expression which sets the value to which the expression should
    *    be set when selected.
    *
    * @example
@@ -19816,11 +19816,11 @@ var inputType = {
    * @description
    * HTML checkbox.
    *
-   * @param {string} ngModel Assignable angular expression to data-bind to.
-   * @param {string=} name Property name of the form under which the control is published.
+   * @param {String} ngModel Assignable angular expression to data-bind to.
+   * @param {String=} name Property name of the form under which the control is published.
    * @param {expression=} ngTrueValue The value to which the expression should be set when selected.
    * @param {expression=} ngFalseValue The value to which the expression should be set when not selected.
-   * @param {string=} ngChange Angular expression to be executed when input changes due to user
+   * @param {String=} ngChange Angular expression to be executed when input changes due to user
    *    interaction with the input element.
    *
    * @example
@@ -19869,7 +19869,7 @@ var inputType = {
   'file': noop
 };
 
-function stringBasedInputType(ctrl) {
+function StringBasedInputType(ctrl) {
   ctrl.$formatters.push(function(value) {
     return ctrl.$isEmpty(value) ? value : value.toString();
   });
@@ -19877,7 +19877,7 @@ function stringBasedInputType(ctrl) {
 
 function textInputType(scope, element, attr, ctrl, $sniffer, $browser) {
   baseInputType(scope, element, attr, ctrl, $sniffer, $browser);
-  stringBasedInputType(ctrl);
+  StringBasedInputType(ctrl);
 }
 
 function baseInputType(scope, element, attr, ctrl, $sniffer, $browser) {
@@ -20009,9 +20009,9 @@ function createDateParser(regexp, mapping) {
     if (isString(iso)) {
       // When a date is JSON'ified to wraps itself inside of an extra
       // set of double quotes. This makes the date parsing code unable
-      // to match the date string and parse it as a date.
+      // to match the date String and parse it as a date.
       if (iso.charAt(0) == '"' && iso.charAt(iso.length - 1) == '"') {
-        iso = iso.substring(1, iso.length - 1);
+        iso = iso.subString(1, iso.length - 1);
       }
       if (ISO_DATE_REGEXP.test(iso)) {
         return new Date(iso);
@@ -20194,7 +20194,7 @@ function urlInputType(scope, element, attr, ctrl, $sniffer, $browser) {
   // Note: no badInputChecker here by purpose as `url` is only a validation
   // in browsers, i.e. we can always read out input.value even if it is not valid!
   baseInputType(scope, element, attr, ctrl, $sniffer, $browser);
-  stringBasedInputType(ctrl);
+  StringBasedInputType(ctrl);
 
   ctrl.$$parserName = 'url';
   ctrl.$validators.url = function(modelValue, viewValue) {
@@ -20207,7 +20207,7 @@ function emailInputType(scope, element, attr, ctrl, $sniffer, $browser) {
   // Note: no badInputChecker here by purpose as `url` is only a validation
   // in browsers, i.e. we can always read out input.value even if it is not valid!
   baseInputType(scope, element, attr, ctrl, $sniffer, $browser);
-  stringBasedInputType(ctrl);
+  StringBasedInputType(ctrl);
 
   ctrl.$$parserName = 'email';
   ctrl.$validators.email = function(modelValue, viewValue) {
@@ -20292,10 +20292,10 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
  * properties of this element are exactly the same as those of the
  * {@link ng.directive:input input element}.
  *
- * @param {string} ngModel Assignable angular expression to data-bind to.
- * @param {string=} name Property name of the form under which the control is published.
- * @param {string=} required Sets `required` validation error key if the value is not entered.
- * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
+ * @param {String} ngModel Assignable angular expression to data-bind to.
+ * @param {String=} name Property name of the form under which the control is published.
+ * @param {String=} required Sets `required` validation error key if the value is not entered.
+ * @param {String=} ngRequired Adds `required` attribute and `required` validation constraint to
  *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
  *    `required` when you want to data-bind to the `required` attribute.
  * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
@@ -20303,10 +20303,10 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
  * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
  *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of any
  *    length.
- * @param {string=} ngPattern Sets `pattern` validation error key if the value does not match the
+ * @param {String=} ngPattern Sets `pattern` validation error key if the value does not match the
  *    RegExp pattern expression. Expected value is `/regexp/` for inline patterns or `regexp` for
  *    patterns defined as scope expressions.
- * @param {string=} ngChange Angular expression to be executed when input changes due to user
+ * @param {String=} ngChange Angular expression to be executed when input changes due to user
  *    interaction with the input element.
  * @param {boolean=} [ngTrim=true] If set to false Angular will not automatically trim the input.
  */
@@ -20327,19 +20327,19 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
  * Specifically, data binding and event handling via `ng-model` is unsupported for `input[file]`.
  * </div>
  *
- * @param {string} ngModel Assignable angular expression to data-bind to.
- * @param {string=} name Property name of the form under which the control is published.
- * @param {string=} required Sets `required` validation error key if the value is not entered.
+ * @param {String} ngModel Assignable angular expression to data-bind to.
+ * @param {String=} name Property name of the form under which the control is published.
+ * @param {String=} required Sets `required` validation error key if the value is not entered.
  * @param {boolean=} ngRequired Sets `required` attribute if set to true
  * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
  *    minlength.
  * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
  *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of any
  *    length.
- * @param {string=} ngPattern Sets `pattern` validation error key if the value does not match the
+ * @param {String=} ngPattern Sets `pattern` validation error key if the value does not match the
  *    RegExp pattern expression. Expected value is `/regexp/` for inline patterns or `regexp` for
  *    patterns defined as scope expressions.
- * @param {string=} ngChange Angular expression to be executed when input changes due to user
+ * @param {String=} ngChange Angular expression to be executed when input changes due to user
  *    interaction with the input element.
  * @param {boolean=} [ngTrim=true] If set to false Angular will not automatically trim the input.
  *    This parameter is ignored for input[type=password] controls, which will never trim the
@@ -20465,12 +20465,12 @@ var CONSTANT_VALUE_REGEXP = /^(true|false|\d+)$/;
  * {@link ngRepeat `ngRepeat`}, as shown below.
  *
  * Likewise, `ngValue` can be used to generate `<option>` elements for
- * the {@link select `select`} element. In that case however, only strings are supported
- * for the `value `attribute, so the resulting `ngModel` will always be a string.
- * Support for `select` models with non-string values is available via `ngOptions`.
+ * the {@link select `select`} element. In that case however, only Strings are supported
+ * for the `value `attribute, so the resulting `ngModel` will always be a String.
+ * Support for `select` models with non-String values is available via `ngOptions`.
  *
  * @element input
- * @param {string=} ngValue angular expression, whose value will be bound to the `value` attribute
+ * @param {String=} ngValue angular expression, whose value will be bound to the `value` attribute
  *   of the `input` element
  *
  * @example
@@ -20610,7 +20610,7 @@ var ngBindDirective = ['$compile', function($compile) {
  * (such as TITLE and OPTION) cannot contain SPAN elements.
  *
  * @element ANY
- * @param {string} ngBindTemplate template of form
+ * @param {String} ngBindTemplate template of form
  *   <tt>{{</tt> <tt>expression</tt> <tt>}}</tt> to eval.
  *
  * @example
@@ -20699,7 +20699,7 @@ var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate
        angular.module('bindHtmlExample', ['ngSanitize'])
          .controller('ExampleController', ['$scope', function($scope) {
            $scope.myHTML =
-              'I am an <code>HTML</code>string with ' +
+              'I am an <code>HTML</code>String with ' +
               '<a href="#">links!</a> and other <em>stuff</em>';
          }]);
      </file>
@@ -20707,7 +20707,7 @@ var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate
      <file name="protractor.js" type="protractor">
        it('should check ng-bind-html', function() {
          expect(element(by.binding('myHTML')).getText()).toBe(
-             'I am an HTMLstring with links! and other stuff');
+             'I am an HTMLString with links! and other stuff');
        });
      </file>
    </example>
@@ -20727,7 +20727,7 @@ var ngBindHtmlDirective = ['$sce', '$parse', '$compile', function($sce, $parse, 
 
         scope.$watch(ngBindHtmlWatch, function ngBindHtmlWatchAction() {
           // we re-evaluate the expr because we want a TrustedValueHolderType
-          // for $sce, not a string
+          // for $sce, not a String
           element.html($sce.getTrustedHtml(ngBindHtmlGetter(scope)) || '');
         });
       };
@@ -20938,10 +20938,10 @@ function classDirective(name, selector) {
  * The directive operates in three different ways, depending on which of three types the expression
  * evaluates to:
  *
- * 1. If the expression evaluates to a string, the string should be one or more space-delimited class
+ * 1. If the expression evaluates to a String, the String should be one or more space-delimited class
  * names.
  *
- * 2. If the expression evaluates to an array, each element of the array should be a string that is
+ * 2. If the expression evaluates to an array, each element of the array should be a String that is
  * one or more space-delimited class names.
  *
  * 3. If the expression evaluates to an object, then for each key-value pair of the
@@ -20959,7 +20959,7 @@ function classDirective(name, selector) {
  *
  * @element ANY
  * @param {expression} ngClass {@link guide/expression Expression} to eval. The result
- *   of the evaluation can be a string representing space delimited class
+ *   of the evaluation can be a String representing space delimited class
  *   names, an array, or a map of class names to boolean values. In the case of a map, the
  *   names of the properties whose values are truthy will be added as css classes to the
  *   element.
@@ -21006,7 +21006,7 @@ function classDirective(name, selector) {
          expect(ps.first().getAttribute('class')).toMatch(/red/);
        });
 
-       it('should let you toggle string example', function() {
+       it('should let you toggle String example', function() {
          expect(ps.get(1).getAttribute('class')).toBe('');
          element(by.model('style')).clear();
          element(by.model('style')).sendKeys('red');
@@ -21088,7 +21088,7 @@ var ngClassDirective = classDirective('', true);
  *
  * @element ANY
  * @param {expression} ngClassOdd {@link guide/expression Expression} to eval. The result
- *   of the evaluation can be a string representing space delimited class names or an array.
+ *   of the evaluation can be a String representing space delimited class names or an array.
  *
  * @example
    <example>
@@ -21136,7 +21136,7 @@ var ngClassOddDirective = classDirective('Odd', 0);
  *
  * @element ANY
  * @param {expression} ngClassEven {@link guide/expression Expression} to eval. The
- *   result of the evaluation can be a string representing space delimited class names or an array.
+ *   result of the evaluation can be a String representing space delimited class names or an array.
  *
  * @example
    <example>
@@ -21473,13 +21473,13 @@ var ngControllerDirective = [function() {
  *
  * This is necessary when developing things like Google Chrome Extensions or Universal Windows Apps.
  *
- * CSP forbids apps to use `eval` or `Function(string)` generated functions (among other things).
+ * CSP forbids apps to use `eval` or `Function(String)` generated functions (among other things).
  * For Angular to be CSP compatible there are only two things that we need to do differently:
  *
  * - don't use `Function` constructor to generate optimized value getters
  * - don't inject custom stylesheet into the document
  *
- * AngularJS uses `Function(string)` generated functions as a speed optimization. Applying the `ngCsp`
+ * AngularJS uses `Function(String)` generated functions as a speed optimization. Applying the `ngCsp`
  * directive will cause Angular to use CSP compatibility mode. When this mode is on AngularJS will
  * evaluate all expressions up to 30% slower than in non-CSP mode, but no security violations will
  * be raised.
@@ -21492,7 +21492,7 @@ var ngControllerDirective = [function() {
  * autodetection however triggers a CSP error to be logged in the console:
  *
  * ```
- * Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of
+ * Refused to evaluate a String as JavaScript because 'unsafe-eval' is not an allowed source of
  * script in the following Content Security Policy directive: "default-src 'self'". Note that
  * 'script-src' was not explicitly set, so 'default-src' is used as a fallback.
  * ```
@@ -22003,7 +22003,7 @@ forEach(
          expect(element(by.binding('list')).getText()).toContain('hello');
          expect(element(by.model('text')).getAttribute('value')).toBe('');
        });
-       it('should ignore empty strings', function() {
+       it('should ignore empty Strings', function() {
          expect(element(by.binding('list')).getText()).toBe('list=[]');
          element(by.css('#submit')).click();
          element(by.css('#submit')).click();
@@ -22275,11 +22275,11 @@ var ngIfDirective = ['$animate', function($animate) {
  * @scope
  * @priority 400
  *
- * @param {string} ngInclude|src angular expression evaluating to URL. If the source is a string constant,
+ * @param {String} ngInclude|src angular expression evaluating to URL. If the source is a String constant,
  *                 make sure you wrap it in **single** quotes, e.g. `src="'myPartialTemplate.html'"`.
- * @param {string=} onload Expression to evaluate when a new partial is loaded.
+ * @param {String=} onload Expression to evaluate when a new partial is loaded.
  *
- * @param {string=} autoscroll Whether `ngInclude` should call {@link ng.$anchorScroll
+ * @param {String=} autoscroll Whether `ngInclude` should call {@link ng.$anchorScroll
  *                  $anchorScroll} to scroll the viewport after the content is loaded.
  *
  *                  - If the attribute is not set, disable scrolling.
@@ -22610,7 +22610,7 @@ var ngInitDirective = ngDirective({
  * @name ngList
  *
  * @description
- * Text input that converts between a delimited string and an array of strings. The default
+ * Text input that converts between a delimited String and an array of Strings. The default
  * delimiter is a comma followed by a space - equivalent to `ng-list=", "`. You can specify a custom
  * delimiter as the value of the `ngList` attribute - for example, `ng-list=" | "`.
  *
@@ -22685,7 +22685,7 @@ var ngInitDirective = ngDirective({
  * </example>
  *
  * @element input
- * @param {string=} ngList optional delimiter that should be used to split the value.
+ * @param {String=} ngList optional delimiter that should be used to split the value.
  */
 var ngListDirective = function() {
   return {
@@ -22753,7 +22753,7 @@ var ngModelMinErr = minErr('ngModel');
  * @ngdoc type
  * @name ngModel.NgModelController
  *
- * @property {string} $viewValue Actual string value in the view.
+ * @property {String} $viewValue Actual String value in the view.
  * @property {*} $modelValue The value in the model that the control is bound to.
  * @property {Array.<Function>} $parsers Array of functions to execute, as a pipeline, whenever
        the control reads value from the DOM. The functions are called in array order, each passing
@@ -22782,7 +22782,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
  * ngModel.$formatters.push(formatter);
  * ```
  *
- * @property {Object.<string, function>} $validators A collection of validators that are applied
+ * @property {Object.<String, function>} $validators A collection of validators that are applied
  *      whenever the model value changes. The key value within the object refers to the name of the
  *      validator while the function refers to the validation operation. The validation operation is
  *      provided with the model value as an argument and must return a true or false value depending
@@ -22798,7 +22798,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
  * };
  * ```
  *
- * @property {Object.<string, function>} $asyncValidators A collection of validations that are expected to
+ * @property {Object.<String, function>} $asyncValidators A collection of validations that are expected to
  *      perform an asynchronous validation (e.g. a HTTP request). The validation function that is provided
  *      is expected to return a promise when it is run during the model validation process. Once the promise
  *      is delivered then the validation status will be set to true when fulfilled and false when rejected.
@@ -22839,7 +22839,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
  * @property {boolean} $dirty True if user has already interacted with the control.
  * @property {boolean} $valid True if there is no error.
  * @property {boolean} $invalid True if at least one error on the control.
- * @property {string} $name The name attribute of the control.
+ * @property {String} $name The name attribute of the control.
  *
  * @description
  *
@@ -23020,7 +23020,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    *
    * Since `ng-model` does not do a deep watch, `$render()` is only invoked if the values of
    * `$modelValue` and `$viewValue` are actually different to their previous value. If `$modelValue`
-   * or `$viewValue` are objects (rather than a string or number) then `$render()` will not be
+   * or `$viewValue` are objects (rather than a String or number) then `$render()` will not be
    * invoked if you only change a property on the objects.
    */
   this.$render = noop;
@@ -23061,7 +23061,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    * However, in most cases it should be sufficient to use the `ngModel.$validators` and
    * `ngModel.$asyncValidators` collections which will call `$setValidity` automatically.
    *
-   * @param {string} validationErrorKey Name of the validator. The `validationErrorKey` will be assigned
+   * @param {String} validationErrorKey Name of the validator. The `validationErrorKey` will be assigned
    *        to either `$error[validationErrorKey]` or `$pending[validationErrorKey]`
    *        (for unfulfilled `$asyncValidators`), so that it is available for data-binding.
    *        The `validationErrorKey` should be in camelCase and will get converted into dash-case
@@ -23463,7 +23463,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    * For example {@link ng.directive:input input} calls it when the value of the input changes and
    * {@link ng.directive:select select} calls it when an option is selected.
    *
-   * If the new `value` is an object (rather than a string or a number), we should make a copy of the
+   * If the new `value` is an object (rather than a String or a number), we should make a copy of the
    * object before passing it to `$setViewValue`.  This is because `ngModel` does not perform a deep
    * watch of objects, it only looks for a change of identity. If you only change the property of
    * the object then ngModel will not realise that the object has changed and will not invoke the
@@ -23487,8 +23487,8 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    *
    * Note that calling this function does not trigger a `$digest`.
    *
-   * @param {string} value Value from the view.
-   * @param {string} trigger Event that triggered the update.
+   * @param {String} value Value from the view.
+   * @param {String} trigger Event that triggered the update.
    */
   this.$setViewValue = function(value, trigger) {
     ctrl.$viewValue = value;
@@ -23815,7 +23815,7 @@ var DEFAULT_REGEXP = /(\s+|^)default(\s+|$)/;
  * `ngModelOptions` has an effect on the element it's declared on and its descendants.
  *
  * @param {Object} ngModelOptions options to apply to the current model. Valid keys are:
- *   - `updateOn`: string specifying which event should the input be bound to. You can set several
+ *   - `updateOn`: String specifying which event should the input be bound to. You can set several
  *     events using an space delimited list. There is a special event called `default` that
  *     matches the default events belonging of the control.
  *   - `debounce`: integer value which contains the debounce model update value in milliseconds. A
@@ -24116,7 +24116,7 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
  * (see {@link guide/i18n Angular i18n} dev guide). You configure ngPluralize directive
  * by specifying the mappings between
  * [plural categories](http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/language_plural_rules.html)
- * and the strings to be displayed.
+ * and the Strings to be displayed.
  *
  * # Plural categories and explicit number rules
  * There are two
@@ -24132,11 +24132,11 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
  * You configure ngPluralize by providing 2 attributes: `count` and `when`.
  * You can also provide an optional attribute, `offset`.
  *
- * The value of the `count` attribute can be either a string or an {@link guide/expression
+ * The value of the `count` attribute can be either a String or an {@link guide/expression
  * Angular expression}; these are evaluated on the current scope for its bound value.
  *
  * The `when` attribute specifies the mappings between plural categories and the actual
- * string to be displayed. The value of the attribute should be a JSON object.
+ * String to be displayed. The value of the attribute should be a JSON object.
  *
  * The following example shows how to configure ngPluralize:
  *
@@ -24155,7 +24155,7 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
  * show "a dozen people are viewing".
  *
  * You can use a set of closed braces (`{}`) as a placeholder for the number that you want substituted
- * into pluralized strings. In the previous example, Angular will replace `{}` with
+ * into pluralized Strings. In the previous example, Angular will replace `{}` with
  * <span ng-non-bindable>`{{personCount}}`</span>. The closed braces `{}` is a placeholder
  * for <span ng-non-bindable>{{numberExpression}}</span>.
  *
@@ -24186,11 +24186,11 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
  *
  * Note that when you specify offsets, you must provide explicit number rules for
  * numbers from 0 up to and including the offset. If you use an offset of 3, for example,
- * you must provide explicit number rules for 0, 1, 2 and 3. You must also provide plural strings for
+ * you must provide explicit number rules for 0, 1, 2 and 3. You must also provide plural Strings for
  * plural categories "one" and "other".
  *
- * @param {string|expression} count The variable to be bound to.
- * @param {string} when The mapping between plural category to its corresponding strings.
+ * @param {String|expression} count The variable to be bound to.
+ * @param {String} when The mapping between plural category to its corresponding Strings.
  * @param {number=} offset Offset to deduct from the total number.
  *
  * @example
@@ -24229,7 +24229,7 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
         </div>
       </file>
       <file name="protractor.js" type="protractor">
-        it('should show correct pluralized string', function() {
+        it('should show correct pluralized String', function() {
           var withoutOffset = element.all(by.css('ng-pluralize')).get(0);
           var withOffset = element.all(by.css('ng-pluralize')).get(1);
           var countInput = element(by.model('personCount'));
@@ -25255,8 +25255,8 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
  *
  * <div class="alert alert-info">
  * Be aware that the attribute values to match against cannot be expressions. They are interpreted
- * as literal string values to match against.
- * For example, **`ng-switch-when="someVal"`** will match against the string `"someVal"` not against the
+ * as literal String values to match against.
+ * For example, **`ng-switch-when="someVal"`** will match against the String `"someVal"` not against the
  * value of the expression `$scope.someVal`.
  * </div>
 
@@ -25523,8 +25523,8 @@ var ngTranscludeDirective = ngDirective({
  * `<script>` element must be specified as `text/ng-template`, and a cache name for the template must be
  * assigned through the element's `id`, which can then be used as a directive's `templateUrl`.
  *
- * @param {string} type Must be set to `'text/ng-template'`.
- * @param {string} id Cache name of the template.
+ * @param {String} type Must be set to `'text/ng-template'`.
+ * @param {String} id Cache name of the template.
  *
  * @example
   <example>
@@ -25579,14 +25579,14 @@ var ngOptionsMinErr = minErr('ngOptions');
  * increasing speed by not creating a new scope for each repeated instance, as well as providing
  * more flexibility in how the `<select>`'s model is assigned via the `select` **`as`** part of the
  * comprehension expression. `ngOptions` should be used when the `<select>` model needs to be bound
- *  to a non-string value. This is because an option element can only be bound to string values at
+ *  to a non-String value. This is because an option element can only be bound to String values at
  * present.
  *
  * When an item in the `<select>` menu is selected, the array element or object property
  * represented by the selected option will be bound to the model identified by the `ngModel`
  * directive.
  *
- * Optionally, a single hard-coded `<option>` element, with the value set to an empty string, can
+ * Optionally, a single hard-coded `<option>` element, with the value set to an empty String, can
  * be nested into the `<select>` element. This element will then represent the `null` or "not selected"
  * option. See example below for demonstration.
  *
@@ -25641,10 +25641,10 @@ var ngOptionsMinErr = minErr('ngOptions');
  *    selected" option.
  *
  *
- * @param {string} ngModel Assignable angular expression to data-bind to.
- * @param {string=} name Property name of the form under which the control is published.
- * @param {string=} required The control is considered valid only if value is entered.
- * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
+ * @param {String} ngModel Assignable angular expression to data-bind to.
+ * @param {String=} name Property name of the form under which the control is published.
+ * @param {String=} required The control is considered valid only if value is entered.
+ * @param {String=} ngRequired Adds `required` attribute and `required` validation constraint to
  *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
  *    `required` when you want to data-bind to the `required` attribute.
  * @param {comprehension_expression=} ngOptions in one of the following forms:
@@ -26232,7 +26232,7 @@ var selectDirective = ['$compile', '$parse', function($compile,   $parse) {
                   element = nullOption;
                 } else {
                   // jQuery(v1.4.2) Bug: We should be able to chain the method calls, but
-                  // in this version of jQuery on some browser the .text() returns a string
+                  // in this version of jQuery on some browser the .text() returns a String
                   // rather then the element.
                   (element = optionTemplate.clone())
                       .val(option.id)

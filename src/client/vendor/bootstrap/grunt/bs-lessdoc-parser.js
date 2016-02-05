@@ -1,5 +1,5 @@
 /*!
- * Bootstrap Grunt task for parsing Less docstrings
+ * Bootstrap Grunt task for parsing Less docStrings
  * http://getbootstrap.com
  * Copyright 2014-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -44,7 +44,7 @@ function Section(heading, customizable) {
   this.heading = heading.trim();
   this.id = this.heading.replace(/\s+/g, '-').toLowerCase();
   this.customizable = customizable;
-  this.docstring = null;
+  this.docString = null;
   this.subsections = [];
 }
 
@@ -62,18 +62,18 @@ SubSection.prototype.addVar = function (variable) {
   this.variables.push(variable);
 };
 
-function VarDocstring(markdownString) {
+function VarDocString(markdownString) {
   this.html = markdown2html(markdownString);
 }
 
-function SectionDocstring(markdownString) {
+function SectionDocString(markdownString) {
   this.html = markdown2html(markdownString);
 }
 
 function Variable(name, defaultValue) {
   this.name = name;
   this.defaultValue = defaultValue;
-  this.docstring = null;
+  this.docString = null;
 }
 
 function Tokenizer(fileContent) {
@@ -115,11 +115,11 @@ Tokenizer.prototype._shift = function () {
   }
   match = SECTION_DOCSTRING.exec(line);
   if (match !== null) {
-    return new SectionDocstring(match[1]);
+    return new SectionDocString(match[1]);
   }
   match = VAR_DOCSTRING.exec(line);
   if (match !== null) {
-    return new VarDocstring(match[1]);
+    return new VarDocString(match[1]);
   }
   var commentStart = line.lastIndexOf('//');
   var varLine = commentStart === -1 ? line : line.slice(0, commentStart);
@@ -164,13 +164,13 @@ Parser.prototype.parseSection = function () {
     return null;
   }
   if (!(section instanceof Section)) {
-    throw new Error('Expected section heading; got: ' + JSON.stringify(section));
+    throw new Error('Expected section heading; got: ' + JSON.Stringify(section));
   }
-  var docstring = this._tokenizer.shift();
-  if (docstring instanceof SectionDocstring) {
-    section.docstring = docstring;
+  var docString = this._tokenizer.shift();
+  if (docString instanceof SectionDocString) {
+    section.docString = docString;
   } else {
-    this._tokenizer.unshift(docstring);
+    this._tokenizer.unshift(docString);
   }
   this.parseSubSections(section);
 
@@ -219,14 +219,14 @@ Parser.prototype.parseVars = function (subsection) {
 };
 
 Parser.prototype.parseVar = function () {
-  var docstring = this._tokenizer.shift();
-  if (!(docstring instanceof VarDocstring)) {
-    this._tokenizer.unshift(docstring);
-    docstring = null;
+  var docString = this._tokenizer.shift();
+  if (!(docString instanceof VarDocString)) {
+    this._tokenizer.unshift(docString);
+    docString = null;
   }
   var variable = this._tokenizer.shift();
   if (variable instanceof Variable) {
-    variable.docstring = docstring;
+    variable.docString = docString;
     return variable;
   }
   this._tokenizer.unshift(variable);

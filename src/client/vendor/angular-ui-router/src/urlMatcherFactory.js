@@ -42,7 +42,7 @@ var $$UMFP; // reference to $UrlMatcherFactoryProvider
  * * `'/calendar/{start:date}'` - Matches "/calendar/2014-11-12" (because the pattern defined
  *   in the built-in  `date` Type matches `2014-11-12`) and provides a Date object in $stateParams.start
  *
- * @param {string} pattern  The pattern to compile into a matcher.
+ * @param {String} pattern  The pattern to compile into a matcher.
  * @param {Object} config  A configuration object hash:
  * @param {Object=} parentMatcher Used to concatenate the pattern/config onto
  *   an existing UrlMatcher
@@ -50,17 +50,17 @@ var $$UMFP; // reference to $UrlMatcherFactoryProvider
  * * `caseInsensitive` - `true` if URL matching should be case insensitive, otherwise `false`, the default value (for backward compatibility) is `false`.
  * * `strict` - `false` if matching against a URL with a trailing slash should be treated as equivalent to a URL without a trailing slash, the default value is `true`.
  *
- * @property {string} prefix  A static prefix of this pattern. The matcher guarantees that any
- *   URL matching this matcher (i.e. any string for which {@link ui.router.util.type:UrlMatcher#methods_exec exec()} returns
+ * @property {String} prefix  A static prefix of this pattern. The matcher guarantees that any
+ *   URL matching this matcher (i.e. any String for which {@link ui.router.util.type:UrlMatcher#methods_exec exec()} returns
  *   non-null) will start with this prefix.
  *
- * @property {string} source  The pattern that was passed into the constructor
+ * @property {String} source  The pattern that was passed into the constructor
  *
- * @property {string} sourcePath  The path portion of the source property
+ * @property {String} sourcePath  The path portion of the source property
  *
- * @property {string} sourceSearch  The search portion of the source property
+ * @property {String} sourceSearch  The search portion of the source property
  *
- * @property {string} regex  The constructed regex that will be used to match against the url when
+ * @property {String} regex  The constructed regex that will be used to match against the url when
  *   it is time to determine which url will match.
  *
  * @returns {Object}  New `UrlMatcher` object
@@ -98,8 +98,8 @@ function UrlMatcher(pattern, config, parentMatcher) {
     return params[id];
   }
 
-  function quoteRegExp(string, pattern, squash, optional) {
-    var surroundPattern = ['',''], result = string.replace(/[\\\[\]\^$*+?.()|{}]/g, "\\$&");
+  function quoteRegExp(String, pattern, squash, optional) {
+    var surroundPattern = ['',''], result = String.replace(/[\\\[\]\^$*+?.()|{}]/g, "\\$&");
     if (!pattern) return result;
     switch(squash) {
       case false: surroundPattern = ['(', ')' + (optional ? "?" : "")]; break;
@@ -120,11 +120,11 @@ function UrlMatcher(pattern, config, parentMatcher) {
     var id, regexp, segment, type, cfg, arrayMode;
     id          = m[2] || m[3]; // IE[78] returns '' for unmatched groups instead of null
     cfg         = config.params[id];
-    segment     = pattern.substring(last, m.index);
+    segment     = pattern.subString(last, m.index);
     regexp      = isSearch ? m[4] : m[4] || (m[1] == '*' ? '.*' : null);
 
     if (regexp) {
-      type      = $$UMFP.type(regexp) || inherit($$UMFP.type("string"), { pattern: new RegExp(regexp, config.caseInsensitive ? 'i' : undefined) });
+      type      = $$UMFP.type(regexp) || inherit($$UMFP.type("String"), { pattern: new RegExp(regexp, config.caseInsensitive ? 'i' : undefined) });
     }
 
     return {
@@ -142,15 +142,15 @@ function UrlMatcher(pattern, config, parentMatcher) {
     segments.push(p.segment);
     last = placeholder.lastIndex;
   }
-  segment = pattern.substring(last);
+  segment = pattern.subString(last);
 
   // Find any search parameter names and remove them from the last segment
   var i = segment.indexOf('?');
 
   if (i >= 0) {
-    var search = this.sourceSearch = segment.substring(i);
-    segment = segment.substring(0, i);
-    this.sourcePath = pattern.substring(0, last + i);
+    var search = this.sourceSearch = segment.subString(i);
+    segment = segment.subString(0, i);
+    this.sourcePath = pattern.subString(0, last + i);
 
     if (search.length > 0) {
       last = 0;
@@ -192,14 +192,14 @@ function UrlMatcher(pattern, config, parentMatcher) {
  * new UrlMatcher('/user/{id}/details?q&date');
  * </pre>
  *
- * @param {string} pattern  The pattern to append.
+ * @param {String} pattern  The pattern to append.
  * @param {Object} config  An object hash of the configuration for the matcher.
  * @returns {UrlMatcher}  A matcher for the concatenated pattern.
  */
 UrlMatcher.prototype.concat = function (pattern, config) {
   // Because order of search parameters is irrelevant, we can add our own search
   // parameters to the end of the new pattern. Parse the new pattern by itself
-  // and then join the bits together, but it's much easier to do this on a string level.
+  // and then join the bits together, but it's much easier to do this on a String level.
   var defaultConfig = {
     caseInsensitive: $$UMFP.caseInsensitive(),
     strict: $$UMFP.strictMode(),
@@ -232,7 +232,7 @@ UrlMatcher.prototype.toString = function () {
  * // returns { id: 'bob', q: 'hello', r: null }
  * </pre>
  *
- * @param {string} path  The URL path to match, e.g. `$location.path()`.
+ * @param {String} path  The URL path to match, e.g. `$location.path()`.
  * @param {Object} searchParams  URL search parameters, e.g. `$location.search()`.
  * @returns {Object}  The captured parameter values.
  */
@@ -247,11 +247,11 @@ UrlMatcher.prototype.exec = function (path, searchParams) {
 
   if (nPath !== m.length - 1) throw new Error("Unbalanced capture group in route '" + this.source + "'");
 
-  function decodePathArray(string) {
+  function decodePathArray(String) {
     function reverseString(str) { return str.split("").reverse().join(""); }
     function unquoteDashes(str) { return str.replace(/\\-/g, "-"); }
 
-    var split = reverseString(string).split(/-(?!\\)/);
+    var split = reverseString(String).split(/-(?!\\)/);
     var allReversed = map(split, reverseString);
     return map(allReversed, unquoteDashes).reverse();
   }
@@ -292,7 +292,7 @@ UrlMatcher.prototype.exec = function (path, searchParams) {
  * @description
  * Returns the names of all path and search parameters of this pattern in an unspecified order.
  *
- * @returns {Array.<string>}  An array of parameter names. Must be treated as read-only. If the
+ * @returns {Array.<String>}  An array of parameter names. Must be treated as read-only. If the
  *    pattern has no parameters, an empty array is returned.
  */
 UrlMatcher.prototype.parameters = function (param) {
@@ -324,7 +324,7 @@ UrlMatcher.prototype.validates = function (params) {
  * @description
  * Creates a URL that matches this pattern by substituting the specified values
  * for the path and search parameters. Null values for path parameters are
- * treated as empty strings.
+ * treated as empty Strings.
  *
  * @example
  * <pre>
@@ -333,7 +333,7 @@ UrlMatcher.prototype.validates = function (params) {
  * </pre>
  *
  * @param {Object} values  the values to substitute for the parameters in this pattern.
- * @returns {string}  the formatted URL (path and optionally search part).
+ * @returns {String}  the formatted URL (path and optionally search part).
  */
 UrlMatcher.prototype.format = function (values) {
   values = values || {};
@@ -393,7 +393,7 @@ UrlMatcher.prototype.format = function (values) {
  *
  * @description
  * Implements an interface to define custom parameter types that can be decoded from and encoded to
- * string parameters matched in a URL. Used by {@link ui.router.util.type:UrlMatcher `UrlMatcher`}
+ * String parameters matched in a URL. Used by {@link ui.router.util.type:UrlMatcher `UrlMatcher`}
  * objects when matching or formatting URLs, or comparing or validating parameter values.
  *
  * See {@link ui.router.util.$urlMatcherFactory#methods_type `$urlMatcherFactory#type()`} for more
@@ -413,7 +413,7 @@ UrlMatcher.prototype.format = function (values) {
  * </pre>
  *
  * @property {RegExp} pattern The regular expression pattern used to match values of this type when
- *           coming from a substring of a URL.
+ *           coming from a subString of a URL.
  *
  * @returns {Object}  Returns a new `Type` object.
  */
@@ -431,7 +431,7 @@ function Type(config) {
  * and determines whether it matches the current `Type` object.
  *
  * @param {*} val  The value to check.
- * @param {string} key  Optional. If the type check is happening in the context of a specific
+ * @param {String} key  Optional. If the type check is happening in the context of a specific
  *        {@link ui.router.util.type:UrlMatcher `UrlMatcher`} object, this is the name of the
  *        parameter in which `val` is stored. Can be used for meta-programming of `Type` objects.
  * @returns {Boolean}  Returns `true` if the value matches the type, otherwise `false`.
@@ -446,14 +446,14 @@ Type.prototype.is = function(val, key) {
  * @methodOf ui.router.util.type:Type
  *
  * @description
- * Encodes a custom/native type value to a string that can be embedded in a URL. Note that the
+ * Encodes a custom/native type value to a String that can be embedded in a URL. Note that the
  * return value does *not* need to be URL-safe (i.e. passed through `encodeURIComponent()`), it
- * only needs to be a representation of `val` that has been coerced to a string.
+ * only needs to be a representation of `val` that has been coerced to a String.
  *
  * @param {*} val  The value to encode.
- * @param {string} key  The name of the parameter in which `val` is stored. Can be used for
+ * @param {String} key  The name of the parameter in which `val` is stored. Can be used for
  *        meta-programming of `Type` objects.
- * @returns {string}  Returns a string representation of `val` that can be encoded in a URL.
+ * @returns {String}  Returns a String representation of `val` that can be encoded in a URL.
  */
 Type.prototype.encode = function(val, key) {
   return val;
@@ -465,10 +465,10 @@ Type.prototype.encode = function(val, key) {
  * @methodOf ui.router.util.type:Type
  *
  * @description
- * Converts a parameter value (from URL string or transition param) to a custom/native value.
+ * Converts a parameter value (from URL String or transition param) to a custom/native value.
  *
- * @param {string} val  The URL parameter value to decode.
- * @param {string} key  The name of the parameter in which `val` is stored. Can be used for
+ * @param {String} val  The URL parameter value to decode.
+ * @param {String} key  The name of the parameter in which `val` is stored. Can be used for
  *        meta-programming of `Type` objects.
  * @returns {*}  Returns a custom representation of the URL parameter value.
  */
@@ -501,7 +501,7 @@ Type.prototype.pattern = /.*/;
 
 Type.prototype.toString = function() { return "{Type:" + this.name + "}"; };
 
-/** Given an encoded string, or a decoded object, returns a decoded object */
+/** Given an encoded String, or a decoded object, returns a decoded object */
 Type.prototype.$normalize = function(val) {
   return this.is(val) ? val : this.decode(val);
 };
@@ -599,12 +599,12 @@ function $UrlMatcherFactory() {
   function valFromString(val) { return val != null ? val.toString().replace(/~2F/g, "/").replace(/~~/g, "~") : val; }
 
   var $types = {}, enqueue = true, typeQueue = [], injector, defaultTypes = {
-    string: {
+    String: {
       encode: valToString,
       decode: valFromString,
-      // TODO: in 1.0, make string .is() return false if value is undefined/null by default.
-      // In 0.2.x, string params are optional by default for backwards compat
-      is: function(val) { return val == null || !isDefined(val) || typeof val === "string"; },
+      // TODO: in 1.0, make String .is() return false if value is undefined/null by default.
+      // In 0.2.x, String params are optional by default for backwards compat
+      is: function(val) { return val == null || !isDefined(val) || typeof val === "String"; },
       pattern: /[^/]*/
     },
     int: {
@@ -715,17 +715,17 @@ function $UrlMatcherFactory() {
    * @description
    * Sets the default behavior when generating or matching URLs with default parameter values.
    *
-   * @param {string} value A string that defines the default parameter URL squashing behavior.
+   * @param {String} value A String that defines the default parameter URL squashing behavior.
    *    `nosquash`: When generating an href with a default parameter value, do not squash the parameter value from the URL
    *    `slash`: When generating an href with a default parameter value, squash (remove) the parameter value, and, if the
    *             parameter is surrounded by slashes, squash (remove) one slash from the URL
-   *    any other string, e.g. "~": When generating an href with a default parameter value, squash (remove)
-   *             the parameter value from the URL and replace it with this string.
+   *    any other String, e.g. "~": When generating an href with a default parameter value, squash (remove)
+   *             the parameter value from the URL and replace it with this String.
    */
   this.defaultSquashPolicy = function(value) {
     if (!isDefined(value)) return defaultSquashPolicy;
     if (value !== true && value !== false && !isString(value))
-      throw new Error("Invalid squash policy: " + value + ". Valid policies: false, true, arbitrary-string");
+      throw new Error("Invalid squash policy: " + value + ". Valid policies: false, true, arbitrary-String");
     defaultSquashPolicy = value;
     return value;
   };
@@ -738,7 +738,7 @@ function $UrlMatcherFactory() {
    * @description
    * Creates a {@link ui.router.util.type:UrlMatcher `UrlMatcher`} for the specified pattern.
    *
-   * @param {string} pattern  The URL pattern.
+   * @param {String} pattern  The URL pattern.
    * @param {Object} config  The config object hash.
    * @returns {UrlMatcher}  The UrlMatcher.
    */
@@ -779,7 +779,7 @@ function $UrlMatcherFactory() {
    * Registers a custom {@link ui.router.util.type:Type `Type`} object that can be used to
    * generate URLs with typed parameters.
    *
-   * @param {string} name  The type name.
+   * @param {String} name  The type name.
    * @param {Object|Function} definition   The type definition. See
    *        {@link ui.router.util.type:Type `Type`} for information on the values accepted.
    * @param {Object|Function} definitionFn (optional) A function that is injected before the app
@@ -920,7 +920,7 @@ function $UrlMatcherFactory() {
     type = getType(config, type, location);
     var arrayMode = getArrayMode();
     type = arrayMode ? type.$asArray(arrayMode, location === "search") : type;
-    if (type.name === "string" && !arrayMode && location === "path" && config.value === undefined)
+    if (type.name === "String" && !arrayMode && location === "path" && config.value === undefined)
       config.value = ""; // for 0.2.x; in 0.3.0+ do not automatically default to ""
     var isOptional = config.value !== undefined;
     var squash = getSquashPolicy(config, isOptional);
@@ -938,7 +938,7 @@ function $UrlMatcherFactory() {
     function getType(config, urlType, location) {
       if (config.type && urlType) throw new Error("Param '"+id+"' has two type configurations.");
       if (urlType) return urlType;
-      if (!config.type) return (location === "config" ? $types.any : $types.string);
+      if (!config.type) return (location === "config" ? $types.any : $types.String);
 
       if (angular.isString(config.type))
         return $types[config.type];
@@ -962,7 +962,7 @@ function $UrlMatcherFactory() {
       if (!isOptional || squash === false) return false;
       if (!isDefined(squash) || squash == null) return defaultSquashPolicy;
       if (squash === true || isString(squash)) return squash;
-      throw new Error("Invalid squash policy: '" + squash + "'. Valid policies: false, true, or arbitrary string");
+      throw new Error("Invalid squash policy: '" + squash + "'. Valid policies: false, true, or arbitrary String");
     }
 
     function getReplace(config, arrayMode, isOptional, squash) {

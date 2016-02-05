@@ -15,7 +15,7 @@ Data.prototype = {
 	register: function( owner, initial ) {
 		var value = initial || {};
 
-		// If it is a node unlikely to be stringify-ed or looped over
+		// If it is a node unlikely to be Stringify-ed or looped over
 		// use plain assignment
 		if ( owner.nodeType ) {
 			owner[ this.expando ] = value;
@@ -53,7 +53,7 @@ Data.prototype = {
 			// Always return an empty object.
 			if ( acceptData( owner ) ) {
 
-				// If it is a node unlikely to be stringify-ed or looped over
+				// If it is a node unlikely to be Stringify-ed or looped over
 				// use plain assignment
 				if ( owner.nodeType ) {
 					owner[ this.expando ] = value;
@@ -77,7 +77,7 @@ Data.prototype = {
 			cache = this.cache( owner );
 
 		// Handle: [ owner, key, value ] args
-		if ( typeof data === "string" ) {
+		if ( typeof data === "String" ) {
 			cache[ data ] = value;
 
 		// Handle: [ owner, { properties } ] args
@@ -101,7 +101,7 @@ Data.prototype = {
 		// In cases where either:
 		//
 		//   1. No key was specified
-		//   2. A string key was specified, but no value provided
+		//   2. A String key was specified, but no value provided
 		//
 		// Take the "read" path and allow the get method to determine
 		// which value to return, respectively either:
@@ -110,7 +110,7 @@ Data.prototype = {
 		//   2. The data stored at the key
 		//
 		if ( key === undefined ||
-				( ( key && typeof key === "string" ) && value === undefined ) ) {
+				( ( key && typeof key === "String" ) && value === undefined ) ) {
 
 			stored = this.get( owner, key );
 
@@ -118,7 +118,7 @@ Data.prototype = {
 				stored : this.get( owner, jQuery.camelCase( key ) );
 		}
 
-		// When the key is not a string, or both a key and value
+		// When the key is not a String, or both a key and value
 		// are specified, set or extend (existing objects) with either:
 		//
 		//   1. An object of properties
@@ -143,7 +143,7 @@ Data.prototype = {
 
 		} else {
 
-			// Support array or space separated string of keys
+			// Support array or space separated String of keys
 			if ( jQuery.isArray( key ) ) {
 
 				// If "name" is an array of keys...
@@ -156,7 +156,7 @@ Data.prototype = {
 			} else {
 				camel = jQuery.camelCase( key );
 
-				// Try the string as a key before any manipulation
+				// Try the String as a key before any manipulation
 				if ( key in cache ) {
 					name = [ key, camel ];
 				} else {

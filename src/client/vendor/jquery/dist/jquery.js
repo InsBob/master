@@ -79,7 +79,7 @@ var
 	// Make sure we trim BOM and NBSP
 	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
 
-	// Matches dashed string for camelizing
+	// Matches dashed String for camelizing
 	rmsPrefix = /^-ms-/,
 	rdashAlpha = /-([\da-z])/gi,
 
@@ -188,7 +188,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 		i++;
 	}
 
-	// Handle case when target is a string or something (possible in deep copy)
+	// Handle case when target is a String or something (possible in deep copy)
 	if ( typeof target !== "object" && !jQuery.isFunction( target ) ) {
 		target = {};
 	}
@@ -268,7 +268,7 @@ jQuery.extend( {
 	isNumeric: function( obj ) {
 
 		// parseFloat NaNs numeric-cast false positives (null|true|false|"")
-		// ...but misinterprets leading-number strings, particularly hex literals ("0x...")
+		// ...but misinterprets leading-number Strings, particularly hex literals ("0x...")
 		// subtraction forces infinities to NaN
 		// adding 1 corrects loss of precision from parseFloat (#15100)
 		var realStringObj = obj && obj.toString();
@@ -343,8 +343,8 @@ jQuery.extend( {
 	// Convert dashed to camelCase; used by the css and data modules
 	// Support: IE9-11+
 	// Microsoft forgot to hump their vendor prefix (#9572)
-	camelCase: function( string ) {
-		return string.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
+	camelCase: function( String ) {
+		return String.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
 	},
 
 	nodeName: function( elem, name ) {
@@ -386,7 +386,7 @@ jQuery.extend( {
 		if ( arr != null ) {
 			if ( isArrayLike( Object( arr ) ) ) {
 				jQuery.merge( ret,
-					typeof arr === "string" ?
+					typeof arr === "String" ?
 					[ arr ] : arr
 				);
 			} else {
@@ -474,7 +474,7 @@ jQuery.extend( {
 	proxy: function( fn, context ) {
 		var tmp, args, proxy;
 
-		if ( typeof context === "string" ) {
+		if ( typeof context === "String" ) {
 			tmp = fn[ context ];
 			context = fn;
 			fn = tmp;
@@ -624,7 +624,7 @@ var i,
 	attributes = "\\[" + whitespace + "*(" + identifier + ")(?:" + whitespace +
 		// Operator (capture 2)
 		"*([*^$|!~]?=)" + whitespace +
-		// "Attribute values must be CSS identifiers [capture 5] or strings [capture 3 or capture 4]"
+		// "Attribute values must be CSS identifiers [capture 5] or Strings [capture 3 or capture 4]"
 		"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + identifier + "))|)" + whitespace +
 		"*\\]",
 
@@ -740,7 +740,7 @@ function Sizzle( selector, context, results, seed ) {
 	results = results || [];
 
 	// Return early from calls with invalid selector or context
-	if ( typeof selector !== "string" || !selector ||
+	if ( typeof selector !== "String" || !selector ||
 		nodeType !== 1 && nodeType !== 9 && nodeType !== 11 ) {
 
 		return results;
@@ -866,8 +866,8 @@ function Sizzle( selector, context, results, seed ) {
 
 /**
  * Create key-value caches of limited size
- * @returns {function(string, object)} Returns the Object data after storing it on itself with
- *	property name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)
+ * @returns {function(String, object)} Returns the Object data after storing it on itself with
+ *	property name the (space-suffixed) String and (if the cache is larger than Expr.cacheLength)
  *	deleting the oldest entry
  */
 function createCache() {
@@ -1176,7 +1176,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		// Build QSA regex
 		// Regex strategy adopted from Diego Perini
 		assert(function( div ) {
-			// Select is set to empty string on purpose
+			// Select is set to empty String on purpose
 			// This is to test IE's treatment of not explicitly
 			// setting a boolean content attribute,
 			// since its presence should be enough
@@ -1186,7 +1186,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				"<option selected=''></option></select>";
 
 			// Support: IE8, Opera 11-12.16
-			// Nothing should be selected when empty strings follow ^= or $= or *=
+			// Nothing should be selected when empty Strings follow ^= or $= or *=
 			// The test attribute must be unknown in Opera but "safe" for WinRT
 			// http://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
 			if ( div.querySelectorAll("[msallowcapture^='']").length ) {
@@ -1515,7 +1515,7 @@ getText = Sizzle.getText = function( elem ) {
 	} else if ( nodeType === 1 || nodeType === 9 || nodeType === 11 ) {
 		// Use textContent for elements
 		// innerText usage removed for consistency of new lines (jQuery #11153)
-		if ( typeof elem.textContent === "string" ) {
+		if ( typeof elem.textContent === "String" ) {
 			return elem.textContent;
 		} else {
 			// Traverse its children
@@ -1643,7 +1643,7 @@ Expr = Sizzle.selectors = {
 			return pattern ||
 				(pattern = new RegExp( "(^|" + whitespace + ")" + className + "(" + whitespace + "|$)" )) &&
 				classCache( className, function( elem ) {
-					return pattern.test( typeof elem.className === "string" && elem.className || typeof elem.getAttribute !== "undefined" && elem.getAttribute("class") || "" );
+					return pattern.test( typeof elem.className === "String" && elem.className || typeof elem.getAttribute !== "undefined" && elem.getAttribute("class") || "" );
 				});
 		},
 
@@ -2448,7 +2448,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			// NOTE: This can be skipped if there are no unmatched elements (i.e., `matchedCount`
 			// equals `i`), unless we didn't visit _any_ elements in the above loop because we have
 			// no element matchers and no seed.
-			// Incrementing an initially-string "0" `i` allows `i` to remain a string only in that
+			// Incrementing an initially-String "0" `i` allows `i` to remain a String only in that
 			// case, which will result in a "00" `matchedCount` that differs from `i` but is also
 			// numerically zero.
 			if ( bySet && i !== matchedCount ) {
@@ -2739,7 +2739,7 @@ function winnow( elements, qualifier, not ) {
 
 	}
 
-	if ( typeof qualifier === "string" ) {
+	if ( typeof qualifier === "String" ) {
 		if ( risSimple.test( qualifier ) ) {
 			return jQuery.filter( qualifier, elements, not );
 		}
@@ -2773,7 +2773,7 @@ jQuery.fn.extend( {
 			ret = [],
 			self = this;
 
-		if ( typeof selector !== "string" ) {
+		if ( typeof selector !== "String" ) {
 			return this.pushStack( jQuery( selector ).filter( function() {
 				for ( i = 0; i < len; i++ ) {
 					if ( jQuery.contains( self[ i ], this ) ) {
@@ -2804,7 +2804,7 @@ jQuery.fn.extend( {
 
 			// If this is a positional/relative selector, check membership in the returned set
 			// so $("p:first").is("p:last") won't return true for a doc with two "p".
-			typeof selector === "string" && rneedsContext.test( selector ) ?
+			typeof selector === "String" && rneedsContext.test( selector ) ?
 				jQuery( selector ) :
 				selector || [],
 			false
@@ -2819,7 +2819,7 @@ jQuery.fn.extend( {
 // A central reference to the root jQuery(document)
 var rootjQuery,
 
-	// A simple way to check for HTML strings
+	// A simple way to check for HTML Strings
 	// Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
 	// Strict HTML recognition (#11290: must start with <)
 	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
@@ -2836,13 +2836,13 @@ var rootjQuery,
 		// so migrate can support jQuery.sub (gh-2101)
 		root = root || rootjQuery;
 
-		// Handle HTML strings
-		if ( typeof selector === "string" ) {
+		// Handle HTML Strings
+		if ( typeof selector === "String" ) {
 			if ( selector[ 0 ] === "<" &&
 				selector[ selector.length - 1 ] === ">" &&
 				selector.length >= 3 ) {
 
-				// Assume that strings that start and end with <> are HTML and skip the regex check
+				// Assume that Strings that start and end with <> are HTML and skip the regex check
 				match = [ null, selector, null ];
 
 			} else {
@@ -2970,7 +2970,7 @@ jQuery.fn.extend( {
 			i = 0,
 			l = this.length,
 			matched = [],
-			pos = rneedsContext.test( selectors ) || typeof selectors !== "string" ?
+			pos = rneedsContext.test( selectors ) || typeof selectors !== "String" ?
 				jQuery( selectors, context || this.context ) :
 				0;
 
@@ -3003,7 +3003,7 @@ jQuery.fn.extend( {
 		}
 
 		// Index in selector
-		if ( typeof elem === "string" ) {
+		if ( typeof elem === "String" ) {
 			return indexOf.call( jQuery( elem ), this[ 0 ] );
 		}
 
@@ -3081,7 +3081,7 @@ jQuery.each( {
 			selector = until;
 		}
 
-		if ( selector && typeof selector === "string" ) {
+		if ( selector && typeof selector === "String" ) {
 			matched = jQuery.filter( selector, matched );
 		}
 
@@ -3140,7 +3140,7 @@ jQuery.Callbacks = function( options ) {
 
 	// Convert options from String-formatted to Object-formatted if needed
 	// (we check in cache first)
-	options = typeof options === "string" ?
+	options = typeof options === "String" ?
 		createOptions( options ) :
 		jQuery.extend( {}, options );
 
@@ -3229,7 +3229,7 @@ jQuery.Callbacks = function( options ) {
 								if ( !options.unique || !self.has( arg ) ) {
 									list.push( arg );
 								}
-							} else if ( arg && arg.length && jQuery.type( arg ) !== "string" ) {
+							} else if ( arg && arg.length && jQuery.type( arg ) !== "String" ) {
 
 								// Inspect recursively
 								add( arg );
@@ -3663,7 +3663,7 @@ Data.prototype = {
 	register: function( owner, initial ) {
 		var value = initial || {};
 
-		// If it is a node unlikely to be stringify-ed or looped over
+		// If it is a node unlikely to be Stringify-ed or looped over
 		// use plain assignment
 		if ( owner.nodeType ) {
 			owner[ this.expando ] = value;
@@ -3701,7 +3701,7 @@ Data.prototype = {
 			// Always return an empty object.
 			if ( acceptData( owner ) ) {
 
-				// If it is a node unlikely to be stringify-ed or looped over
+				// If it is a node unlikely to be Stringify-ed or looped over
 				// use plain assignment
 				if ( owner.nodeType ) {
 					owner[ this.expando ] = value;
@@ -3725,7 +3725,7 @@ Data.prototype = {
 			cache = this.cache( owner );
 
 		// Handle: [ owner, key, value ] args
-		if ( typeof data === "string" ) {
+		if ( typeof data === "String" ) {
 			cache[ data ] = value;
 
 		// Handle: [ owner, { properties } ] args
@@ -3749,7 +3749,7 @@ Data.prototype = {
 		// In cases where either:
 		//
 		//   1. No key was specified
-		//   2. A string key was specified, but no value provided
+		//   2. A String key was specified, but no value provided
 		//
 		// Take the "read" path and allow the get method to determine
 		// which value to return, respectively either:
@@ -3758,7 +3758,7 @@ Data.prototype = {
 		//   2. The data stored at the key
 		//
 		if ( key === undefined ||
-				( ( key && typeof key === "string" ) && value === undefined ) ) {
+				( ( key && typeof key === "String" ) && value === undefined ) ) {
 
 			stored = this.get( owner, key );
 
@@ -3766,7 +3766,7 @@ Data.prototype = {
 				stored : this.get( owner, jQuery.camelCase( key ) );
 		}
 
-		// When the key is not a string, or both a key and value
+		// When the key is not a String, or both a key and value
 		// are specified, set or extend (existing objects) with either:
 		//
 		//   1. An object of properties
@@ -3791,7 +3791,7 @@ Data.prototype = {
 
 		} else {
 
-			// Support array or space separated string of keys
+			// Support array or space separated String of keys
 			if ( jQuery.isArray( key ) ) {
 
 				// If "name" is an array of keys...
@@ -3804,7 +3804,7 @@ Data.prototype = {
 			} else {
 				camel = jQuery.camelCase( key );
 
-				// Try the string as a key before any manipulation
+				// Try the String as a key before any manipulation
 				if ( key in cache ) {
 					name = [ key, camel ];
 				} else {
@@ -3871,13 +3871,13 @@ function dataAttr( elem, key, data ) {
 		name = "data-" + key.replace( rmultiDash, "-$&" ).toLowerCase();
 		data = elem.getAttribute( name );
 
-		if ( typeof data === "string" ) {
+		if ( typeof data === "String" ) {
 			try {
 				data = data === "true" ? true :
 					data === "false" ? false :
 					data === "null" ? null :
 
-					// Only convert to a number if it doesn't change the string
+					// Only convert to a number if it doesn't change the String
 					+data + "" === data ? +data :
 					rbrace.test( data ) ? jQuery.parseJSON( data ) :
 					data;
@@ -4098,7 +4098,7 @@ jQuery.fn.extend( {
 	queue: function( type, data ) {
 		var setter = 2;
 
-		if ( typeof type !== "string" ) {
+		if ( typeof type !== "String" ) {
 			data = type;
 			type = "fx";
 			setter--;
@@ -4144,7 +4144,7 @@ jQuery.fn.extend( {
 				}
 			};
 
-		if ( typeof type !== "string" ) {
+		if ( typeof type !== "String" ) {
 			obj = type;
 			type = undefined;
 		}
@@ -4207,7 +4207,7 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 		do {
 
 			// If previous iteration zeroed out, double until we get *something*.
-			// Use string for doubling so we don't accidentally see scale as unchanged below
+			// Use String for doubling so we don't accidentally see scale as unchanged below
 			scale = scale || ".5";
 
 			// Adjust and apply
@@ -4445,7 +4445,7 @@ function on( elem, types, selector, data, fn, one ) {
 	if ( typeof types === "object" ) {
 
 		// ( types-Object, selector, data )
-		if ( typeof selector !== "string" ) {
+		if ( typeof selector !== "String" ) {
 
 			// ( types-Object, data )
 			data = data || selector;
@@ -4463,7 +4463,7 @@ function on( elem, types, selector, data, fn, one ) {
 		fn = selector;
 		data = selector = undefined;
 	} else if ( fn == null ) {
-		if ( typeof selector === "string" ) {
+		if ( typeof selector === "String" ) {
 
 			// ( types, selector, fn )
 			fn = data;
@@ -5217,7 +5217,7 @@ function domManip( collection, args, callback, ignored ) {
 
 	// We can't cloneNode fragments that contain checked, in WebKit
 	if ( isFunction ||
-			( l > 1 && typeof value === "string" &&
+			( l > 1 && typeof value === "String" &&
 				!support.checkClone && rchecked.test( value ) ) ) {
 		return collection.each( function( index ) {
 			var self = collection.eq( index );
@@ -5493,7 +5493,7 @@ jQuery.fn.extend( {
 			}
 
 			// See if we can take a shortcut and just use innerHTML
-			if ( typeof value === "string" && !rnoInnerhtml.test( value ) &&
+			if ( typeof value === "String" && !rnoInnerhtml.test( value ) &&
 				!wrapMap[ ( rtagName.exec( value ) || [ "", "" ] )[ 1 ].toLowerCase() ] ) {
 
 				value = jQuery.htmlPrefilter( value );
@@ -6127,7 +6127,7 @@ jQuery.extend( {
 			type = typeof value;
 
 			// Convert "+=" or "-=" to relative numbers (#7345)
-			if ( type === "string" && ( ret = rcssNum.exec( value ) ) && ret[ 1 ] ) {
+			if ( type === "String" && ( ret = rcssNum.exec( value ) ) && ret[ 1 ] ) {
 				value = adjustCSS( elem, name, ret );
 
 				// Fixes bug #9237
@@ -6280,8 +6280,8 @@ jQuery.each( {
 			var i = 0,
 				expanded = {},
 
-				// Assumes a single number if not a string
-				parts = typeof value === "string" ? value.split( " " ) : [ value ];
+				// Assumes a single number if not a String
+				parts = typeof value === "String" ? value.split( " " ) : [ value ];
 
 			for ( ; i < 4; i++ ) {
 				expanded[ prefix + cssExpand[ i ] + suffix ] =
@@ -6405,13 +6405,13 @@ Tween.propHooks = {
 				return tween.elem[ tween.prop ];
 			}
 
-			// Passing an empty string as a 3rd parameter to .css will automatically
-			// attempt a parseFloat and fallback to a string if the parse fails.
+			// Passing an empty String as a 3rd parameter to .css will automatically
+			// attempt a parseFloat and fallback to a String if the parse fails.
 			// Simple values such as "10px" are parsed to Float;
 			// complex values such as "rotate(1rad)" are returned as-is.
 			result = jQuery.css( tween.elem, tween.prop, "" );
 
-			// Empty strings, null, undefined and "auto" are converted to 0.
+			// Empty Strings, null, undefined and "auto" are converted to 0.
 			return !result || result === "auto" ? 0 : result;
 		},
 		set: function( tween ) {
@@ -6903,7 +6903,7 @@ jQuery.fn.extend( {
 			stop( gotoEnd );
 		};
 
-		if ( typeof type !== "string" ) {
+		if ( typeof type !== "String" ) {
 			gotoEnd = clearQueue;
 			clearQueue = type;
 			type = undefined;
@@ -7369,7 +7369,7 @@ jQuery.fn.extend( {
 			} );
 		}
 
-		if ( typeof value === "string" && value ) {
+		if ( typeof value === "String" && value ) {
 			classes = value.match( rnotwhite ) || [];
 
 			while ( ( elem = this[ i++ ] ) ) {
@@ -7411,7 +7411,7 @@ jQuery.fn.extend( {
 			return this.attr( "class", "" );
 		}
 
-		if ( typeof value === "string" && value ) {
+		if ( typeof value === "String" && value ) {
 			classes = value.match( rnotwhite ) || [];
 
 			while ( ( elem = this[ i++ ] ) ) {
@@ -7446,7 +7446,7 @@ jQuery.fn.extend( {
 	toggleClass: function( value, stateVal ) {
 		var type = typeof value;
 
-		if ( typeof stateVal === "boolean" && type === "string" ) {
+		if ( typeof stateVal === "boolean" && type === "String" ) {
 			return stateVal ? this.addClass( value ) : this.removeClass( value );
 		}
 
@@ -7462,7 +7462,7 @@ jQuery.fn.extend( {
 		return this.each( function() {
 			var className, i, self, classNames;
 
-			if ( type === "string" ) {
+			if ( type === "String" ) {
 
 				// Toggle individual class names
 				i = 0;
@@ -7491,7 +7491,7 @@ jQuery.fn.extend( {
 				// If the element has a class name or if we're passed `false`,
 				// then remove the whole classname (if there was one, the above saved it).
 				// Otherwise bring back whatever was previously saved (if anything),
-				// falling back to the empty string if nothing was stored.
+				// falling back to the empty String if nothing was stored.
 				if ( this.setAttribute ) {
 					this.setAttribute( "class",
 						className || value === false ?
@@ -7545,9 +7545,9 @@ jQuery.fn.extend( {
 
 				ret = elem.value;
 
-				return typeof ret === "string" ?
+				return typeof ret === "String" ?
 
-					// Handle most common string cases
+					// Handle most common String cases
 					ret.replace( rreturn, "" ) :
 
 					// Handle cases where value is null/undef or number
@@ -7572,7 +7572,7 @@ jQuery.fn.extend( {
 				val = value;
 			}
 
-			// Treat null/undefined as ""; convert numbers to string
+			// Treat null/undefined as ""; convert numbers to String
 			if ( val == null ) {
 				val = "";
 
@@ -7725,7 +7725,7 @@ jQuery.extend( jQuery.event, {
 		}
 		ontype = type.indexOf( ":" ) < 0 && "on" + type;
 
-		// Caller can pass in a jQuery.Event object, Object, or just an event type string
+		// Caller can pass in a jQuery.Event object, Object, or just an event type String
 		event = event[ jQuery.expando ] ?
 			event :
 			new jQuery.Event( type, typeof event === "object" && event );
@@ -7956,7 +7956,7 @@ var rquery = ( /\?/ );
 
 
 // Support: Android 2.3
-// Workaround failure to string-cast null input
+// Workaround failure to String-cast null input
 jQuery.parseJSON = function( data ) {
 	return JSON.parse( data + "" );
 };
@@ -7965,7 +7965,7 @@ jQuery.parseJSON = function( data ) {
 // Cross-browser xml parsing
 jQuery.parseXML = function( data ) {
 	var xml;
-	if ( !data || typeof data !== "string" ) {
+	if ( !data || typeof data !== "String" ) {
 		return null;
 	}
 
@@ -7997,7 +7997,7 @@ var
 	 * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
 	 * 2) These are called:
 	 *    - BEFORE asking for a transport
-	 *    - AFTER param serialization (s.data is a string if s.processData is true)
+	 *    - AFTER param serialization (s.data is a String if s.processData is true)
 	 * 3) key is the dataType
 	 * 4) the catchall symbol "*" can be used
 	 * 5) execution will start with transport dataType and THEN continue down to "*" if needed
@@ -8024,7 +8024,7 @@ function addToPrefiltersOrTransports( structure ) {
 	// dataTypeExpression is optional and defaults to "*"
 	return function( dataTypeExpression, func ) {
 
-		if ( typeof dataTypeExpression !== "string" ) {
+		if ( typeof dataTypeExpression !== "String" ) {
 			func = dataTypeExpression;
 			dataTypeExpression = "*";
 		}
@@ -8063,7 +8063,7 @@ function inspectPrefiltersOrTransports( structure, options, originalOptions, jqX
 		inspected[ dataType ] = true;
 		jQuery.each( structure[ dataType ] || [], function( _, prefilterOrFactory ) {
 			var dataTypeOrTransport = prefilterOrFactory( options, originalOptions, jqXHR );
-			if ( typeof dataTypeOrTransport === "string" &&
+			if ( typeof dataTypeOrTransport === "String" &&
 				!seekingTransport && !inspected[ dataTypeOrTransport ] ) {
 
 				options.dataTypes.unshift( dataTypeOrTransport );
@@ -8429,7 +8429,7 @@ jQuery.extend( {
 					return match == null ? null : match;
 				},
 
-				// Raw string
+				// Raw String
 				getAllResponseHeaders: function() {
 					return state === 2 ? responseHeadersString : null;
 				},
@@ -8487,7 +8487,7 @@ jQuery.extend( {
 		jqXHR.success = jqXHR.done;
 		jqXHR.error = jqXHR.fail;
 
-		// Remove hash character (#7531: and string promotion)
+		// Remove hash character (#7531: and String promotion)
 		// Add protocol if not provided (prefilters might expect it)
 		// Handle falsy url in the settings object (#10093: consistency with old signature)
 		// We also use the url parameter if available
@@ -8522,8 +8522,8 @@ jQuery.extend( {
 			}
 		}
 
-		// Convert data if not already a string
-		if ( s.data && s.processData && typeof s.data !== "string" ) {
+		// Convert data if not already a String
+		if ( s.data && s.processData && typeof s.data !== "String" ) {
 			s.data = jQuery.param( s.data, s.traditional );
 		}
 
@@ -8957,7 +8957,7 @@ function buildParams( prefix, obj, traditional, add ) {
 }
 
 // Serialize an array of form elements or a set of
-// key/values into a query string
+// key/values into a query String
 jQuery.param = function( a, traditional ) {
 	var prefix,
 		s = [],
@@ -9125,7 +9125,7 @@ jQuery.ajaxTransport( function( options ) {
 									// IE9 has no XHR2 but throws on binary (trac-11426)
 									// For XHR2 non-text, let the caller handle it (gh-2498)
 									( xhr.responseType || "text" ) !== "text"  ||
-									typeof xhr.responseText !== "string" ?
+									typeof xhr.responseText !== "String" ?
 										{ binary: xhr.response } :
 										{ text: xhr.responseText },
 									xhr.getAllResponseHeaders()
@@ -9274,7 +9274,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 	var callbackName, overwritten, responseContainer,
 		jsonProp = s.jsonp !== false && ( rjsonp.test( s.url ) ?
 			"url" :
-			typeof s.data === "string" &&
+			typeof s.data === "String" &&
 				( s.contentType || "" )
 					.indexOf( "application/x-www-form-urlencoded" ) === 0 &&
 				rjsonp.test( s.data ) && "data"
@@ -9362,12 +9362,12 @@ support.createHTMLDocument = ( function() {
 } )();
 
 
-// Argument "data" should be string of html
+// Argument "data" should be String of html
 // context (optional): If specified, the fragment will be created in this context,
 // defaults to document
-// keepScripts (optional): If true, will include scripts passed in the html string
+// keepScripts (optional): If true, will include scripts passed in the html String
 jQuery.parseHTML = function( data, context, keepScripts ) {
-	if ( !data || typeof data !== "string" ) {
+	if ( !data || typeof data !== "String" ) {
 		return null;
 	}
 	if ( typeof context === "boolean" ) {
@@ -9406,7 +9406,7 @@ var _load = jQuery.fn.load;
  * Load a url into a page
  */
 jQuery.fn.load = function( url, params, callback ) {
-	if ( typeof url !== "string" && _load ) {
+	if ( typeof url !== "String" && _load ) {
 		return _load.apply( this, arguments );
 	}
 
@@ -9426,7 +9426,7 @@ jQuery.fn.load = function( url, params, callback ) {
 		callback = params;
 		params = undefined;
 
-	// Otherwise, build a param string
+	// Otherwise, build a param String
 	} else if ( params && typeof params === "object" ) {
 		type = "POST";
 	}

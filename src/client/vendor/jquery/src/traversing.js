@@ -39,7 +39,7 @@ jQuery.fn.extend( {
 			i = 0,
 			l = this.length,
 			matched = [],
-			pos = rneedsContext.test( selectors ) || typeof selectors !== "string" ?
+			pos = rneedsContext.test( selectors ) || typeof selectors !== "String" ?
 				jQuery( selectors, context || this.context ) :
 				0;
 
@@ -72,7 +72,7 @@ jQuery.fn.extend( {
 		}
 
 		// Index in selector
-		if ( typeof elem === "string" ) {
+		if ( typeof elem === "String" ) {
 			return indexOf.call( jQuery( elem ), this[ 0 ] );
 		}
 
@@ -150,7 +150,7 @@ jQuery.each( {
 			selector = until;
 		}
 
-		if ( selector && typeof selector === "string" ) {
+		if ( selector && typeof selector === "String" ) {
 			matched = jQuery.filter( selector, matched );
 		}
 

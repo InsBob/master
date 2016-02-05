@@ -6,7 +6,6 @@
     "id": {
       "type": "String",
       "id": true,
-      "required": true,
       "length": null,
       "precision": null,
       "scale": null,
@@ -27,21 +26,17 @@
       "type": "String"
     },
     "SSId": {
-      "type": "string",
-      "length": 20,
-      "required": false
+      "type": "String"
     },
     "description": {
-      "type": "string",
-      "trim": true
+      "type": "String"
     },
     "createdTime": {
       "type": "Date",
       "trim": true
     },
     "modifiedTime": {
-      "type": "Date",
-      "trim": true
+      "type": "Date"
     },
     "status":{
       "type":"String"
@@ -73,13 +68,13 @@
       "options": {
         "validate": true,
         "forceId": false
-      },
+      }
+    },
       "committedWorkFlow": {
         "type": "hasOne",
         "model": "Workflow",
         "foreignKey": "workRequestId"
       }
-    }
   },
 "acls": [],
 "methods": []

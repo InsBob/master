@@ -24,7 +24,7 @@ function $ViewProvider() {
        *
        * @description
        *
-       * @param {string} name name
+       * @param {String} name name
        * @param {object} options option object.
        */
       load: function load(name, options) {

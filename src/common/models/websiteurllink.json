@@ -8,7 +8,7 @@
       "trim": true
     },
     "url": {
-      "type": "string",
+      "type": "String",
       "trim": true
     }
   },

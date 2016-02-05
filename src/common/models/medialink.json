@@ -1,14 +1,21 @@
 {
   "name": "MediaLink",
   "base": "PersistedModel",
+  "dataSource" : "transient",
   "idInjection": true,
+  "public" : false,
   "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuid"
+    },
     "linkType": {
       "type": "String",
       "trim": true
     },
     "url": {
-      "type": "string",
+      "type": "String",
       "trim": true
     },
     "size":{

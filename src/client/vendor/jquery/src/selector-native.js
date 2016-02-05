@@ -119,7 +119,7 @@ jQuery.extend( {
 		context = context || document;
 
 		// Same basic safeguard as Sizzle
-		if ( !selector || typeof selector !== "string" ) {
+		if ( !selector || typeof selector !== "String" ) {
 			return results;
 		}
 

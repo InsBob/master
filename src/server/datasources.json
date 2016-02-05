@@ -12,5 +12,9 @@
     "connector": "postgresql",
     "username": "insbdev",
     "password":"insbdev"
+  },
+  "transient": {
+    "name": "transient",
+    "connector": "transient"
   }
 }

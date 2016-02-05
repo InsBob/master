@@ -294,7 +294,7 @@
       var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
       if (!data) $this.data('bs.modal', (data = new Modal(this, options)))
-      if (typeof option == 'string') data[option](_relatedTarget)
+      if (typeof option == 'String') data[option](_relatedTarget)
       else if (options.show) data.show(_relatedTarget)
     })
   }

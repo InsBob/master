@@ -121,7 +121,7 @@
       var data  = $this.data('bs.tab')
 
       if (!data) $this.data('bs.tab', (data = new Tab(this)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option == 'String') data[option]()
     })
   }
 

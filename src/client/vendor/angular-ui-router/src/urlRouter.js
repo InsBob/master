@@ -18,7 +18,7 @@ $UrlRouterProvider.$inject = ['$locationProvider', '$urlMatcherFactoryProvider']
 function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
   var rules = [], otherwise = null, interceptDeferred = false, listener;
 
-  // Returns a string that is a prefix of all strings matching the RegExp
+  // Returns a String that is a prefix of all Strings matching the RegExp
   function regExpPrefix(re) {
     var prefix = /^\^((?:\\[^a-zA-Z0-9]|[^\\\[\]\^$*+?.()|{}]+)*)/.exec(re.source);
     return (prefix != null) ? prefix[1].replace(/\\(.)/g, "$1") : '';
@@ -58,7 +58,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    * </pre>
    *
    * @param {function} rule Handler function that takes `$injector` and `$location`
-   * services as arguments. You can use them to return a valid path as a string.
+   * services as arguments. You can use them to return a valid path as a String.
    *
    * @return {object} `$urlRouterProvider` - `$urlRouterProvider` instance
    */
@@ -93,9 +93,9 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    * });
    * </pre>
    *
-   * @param {string|function} rule The url path you want to redirect to or a function 
+   * @param {String|function} rule The url path you want to redirect to or a function 
    * rule that returns the url path. The function version is passed two params: 
-   * `$injector` and `$location` services, and must return a url string.
+   * `$injector` and `$location` services, and must return a url String.
    *
    * @return {object} `$urlRouterProvider` - `$urlRouterProvider` instance
    */
@@ -124,7 +124,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    * @description
    * Registers a handler for a given url matching. 
    * 
-   * If the handler is a string, it is
+   * If the handler is a String, it is
    * treated as a redirect, and is interpolated according to the syntax of match
    * (i.e. like `String.replace()` for `RegExp`, or like a `UrlMatcher` pattern otherwise).
    *
@@ -135,7 +135,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    *
    * - **falsy** to indicate that the rule didn't match after all, then `$urlRouter`
    *   will continue trying to find another one that matches.
-   * - **string** which is treated as a redirect and passed to `$location.url()`
+   * - **String** which is treated as a redirect and passed to `$location.url()`
    * - **void** or any **truthy** value tells `$urlRouter` that the url was handled.
    *
    * @example
@@ -152,8 +152,8 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    * });
    * </pre>
    *
-   * @param {string|object} what The incoming path that you want to redirect.
-   * @param {string|function} handler The path you want to redirect your user to.
+   * @param {String|object} what The incoming path that you want to redirect.
+   * @param {String|function} handler The path you want to redirect your user to.
    */
   this.when = function (what, handler) {
     var redirect, handlerIsString = isString(handler);
@@ -395,7 +395,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
        *
        * - **`absolute`** - {boolean=false},  If true will generate an absolute url, e.g. "http://www.example.com/fullurl".
        *
-       * @returns {string} Returns the fully compiled URL, or `null` if `params` fail validation against `urlMatcher`
+       * @returns {String} Returns the fully compiled URL, or `null` if `params` fail validation against `urlMatcher`
        */
       href: function(urlMatcher, params, options) {
         if (!urlMatcher.validates(params)) return null;

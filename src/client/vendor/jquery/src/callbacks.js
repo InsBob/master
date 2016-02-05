@@ -38,7 +38,7 @@ jQuery.Callbacks = function( options ) {
 
 	// Convert options from String-formatted to Object-formatted if needed
 	// (we check in cache first)
-	options = typeof options === "string" ?
+	options = typeof options === "String" ?
 		createOptions( options ) :
 		jQuery.extend( {}, options );
 
@@ -127,7 +127,7 @@ jQuery.Callbacks = function( options ) {
 								if ( !options.unique || !self.has( arg ) ) {
 									list.push( arg );
 								}
-							} else if ( arg && arg.length && jQuery.type( arg ) !== "string" ) {
+							} else if ( arg && arg.length && jQuery.type( arg ) !== "String" ) {
 
 								// Inspect recursively
 								add( arg );

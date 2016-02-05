@@ -461,7 +461,7 @@ jQuery.fn.extend( {
 			stop( gotoEnd );
 		};
 
-		if ( typeof type !== "string" ) {
+		if ( typeof type !== "String" ) {
 			gotoEnd = clearQueue;
 			clearQueue = type;
 			type = undefined;

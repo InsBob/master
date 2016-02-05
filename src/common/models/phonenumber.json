@@ -9,10 +9,10 @@
       "pattern":""
     },
     "phoneNumberType":{
-      "type": "string"
+      "type": "String"
     },
     "phoneAddressType": {
-      "type": "string"
+      "type": "String"
     },
     "country":{
       "type":"Number"

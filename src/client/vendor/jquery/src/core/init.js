@@ -9,7 +9,7 @@ define( [
 // A central reference to the root jQuery(document)
 var rootjQuery,
 
-	// A simple way to check for HTML strings
+	// A simple way to check for HTML Strings
 	// Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
 	// Strict HTML recognition (#11290: must start with <)
 	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
@@ -26,13 +26,13 @@ var rootjQuery,
 		// so migrate can support jQuery.sub (gh-2101)
 		root = root || rootjQuery;
 
-		// Handle HTML strings
-		if ( typeof selector === "string" ) {
+		// Handle HTML Strings
+		if ( typeof selector === "String" ) {
 			if ( selector[ 0 ] === "<" &&
 				selector[ selector.length - 1 ] === ">" &&
 				selector.length >= 3 ) {
 
-				// Assume that strings that start and end with <> are HTML and skip the regex check
+				// Assume that Strings that start and end with <> are HTML and skip the regex check
 				match = [ null, selector, null ];
 
 			} else {

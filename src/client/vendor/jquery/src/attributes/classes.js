@@ -22,7 +22,7 @@ jQuery.fn.extend( {
 			} );
 		}
 
-		if ( typeof value === "string" && value ) {
+		if ( typeof value === "String" && value ) {
 			classes = value.match( rnotwhite ) || [];
 
 			while ( ( elem = this[ i++ ] ) ) {
@@ -64,7 +64,7 @@ jQuery.fn.extend( {
 			return this.attr( "class", "" );
 		}
 
-		if ( typeof value === "string" && value ) {
+		if ( typeof value === "String" && value ) {
 			classes = value.match( rnotwhite ) || [];
 
 			while ( ( elem = this[ i++ ] ) ) {
@@ -99,7 +99,7 @@ jQuery.fn.extend( {
 	toggleClass: function( value, stateVal ) {
 		var type = typeof value;
 
-		if ( typeof stateVal === "boolean" && type === "string" ) {
+		if ( typeof stateVal === "boolean" && type === "String" ) {
 			return stateVal ? this.addClass( value ) : this.removeClass( value );
 		}
 
@@ -115,7 +115,7 @@ jQuery.fn.extend( {
 		return this.each( function() {
 			var className, i, self, classNames;
 
-			if ( type === "string" ) {
+			if ( type === "String" ) {
 
 				// Toggle individual class names
 				i = 0;
@@ -144,7 +144,7 @@ jQuery.fn.extend( {
 				// If the element has a class name or if we're passed `false`,
 				// then remove the whole classname (if there was one, the above saved it).
 				// Otherwise bring back whatever was previously saved (if anything),
-				// falling back to the empty string if nothing was stored.
+				// falling back to the empty String if nothing was stored.
 				if ( this.setAttribute ) {
 					this.setAttribute( "class",
 						className || value === false ?

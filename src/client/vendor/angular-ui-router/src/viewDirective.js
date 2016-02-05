@@ -14,10 +14,10 @@
  * @description
  * The ui-view directive tells $state where to place your templates.
  *
- * @param {string=} name A view name. The name should be unique amongst the other views in the
+ * @param {String=} name A view name. The name should be unique amongst the other views in the
  * same state. You can have views of the same name that live in different states.
  *
- * @param {string=} autoscroll It allows you to set the scroll behavior of the browser window
+ * @param {String=} autoscroll It allows you to set the scroll behavior of the browser window
  * when a view is populated. By default, $anchorScroll is overridden by ui-router's custom scroll
  * service, {@link ui.router.state.$uiViewScroll}. This custom service let's you
  * scroll ui-view elements into view when they are populated during a state activation.
@@ -25,7 +25,7 @@
  * *Note: To revert back to old [`$anchorScroll`](http://docs.angularjs.org/api/ng.$anchorScroll)
  * functionality, call `$uiViewScrollProvider.useAnchorScroll()`.*
  *
- * @param {string=} onload Expression to evaluate whenever the view updates.
+ * @param {String=} onload Expression to evaluate whenever the view updates.
  * 
  * @example
  * A view can be unnamed or named. 
@@ -242,7 +242,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
            * Fired once the view **begins loading**, *before* the DOM is rendered.
            *
            * @param {Object} event Event object.
-           * @param {string} viewName Name of the view.
+           * @param {String} viewName Name of the view.
            */
           newScope.$emit('$viewContentLoading', name);
 
@@ -270,7 +270,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate)
            * Fired once the view is **loaded**, *after* the DOM is rendered.
            *
            * @param {Object} event Event object.
-           * @param {string} viewName Name of the view.
+           * @param {String} viewName Name of the view.
            */
           currentScope.$emit('$viewContentLoaded', name);
           currentScope.$eval(onloadExp);

@@ -17,7 +17,7 @@ var _load = jQuery.fn.load;
  * Load a url into a page
  */
 jQuery.fn.load = function( url, params, callback ) {
-	if ( typeof url !== "string" && _load ) {
+	if ( typeof url !== "String" && _load ) {
 		return _load.apply( this, arguments );
 	}
 
@@ -37,7 +37,7 @@ jQuery.fn.load = function( url, params, callback ) {
 		callback = params;
 		params = undefined;
 
-	// Otherwise, build a param string
+	// Otherwise, build a param String
 	} else if ( params && typeof params === "object" ) {
 		type = "POST";
 	}

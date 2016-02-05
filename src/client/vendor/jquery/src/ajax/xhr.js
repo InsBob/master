@@ -101,7 +101,7 @@ jQuery.ajaxTransport( function( options ) {
 									// IE9 has no XHR2 but throws on binary (trac-11426)
 									// For XHR2 non-text, let the caller handle it (gh-2498)
 									( xhr.responseType || "text" ) !== "text"  ||
-									typeof xhr.responseText !== "string" ?
+									typeof xhr.responseText !== "String" ?
 										{ binary: xhr.response } :
 										{ text: xhr.responseText },
 									xhr.getAllResponseHeaders()

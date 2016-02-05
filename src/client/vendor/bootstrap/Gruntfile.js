@@ -11,8 +11,8 @@ module.exports = function (grunt) {
   // Force use of Unix newlines
   grunt.util.linefeed = '\n';
 
-  RegExp.quote = function (string) {
-    return string.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
+  RegExp.quote = function (String) {
+    return String.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
   };
 
   var fs = require('fs');
