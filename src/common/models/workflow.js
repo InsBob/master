@@ -1,12 +1,12 @@
 /* jshint maxlen: 130 */
 
-var WSPResponsePendingState = require('../../server/models/WSPResponsePendingState');
+//var WSPResponsePendingState = require('../../server/models/WSPResponsePendingState');
 
 module.exports = function (Workflow) {
 
     var that = this;
     //Initial state during constructor
-    this.state = new WSPResponsePendingState();
+   this.state = "";
 
     Workflow.cancel = function (reason, cb) {
         this.state.cancel(that, reason, cb);

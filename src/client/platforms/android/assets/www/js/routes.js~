@@ -1,0 +1,91 @@
+angular.module('app.routes', [])
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+  // Ionic uses AngularUI Router which uses the concept of states
+  // Learn more here: https://github.com/angular-ui/ui-router
+  // Set up the various states which the app can be in.
+  // Each state's controller can be found in controllers.js
+  $stateProvider
+
+
+    .state('menu', {
+      url: '/menu',
+      abstract:true,
+      templateUrl: 'templates/menu.html'
+    })
+
+
+
+
+    .state('menu.home', {
+      url: '/home',
+      views: {
+        'side-menu21': {
+          templateUrl: 'templates/home.html',
+          controller: 'homeCtrl'
+        }
+      }
+    })
+
+
+
+
+
+    .state('menu.selectCategories', {
+      url: '/searchCategories',
+      views: {
+        'side-menu21': {
+          templateUrl: 'templates/selectCategories.html',
+          controller: 'selectCategoriesCtrl as categories'
+        }
+      }
+    })
+
+    .state('menu.selectCategory', {
+      url: '/searchCategories/:categoryId',
+      views: {
+        'side-menu21': {
+          templateUrl: 'templates/subCategories.html',
+          controller: 'categoryCtrl as category'
+        }
+      }
+    })
+
+
+
+
+
+    .state('menu.submit', {
+      url: '/submit1',
+      views: {
+        'side-menu21': {
+          templateUrl: 'templates/submit.html',
+          controller: 'submitCtrl'
+        }
+      }
+    })
+
+    .state('menu.login', {
+      url: '/login',
+      views: {
+        'side-menu21': {
+          templateUrl: 'templates/login.html',
+          controller: 'loginCtrl'
+        }
+      }
+    })
+
+.state('menu.mediaUpload', {
+      url: '/submit',
+      templateUrl: 'templates/mediaUpload.html',
+      controller: 'mediaUploadCtrl'
+    })
+
+
+    ;
+
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/menu/home');
+
+});
