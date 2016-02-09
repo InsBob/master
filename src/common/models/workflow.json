@@ -20,7 +20,7 @@
       },
       "_selectable": false
     },
-    "workRequestId":{
+    "workRequestId": {
       "type": "String"
     },
     "quoteGeneratorSP": {
@@ -35,11 +35,11 @@
     "expiryTime": {
       "type": "Date"
     },
-    "status":{
-      "type":"String"
+    "status": {
+      "type": "String"
     },
-    "reasonForTermination":{
-      "type":"String"
+    "reasonForTermination": {
+      "type": "String"
     }
   },
   "validations": [],
@@ -53,7 +53,7 @@
         "forceId": true
       }
     },
-      "SPtimeSlots": {
+    "SPtimeSlots": {
       "type": "embedsMany",
       "model": "TimeSlot",
       "property": "preferredTimeSlots",
@@ -62,18 +62,16 @@
         "forceId": false
       }
     },
-      "finalEstimateTimeSlot":
-      {
-        "type": "embedsOne",
-        "model": "TimeSlot",
-        "property": "estimateTimeSlot",
-        "options": {
-          "validate": true,
-          "forceId": true
-        }
-      },
-    "finalJobTimeSlot":
-    {
+    "finalEstimateTimeSlot": {
+      "type": "embedsOne",
+      "model": "TimeSlot",
+      "property": "estimateTimeSlot",
+      "options": {
+        "validate": true,
+        "forceId": true
+      }
+    },
+    "finalJobTimeSlot": {
       "type": "embedsOne",
       "model": "TimeSlot",
       "property": "jobTimeSlot",
@@ -84,5 +82,5 @@
     }
   },
   "acls": [],
-  "methods": []
+  "methods": {}
 }

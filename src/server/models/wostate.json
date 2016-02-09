@@ -2,10 +2,9 @@
   "name": "WOState",
   "base": "PersistedModel",
   "idInjection": true,
-  "properties": {
-  },
+  "properties": {},
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": []
+  "methods": {}
 }

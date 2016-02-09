@@ -1,25 +1,23 @@
 {
   "name": "TimeSlot",
   "base": "PersistedModel",
-  "dataSource" : "transient",
+  "public": false,
   "idInjection": true,
-  "public" : false,
   "options": {
     "validateUpsert": true
   },
+  "dataSource": "transient",
   "properties": {
     "id": {
       "type": "String",
       "id": true,
       "defaultFn": "uuid"
     },
-    "startTime":
-    {
-      "type":"Date"
+    "startTime": {
+      "type": "Date"
     },
-    "endTime":
-    {
-      "type":"Date"
+    "endTime": {
+      "type": "Date"
     }
   },
   "validations": [],

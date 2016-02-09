@@ -1,17 +1,17 @@
 {
   "mem": {
-    "name": "memdb",
+    "name": "mem",
     "connector": "memory"
   },
   "pg": {
     "host": "107.3.142.112",
     "port": 5432,
     "database": "insbdev",
-    "name": "insbdev",
-    "debug":true,
-    "connector": "postgresql",
     "username": "insbdev",
-    "password":"insbdev"
+    "password": "insbdev",
+    "name": "pg",
+    "debug": true,
+    "connector": "postgresql"
   },
   "transient": {
     "name": "transient",

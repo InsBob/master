@@ -155,34 +155,41 @@
       },
       "_selectable": false
     },
-    "addressType": [{
-      "type": "String"
-    }],
+    "addressType": {
+      "type": [
+        {
+          "type": "String"
+        }
+      ]
+    },
     "isRented": {
       "type": "Boolean"
     },
     "isPrimary": {
       "type": "Boolean"
     },
-    "phoneNumbers": [{
-      "type": "String"
-    }],
-    "neighbourhood":{
+    "phoneNumbers": {
+      "type": [
+        {
+          "type": "String"
+        }
+      ]
+    },
+    "neighbourhood": {
       "type": "String"
     }
   },
   "validations": [],
   "relations": {
     "tenants": {
-    "type": "hasAndBelongsToMany",
-    "model": "IBUser"
-  },
-    "worksPerformed":{
+      "type": "hasAndBelongsToMany",
+      "model": "IBUser"
+    },
+    "worksPerformed": {
       "type": "hasMany",
-      "model":"WorkRequest",
-      "foreignKey":"addressId"
+      "model": "WorkRequest",
+      "foreignKey": "addressId"
     }
-
   },
   "acls": [],
   "methods": {}

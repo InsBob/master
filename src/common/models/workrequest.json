@@ -38,11 +38,11 @@
     "modifiedTime": {
       "type": "Date"
     },
-    "status":{
-      "type":"String"
+    "status": {
+      "type": "String"
     },
-    "reasonForTermination":{
-      "type":"String"
+    "reasonForTermination": {
+      "type": "String"
     }
   },
   "validations": [],
@@ -70,12 +70,12 @@
         "forceId": false
       }
     },
-      "committedWorkFlow": {
-        "type": "hasOne",
-        "model": "Workflow",
-        "foreignKey": "workRequestId"
-      }
+    "committedWorkFlow": {
+      "type": "hasOne",
+      "model": "Workflow",
+      "foreignKey": "workRequestId"
+    }
   },
-"acls": [],
-"methods": []
+  "acls": [],
+  "methods": {}
 }
