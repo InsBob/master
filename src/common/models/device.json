@@ -1,0 +1,42 @@
+{
+  "name": "device",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "appId": {
+      "type": "string",
+      "required": true
+    },
+    "appVersion": {
+      "type": "number"
+    },
+    "deviceToken": {
+      "type": "string",
+      "required": true
+    },
+    "deviceType": {
+      "type": "string",
+      "required": true
+    },
+    "modified": {
+      "type": "date"
+    },
+    "subscription": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "hasAndBelongsToMany",
+      "model": "IBUser",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
