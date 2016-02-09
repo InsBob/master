@@ -18,12 +18,12 @@
       "type": "hasAndBelongsToMany",
       "model": "IBUser"
     },
-    "workRequests":{
+    "workRequests": {
       "type": "hasMany",
-      "model":"WorkRequest",
-      "foreignKey":"taskCategoryId"
+      "model": "WorkRequest",
+      "foreignKey": "taskCategoryId"
     }
   },
   "acls": [],
-  "methods": []
+  "methods": {}
 }

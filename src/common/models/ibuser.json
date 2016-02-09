@@ -123,8 +123,7 @@
       "type": "hasAndBelongsToMany",
       "model": "ZipCode"
     }
-
   },
   "acls": [],
-  "methods": []
+  "methods": {}
 }

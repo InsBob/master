@@ -6,27 +6,26 @@
     "phoneNumber": {
       "type": "Number",
       "trim": true,
-      "pattern":""
+      "pattern": ""
     },
-    "phoneNumberType":{
+    "phoneNumberType": {
       "type": "String"
     },
     "phoneAddressType": {
       "type": "String"
     },
-    "country":{
-      "type":"Number"
+    "country": {
+      "type": "Number"
     },
-    "areaCode":{
-      "type":"Number"
+    "areaCode": {
+      "type": "Number"
     },
-    "subPhoneNumber":{
-      "type":"Number"
+    "subPhoneNumber": {
+      "type": "Number"
     }
   },
   "validations": [],
-  "relations": {
-  },
+  "relations": {},
   "acls": [],
-  "methods": []
+  "methods": {}
 }

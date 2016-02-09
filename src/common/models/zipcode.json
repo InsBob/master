@@ -22,11 +22,11 @@
       "type": "hasAndBelongsToMany",
       "model": "IBUser"
     },
-    "adjacentZips":{
+    "adjacentZips": {
       "type": "hasAndBelongsToMany",
       "model": "ZipCode"
     }
   },
   "acls": [],
-  "methods": []
+  "methods": {}
 }

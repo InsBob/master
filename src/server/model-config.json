@@ -108,5 +108,9 @@
   "WSPResponsePendingState": {
     "dataSource": "mem",
     "public": false
+  },
+  "device": {
+    "dataSource": "pg",
+    "public": true
   }
 }

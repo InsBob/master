@@ -1,9 +1,9 @@
 {
   "name": "MediaLink",
   "base": "PersistedModel",
-  "dataSource" : "transient",
+  "public": false,
   "idInjection": true,
-  "public" : false,
+  "dataSource": "transient",
   "properties": {
     "id": {
       "type": "string",
@@ -18,13 +18,12 @@
       "type": "String",
       "trim": true
     },
-    "size":{
-      "type":"Number"
+    "size": {
+      "type": "Number"
     }
   },
   "validations": [],
-  "relations": {
-  },
+  "relations": {},
   "acls": [],
-  "methods": []
+  "methods": {}
 }

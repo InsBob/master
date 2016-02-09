@@ -3,30 +3,24 @@
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
-    "userId":
-    {
+    "userId": {
       "type": "String"
     },
-    "noOfQuotesServed":
-    {
+    "noOfQuotesServed": {
       "type": "Number"
     },
-    "noOfFakesRequests":
-    {
+    "noOfFakesRequests": {
       "type": "Number"
     },
-    "noOfRequestsConverted":
-    {
+    "noOfRequestsConverted": {
       "type": "Number"
     },
-    "noOfJobsDone":
-    {
+    "noOfJobsDone": {
       "type": "Number"
     }
   },
   "validations": [],
-  "relations": {
-  },
+  "relations": {},
   "acls": [],
-  "methods": []
+  "methods": {}
 }
