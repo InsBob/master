@@ -16,13 +16,20 @@ angular.module('ngOpenFB', [])
 
         function login(options) {
             var deferred = $q.defer();
+            console.log(options);
+
             $window.openFB.login(function(result) {
+              console.log("openfb");
                 if (result.status === "connected") {
+                  console.log("resolve");
                     deferred.resolve(result);
                 } else {
+                  console.log("rejected");
                     deferred.reject(result);
                 }
+                console.log("rejecteduuuu");
             }, options);
+            console.log("options");
             return deferred.promise;
         }
 

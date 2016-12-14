@@ -74,8 +74,15 @@
       "type": "hasOne",
       "model": "Workflow",
       "foreignKey": "workRequestId"
+    },
+    "iBUser": {
+      "type": "belongsTo",
+      "model": "IBUser",
+      "foreignKey": ""
     }
   },
-  "acls": [],
+  "acls": [
+
+  ],
   "methods": {}
 }

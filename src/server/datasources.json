@@ -4,7 +4,7 @@
     "connector": "memory"
   },
   "pg": {
-    "host": "107.3.142.112",
+    "host": "localhost",
     "port": 5432,
     "database": "insbdev",
     "username": "insbdev",
@@ -18,3 +18,4 @@
     "connector": "transient"
   }
 }
+ 

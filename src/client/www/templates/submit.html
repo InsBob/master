@@ -1,3 +1,68 @@
 <ion-view title="Submit">
-    <ion-content overflow-scroll="true" padding="true" scroll="false" class="has-header"></ion-content>
+  <ion-content overflow-scroll="true" padding="false" scroll="true" class="has-header">
+
+    <div class="list">
+      <label class="item item-input">
+        <div class="input-label">
+          Max Estimates
+        </div>
+        <input type="text">
+      </label>
+      <ion-checkbox ng-model="emailNotification1" class="item-checkbox-right" ng-true-value="'Preferred'" ng-false-value="'notPreferred'" ng-change="">
+        Prefer work visit
+      </ion-checkbox>
+      <ion-checkbox ng-model="emailNotification" class="item-checkbox-right" ng-true-value="'Preferred'" ng-false-value="'notPreferred'" ng-change="">
+        Prefer estmate visit
+      </ion-checkbox>
+
+
+
+      <!-- <ion-checkbox ng-repeat="item in devList"
+      ng-model="item.checked"
+      ng-checked="item.checked" class="item-checkbox-right">
+      {{ item.text }}
+    </ion-checkbox> -->
+
+      <!-- <div class="item item-divider">
+        Notifications
+      </div> -->
+      <!--18009357154 xoom cust serv-->
+
+
+
+      <!-- <div class="item">
+        <pre ng-bind="pushNotification | json"></pre>
+      </div> -->
+
+    </div>
+
+
+  <div style="position: absolute; bottom: 0px; width: 100%">
+          <div style="text-align: center">
+            <p><a class="button button-positive button-block" ng-click="submitRequest()">Submit Request</a></p>
+          </div>
+      </div>
+
+
+
+
+
+<!-- <label class="item item-input">
+<span class="input-label">Max Estimates</span>
+<input type="text">
+</label>
+<label class="item item-input">
+<span class="input-label">Prefer work visit</span>
+<input type="text">
+</label>
+<label class="item item-input">
+<span class="input-label">Prefer estimate visit</span>
+<input type="text">
+</label>
+<label class="item item-input">
+<span class="input-label">Pick time range</span>
+<input type="text">
+</label> -->
+
+</ion-content>
 </ion-view>

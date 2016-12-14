@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/snarala/ionic/instabob/instabob/platforms/android/phonegap-facebook-plugin/instabob306295-FacebookLib/build/intermediates/res/merged/debug/drawable-ldpi-v4/com_facebook_close.png",
+        "source": "/Users/snarala/ionic/instabob/instabob/platforms/android/phonegap-facebook-plugin/instabob306295-FacebookLib/res/drawable-ldpi/com_facebook_close.png"
+    },
+    {
+        "merged": "/Users/snarala/ionic/instabob/instabobBackend/master/src/client/platforms/android/phonegap-facebook-plugin/instabob306295-FacebookLib/build/intermediates/res/merged/debug/drawable-ldpi-v4/com_facebook_close.png",
+        "source": "/Users/snarala/ionic/instabob/instabobBackend/master/src/client/platforms/android/phonegap-facebook-plugin/instabob306295-FacebookLib/res/drawable-ldpi/com_facebook_close.png"
+    }
+]

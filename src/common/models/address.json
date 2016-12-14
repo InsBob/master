@@ -9,7 +9,7 @@
     "schema": "public",
     "table": "address"
   },
-  "properties": {
+  "properties": { 
     "id": {
       "type": "String",
       "id": true,

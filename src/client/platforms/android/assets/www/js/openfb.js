@@ -64,6 +64,8 @@ var openFB = (function () {
     function init(params) {
 
         if (params.appId) {
+          console.log("params.appId "+params.appId);
+
             fbAppId = params.appId;
         } else {
             throw 'appId parameter not set in init()';
@@ -76,12 +78,15 @@ var openFB = (function () {
         if (params.accessToken) {
             tokenStore.fbAccessToken = params.accessToken;
         }
+console.log(params);
+console.log(params.loginURL +" "+logoutURL+" "+oauthRedirectURL+" "+cordovaOAuthRedirectURL+" "+logoutRedirectURL);
 
         loginURL = params.loginURL || loginURL;
         logoutURL = params.logoutURL || logoutURL;
         oauthRedirectURL = params.oauthRedirectURL || oauthRedirectURL;
         cordovaOAuthRedirectURL = params.cordovaOAuthRedirectURL || cordovaOAuthRedirectURL;
         logoutRedirectURL = params.logoutRedirectURL || logoutRedirectURL;
+        console.log(loginURL +" "+logoutURL+" "+oauthRedirectURL+" "+cordovaOAuthRedirectURL+" "+logoutRedirectURL);
 
     }
 
@@ -123,6 +128,7 @@ var openFB = (function () {
 
         // Inappbrowser load start handler: Used when running in Cordova only
         function loginWindow_loadStartHandler(event) {
+          console.log("end4");
             var url = event.url;
             if (url.indexOf("access_token=") > 0 || url.indexOf("error=") > 0) {
                 // When we get the access token fast, the login window (inappbrowser) is still opening with animation
@@ -149,14 +155,14 @@ var openFB = (function () {
         if (options && options.scope) {
             scope = options.scope;
         }
-
+console.log("end2");
         loginCallback = callback;
         loginProcessed = false;
 
         startTime = new Date().getTime();
         loginWindow = window.open(loginURL + '?client_id=' + fbAppId + '&redirect_uri=' + redirectURL +
             '&response_type=token&scope=' + scope, '_blank', 'location=no,clearcache=yes');
-
+console.log("end1");
         // If the app is running in Cordova, listen to URL changes in the InAppBrowser until we get a URL with an access_token or an error
         if (runningInCordova) {
             loginWindow.addEventListener('loadstart', loginWindow_loadStartHandler);
@@ -164,7 +170,7 @@ var openFB = (function () {
         }
         // Note: if the app is running in the browser the loginWindow dialog will call back by invoking the
         // oauthCallback() function. See oauthcallback.html for details.
-
+console.log("end");
     }
 
     /**

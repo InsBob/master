@@ -1,28 +1,77 @@
 <ion-side-menus enable-menu-with-back-views="false">
     <ion-pane ion-side-menu-content>
-        <ion-nav-bar class="bar-stable">
+        <ion-nav-bar class="bar custom-header-color">
             <ion-nav-back-button></ion-nav-back-button>
             <ion-nav-buttons side="left">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle=""></button>
+                <button class="button button-icon button-calm ion-navicon" menu-toggle="left"></button>
             </ion-nav-buttons>
         </ion-nav-bar>
-        <ion-nav-view name="side-menu21"></ion-nav-view>
+        <ion-nav-view class="app-background" name="side-menu21"></ion-nav-view>
     </ion-pane>
+
     <ion-side-menu side="left">
-      <header class="bar bar-header bar-stable">
+    <!-- <header class="bar bar-header bar-stable">
                 <h1 class="title">Menu</h1>
-            </header>
-        
-        <ion-content padding="false" class="side-menu-left has-header" <="" ion-content="">
-            <ion-list>
-                <ion-item href="#/menu/home" menu-close="">Home</ion-item>
+            </header>-->
+            <!-- * define main sidemenu styling: sidemenu-fill, sidemenu-gradient, sidemenu-glass, sidemenu-glass-avatar * -->
+        <ion-content scroll="false" sidemenu="sidemenu-glass-avatar" ng-controller="sidemenu">
+          <!-- profile styles: profile-small-transparant, profile-small-glass, profile-large-transparant, profile-large-glass, profile-large-->
+              <div profile="profile-small-transparant" ng-controller="profile">
+
+                <!-- Profile Pic -->
+                <div class="avatar"><img src="{{img}}"></div>
+                <p>UserName</p>
+                <div class="leftcol">
+              <p><i class="icon ion-ios-people-outline"></i> 28</p>
+        </div>
+        <div class="middlecol">
+              <p><i class="icon ion-ios-chatboxes-outline"></i> 3</p>
+        </div>
+        <div class="rightcol">
+              <p><i class="icon ion-ios-personadd-outline"></i> 1</p>
+
+        </div>
+
+</div>
+<div style="min-height:100%" class="sidemenu-fill1">
+<ul  class="sidemenu-fill1 sidemenu-list">
+        <li class="sidemenu-item" menu-close href="#/menu/home" ui-sref="menu.home"  ui-sref-active="current-indicator">
+          <i class="icon ion-ios-home-outline"></i> Home
+        </li>
+        <li class="sidemenu-item" menu-close href="#/menu/searchCategories" ui-sref="menu.selectCategories"  ui-sref-active="current-indicator">
+          <i class="icon ion-ios-chatboxes-outline"></i> Search Providers <span class="badge badge-assertive spanposition">5</span>
+        </li>
+        <li class="sidemenu-item" menu-close href="#/menu/upload" ui-sref="menu.mediaUpload"  ui-sref-active="current-indicator">
+          <i class="icon ion-ios-medical-outline"></i> Submit Request
+        </li>
+        <li class="sidemenu-item" menu-close href="#/menu/upload" ui-sref=""  ui-sref-active="current-indicator">
+          <i class="icon ion-ios-medical-outline"></i> Faq
+        </li>
+        <li class="sidemenu-item" menu-close href="#/menu/upload" ui-sref=""  ui-sref-active="current-indicator">
+          <i class="icon ion-ios-medical-outline"></i> About us
+        </li>
+        <li class="sidemenu-item" menu-close href="#/menu/login" ui-sref="menu.login"  ui-sref-active="current-indicator">
+          <i class="icon ion-ios-medical-outline"></i> Login
+        </li>
+        <li class="sidemenu-item" menu-close href="#/menu/settings" ui-sref="menu.settings"  ui-sref-active="current-indicator">
+          <i class="icon ion-ios-medical-outline"></i> Service Provider
+        </li>
+      </ul>
+    </div>
+          <!--  <ion-list>
+                <ion-item  href="#/menu/home" menu-close="" ui-sref="menu.home"  ui-sref-active="current-indicator">
+                  <i class="icon ion-ios-home-outline"></i>
+                  Home
+                </ion-item>
+
                 <ion-item href="#/menu/searchCategories" menu-close="">Search Providers</ion-item>
-                <ion-item href="#/menu/submit" menu-close="">Submit Request</ion-item>
+                <ion-item href="#/menu/upload" menu-close="">Submit Request</ion-item>
                 <ion-item>FAQ</ion-item>
                 <ion-item>About us</ion-item>
                 <ion-item>Rate us</ion-item>
                 <ion-item href="#/menu/login" menu-close="">Login</ion-item>
-            </ion-list>
+                <ion-item href="#/menu/settings" menu-close="">Service Provider</ion-item>
+            </ion-list>-->
         </ion-content>
     </ion-side-menu>
 </ion-side-menus>

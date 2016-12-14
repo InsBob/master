@@ -79,8 +79,7 @@
     },
     "workRequests": {
       "type": "hasMany",
-      "model": "WorkRequest",
-      "foreignKey": "SSId"
+      "model": "WorkRequest"
     },
     "gaveQuotesFor": {
       "type": "hasMany",
@@ -124,6 +123,19 @@
       "model": "ZipCode"
     }
   },
-  "acls": [],
+  "acls": [{
+    "accessType": "READ",
+    "principalType": "ROLE",
+    "principalId": "$authenticated",
+    "permission": "ALLOW",
+    "property": "__get__workRequests"
+  },{
+    "accessType": "EXECUTE",
+    "principalType": "ROLE",
+    "principalId": "$authenticated",
+    "permission": "ALLOW",
+    "property": "__create__workRequests"
+  }
+],
   "methods": {}
 }

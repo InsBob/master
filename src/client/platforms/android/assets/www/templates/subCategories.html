@@ -1,7 +1,7 @@
-<ion-view title="Sub Categories">
+<ion-view title="{{ categoryCtrl.ctgry }}" ng-controller="categoryCtrl">
     <ion-content overflow-scroll="true" padding="false" scroll="false" class="has-header">
         <ion-list>
-            <ion-item href="#/menu/submit">Item 1</ion-item>
+            <ion-item href="#/menu/upload/{{ category.data }}">Item 1</ion-item>
             <ion-item>Item 2</ion-item>
             <ion-item>Item 3</ion-item>
             <ion-item>Item</ion-item>

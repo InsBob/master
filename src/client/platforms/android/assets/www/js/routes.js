@@ -15,9 +15,6 @@ angular.module('app.routes', [])
     templateUrl: 'templates/menu.html'
   })
 
-
-
-
   .state('menu.home', {
     url: '/home',
     views: {
@@ -27,10 +24,6 @@ angular.module('app.routes', [])
       }
     }
   })
-
-
-
-
 
   .state('menu.selectCategories', {
     url: '/searchCategories',
@@ -47,21 +40,7 @@ angular.module('app.routes', [])
     views: {
       'side-menu21': {
         templateUrl: 'templates/subCategories.html',
-        controller: 'categoryCtrl as category'
-      }
-    }
-  })
-
-
-
-
-
-  .state('menu.submit', {
-    url: '/submit1',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/submit.html',
-        controller: 'submitCtrl'
+        controller: 'categoryCtrl'
       }
     }
   })
@@ -77,7 +56,7 @@ angular.module('app.routes', [])
   })
 
   .state('menu.mediaUpload', {
-    url: '/submit',
+    url: '/upload/:categoryId',
     views: {
       'side-menu21': {
         templateUrl: 'templates/mediaUpload.html',
@@ -86,6 +65,71 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('menu.submit', {
+    url: '/submit',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/submit.html',
+        controller: 'submitCtrl'
+      }
+    }
+  })
+
+  .state('menu.requests', {
+    url: '/requests',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/Requests.html',
+        controller: 'requestsCtrl'
+      }
+    }
+  })
+
+  .state('menu.reqDetails', {
+    url: '/reqDetails',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/reqDetails.html',
+        controller: 'reqDetailsCtrl'
+      }
+    }
+  })
+
+  .state('menu.tabs', {
+    url: '/tabs',
+    views: {
+      'side-menu21': {
+        controller: 'requestsCtrl',
+        templateUrl: function() {
+          if (ionic.Platform.isAndroid()) {
+              return  "templates/tabs-android.html";
+          }
+          return "templates/tabs-ios.html";
+        }
+
+      }
+    }
+  })
+
+  .state('menu.tabs.dash', {
+    url: '/dash',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/tab-dash.html',
+        controller: 'DashCtrl'
+      }
+    }
+  })
+
+  .state('menu.tabs.chats', {
+        url: '/chats',
+        views: {
+          'tab-chats': {
+            templateUrl: 'templates/tab-chats.html',
+            controller: 'ChatsCtrl'
+          }
+        }
+      })
 
   ;
 

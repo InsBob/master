@@ -5,11 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'angularMoment',  'app.controllers', 'ngOpenFB', 'app.routes', 'app.services', 'app.directives' , 'app.filters'])
+angular.module('app', ['sidemenu','lbServices', 'ionic', 'angularMoment',  'app.controllers', 'app.routes', 'app.services', 'app.directives' , 'app.filters' , 'jett.ionic.filter.bar','rzModule','ngResource'])
 
-.run(function($ionicPlatform,ngFB) {
+.run(function($ionicPlatform) {
 
-  ngFB.init({appId: '421107214753098'});
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
