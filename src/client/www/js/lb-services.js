@@ -11,7 +11,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
 
 (function(window, angular, undefined) {'use strict';
 
-var urlBase = "http://192.168.1.203:3000/api/v1";
+var urlBase = "http://10.0.0.11:3000/api/v1";
 var authHeader = 'authorization';
 
 function getHost(url) {
@@ -2668,7 +2668,7 @@ module.factory(
         },
 
         /**
-         * @ngdoc method 
+         * @ngdoc method
          * @name lbServices.IBUser#createMany
          * @methodOf lbServices.IBUser
          *

@@ -63,6 +63,17 @@ angular.module('app.controllers', ['lbServices', 'app.services'])
 
 .controller('submitCtrl', function($scope) {
 
+$scope.submitRequest = function () {
+  var fsm = StateMachine.create({
+    initial: 'green',
+    events: [
+      { name: 'warn',  from: 'green',  to: 'yellow' },
+      { name: 'panic', from: 'yellow', to: 'red'    },
+      { name: 'calm',  from: 'red',    to: 'yellow' },
+      { name: 'clear', from: 'yellow', to: 'green'  }
+  ]});
+};
+
 })
 
 .controller('requestsCtrl', function($scope) {
@@ -183,13 +194,10 @@ angular.module('app.controllers', ['lbServices', 'app.services'])
     });
     media.play();
   }
-
-
-
 })
 
 //.controller('loginCtrl', function($scope, $ionicModal, $timeout, ngFB) {
-.controller('loginCtrl', function($scope, $state, $q, $location, IBUser, $ionicLoading, $ionicPopup) {
+.controller('loginCtrl', function($scope, $state, $q, $location, IBUser, $ionicLoading, $ionicPopup, $ionicHistory) {
   if (IBUser.getCachedCurrent()!==null) {
     $location.path('/menu/home');
   }
@@ -229,7 +237,7 @@ $scope.googleSignIn = function() {
       });
 
       $ionicLoading.hide();
-      $state.go('app.home');
+      //$state.go('app.home');
     },
     function (msg) {
       $ionicLoading.hide();
@@ -257,7 +265,6 @@ var fbLoginSuccess = function(response) {
       picture : "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
     });
     $ionicLoading.hide();
-    $state.go('menu.home');
   }, function(fail){
     // Fail get profile info
     console.log('profile info fail', fail);
@@ -303,7 +310,10 @@ $scope.appSignin = function() {
     function () {
       var next = $location.nextAfterLogin || '/menu/home';
       $location.nextAfterLogin = null;
-      $location.path(next);
+      $ionicHistory.nextViewOptions({
+        historyRoot: true
+      });
+      $state.go('menu.home');
     },
     function (err) {
       $scope.loginError = err;
@@ -318,7 +328,7 @@ $scope.appSignin = function() {
 
 //This method is executed when the user press the "Login with facebook" button
 $scope.facebookSignIn = function() {
-  console.log($scope.credentials);
+  console.log($scope.credentials,"login creds");
   facebookConnectPlugin.getLoginStatus(function(success){
     console.log(success);
     if(success.status === 'connected'){
@@ -338,14 +348,17 @@ $scope.facebookSignIn = function() {
         email: profileInfo.email,
         picture : "http://graph.facebook.com/" + success.authResponse.userID + "/picture?type=large"
       });*/
-      $scope.credentials.username='abcd';
-      $scope.credentials.password='abcd';
+      $scope.credentials.username=profileInfo.email;
+      $scope.credentials.password='FaceBookLogin';
 
       $scope.loginResult = IBUser.login({include: 'user', rememberMe: true}, $scope.credentials,
       function () {
         var next = $location.nextAfterLogin || '/menu/home';
         $location.nextAfterLogin = null;
-        $location.path(next);
+        $ionicHistory.nextViewOptions({
+          historyRoot: true
+        });
+        $state.go('menu.home');
       },
       function (err) {
         $scope.loginError = err;
@@ -353,19 +366,22 @@ $scope.facebookSignIn = function() {
         // user logged in through facebook is not present in our database.
         // Register the user
         console.log("Registering user");
-        $scope.registration.username="F"+profileInfo.id+"";
+        $scope.registration.username=profileInfo.email;
         $scope.registration.password='FaceBookLogin';
         $scope.registration.id=10;
         $scope.registration.gender=profileInfo.gender;
         $scope.registration.email=profileInfo.email;
 
-        $scope.createResult = IBUser.create({},$scope.registration)
+        $scope.createResult = IBUser.create($scope.registration)
         .$promise
         .then(function (res) {
           console.log("registration done");
           var next = $location.nextAfterCreate || '/menu/home';
           $location.nextAfterCreate = null;
-          $location.path(next);
+          $ionicHistory.nextViewOptions({
+            historyRoot: true
+          });
+          $state.go('menu.home');
         },
         function (err) {
           // Registration Error
@@ -377,7 +393,7 @@ $scope.facebookSignIn = function() {
 
     }
   );
-  $state.go('menu.home');
+  //$state.go('menu.home');
 }, function(fail){
   // Fail get profile info
   console.log('profile info fail', fail);
@@ -422,6 +438,15 @@ $scope.facebookSignIn = function() {
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
+
+.controller('sidemenu', function($scope) {
+  $scope.img = "http://tse1.mm.bing.net/th?&id=HG.286605586806&w=300&h=300&c=0&pid=1.9&rs=0&p=0";
+})
+
+.controller('profile', function($scope) {
+  $scope.img = "http://tse1.mm.bing.net/th?&id=OIP.M371f0b5610a2207bfaa7e704a58e5e72o0&w=300&h=300&c=0&pid=1.9&rs=0&p=0";
+})
+
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {

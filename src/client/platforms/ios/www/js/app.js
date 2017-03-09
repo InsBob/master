@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['lbServices', 'ionic', 'angularMoment',  'app.controllers', 'app.routes', 'app.services', 'app.directives' , 'app.filters' , 'jett.ionic.filter.bar','rzModule','ngResource'])
+angular.module('app', ['sidemenu','lbServices', 'ionic', 'angularMoment',  'app.controllers', 'app.routes', 'app.services', 'app.directives' , 'app.filters' , 'jett.ionic.filter.bar','rzModule','ngResource'])
 
 .run(function($ionicPlatform) {
 

@@ -435,7 +435,7 @@
       position: absolute;
       z-index: 2;
     	-webkit-clip-path: polygon(0% 55%, 100% 45%, 100% 100%, 0% 100% );
-      clip-path: polygon(0 40%, 0% 100%, 180% 100%);
+      clip-path: url("#clip-shape");
 
     }
 
@@ -445,7 +445,7 @@
       width: 100%;
       position: relative;
     	-webkit-clip-path: polygon(0% 0%, 100% 0, 100% 44%, 0 54% );
-      clip-path: polygon(100% 75%, 100% 0, -115% 0);
+      clip-path: url("#clip-shape1");
     }
 
 
